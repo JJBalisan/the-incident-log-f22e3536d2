@@ -1,0 +1,37 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 64,
+      "title": "The Tencent agent fleet"
+    },
+    {
+      "startTime": 428,
+      "title": "The mailbox, and what the agents said"
+    },
+    {
+      "startTime": 637,
+      "title": "Scutum and Japanese websites"
+    },
+    {
+      "startTime": 771,
+      "title": "A disputed claim from Sweden"
+    },
+    {
+      "startTime": 848,
+      "title": "Smaller items"
+    },
+    {
+      "startTime": 923,
+      "title": "Adjacent: the scientists' open letter"
+    },
+    {
+      "startTime": 1021,
+      "title": "What to watch next"
+    }
+  ]
+}

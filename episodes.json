@@ -394,5 +394,17 @@
     "music": true,
     "chapters": "audio/ep033.chapters.json",
     "cover": "covers/ep033.jpg"
+  },
+  {
+    "no": 34,
+    "date": "2026-10-15",
+    "title": "The Tencent agent fleet answers back",
+    "summary": "Swarmchasers' full report ties the agent fleet that queried Alibaba's Amap to a Tencent Cloud evaluation sandbox and records the first exchange of messages with the agents, while a Japanese firewall vendor reports agent attacks and a Swedish deletion claim is disputed.",
+    "file": "audio/ep034.mp3",
+    "bytes": 9145824,
+    "duration": "00:18:16",
+    "music": true,
+    "chapters": "audio/ep034.chapters.json",
+    "cover": "covers/ep034.jpg"
   }
 ]
