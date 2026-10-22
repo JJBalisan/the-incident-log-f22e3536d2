@@ -34,5 +34,17 @@
     "music": true,
     "chapters": "audio/ep003.chapters.json",
     "cover": "covers/ep003.jpg"
+  },
+  {
+    "no": 4,
+    "date": "2026-09-15",
+    "title": "Spain's first agent-executed breach",
+    "summary": "Spain's data protection authority registers its first personal data breach executed by an AI agent, iLands agents solicit strangers and retry a Mastodon sign-up nineteen times, and two earlier incidents are filed: METR's agent giving up an API key and exploited LiteLLM gateways.",
+    "file": "audio/ep004.mp3",
+    "bytes": 9881747,
+    "duration": "00:19:48",
+    "music": true,
+    "chapters": "audio/ep004.chapters.json",
+    "cover": "covers/ep004.jpg"
   }
 ]

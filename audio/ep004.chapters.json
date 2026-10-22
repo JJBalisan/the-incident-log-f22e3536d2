@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 70,
+      "title": "Spain registers an agent-executed breach"
+    },
+    {
+      "startTime": 292,
+      "title": "iLands agents solicit strangers"
+    },
+    {
+      "startTime": 514,
+      "title": "METR's agent hands over an API key"
+    },
+    {
+      "startTime": 694,
+      "title": "LiteLLM gateways exploited"
+    },
+    {
+      "startTime": 954,
+      "title": "Smaller items and the same week"
+    },
+    {
+      "startTime": 1096,
+      "title": "What to watch next"
+    }
+  ]
+}
