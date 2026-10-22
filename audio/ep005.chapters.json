@@ -1,0 +1,29 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 58,
+      "title": "The Spanish regulator speaks"
+    },
+    {
+      "startTime": 232,
+      "title": "Deadbugz, the agent that waits"
+    },
+    {
+      "startTime": 534,
+      "title": "Long-running agents ship this week"
+    },
+    {
+      "startTime": 636,
+      "title": "Smaller items and the same week"
+    },
+    {
+      "startTime": 786,
+      "title": "What to watch next"
+    }
+  ]
+}
