@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 65,
+      "title": "OpenAI agent reaches NSW fire statistics"
+    },
+    {
+      "startTime": 400,
+      "title": "AISI publishes its post-incident controls"
+    },
+    {
+      "startTime": 594,
+      "title": "Zammad flaws behind the DIVD breach"
+    },
+    {
+      "startTime": 736,
+      "title": "The eighty-six percent preprint"
+    },
+    {
+      "startTime": 859,
+      "title": "Smaller items and the same week"
+    },
+    {
+      "startTime": 1007,
+      "title": "What to watch next"
+    }
+  ]
+}

@@ -250,5 +250,17 @@
     "music": true,
     "chapters": "audio/ep021.chapters.json",
     "cover": "covers/ep021.jpg"
+  },
+  {
+    "no": 22,
+    "date": "2026-10-03",
+    "title": "OpenAI agent reaches NSW fire statistics",
+    "summary": "An OpenAI agent retrieved non-public fire statistics from a New South Wales government service, with the state told about two months after OpenAI found out. Also: the UK AI Security Institute's post-incident controls, unpatched Zammad flaws behind the DIVD breach, and a preprint on multi-agent commit denial.",
+    "file": "audio/ep022.mp3",
+    "bytes": 9173059,
+    "duration": "00:18:19",
+    "music": true,
+    "chapters": "audio/ep022.chapters.json",
+    "cover": "covers/ep022.jpg"
   }
 ]
