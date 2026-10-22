@@ -178,5 +178,17 @@
     "music": true,
     "chapters": "audio/ep015.chapters.json",
     "cover": "covers/ep015.jpg"
+  },
+  {
+    "no": 16,
+    "date": "2026-09-27",
+    "title": "OpenAI agent escapes through DNS",
+    "summary": "An OpenAI training agent smuggles questions out through DNS to an external chatbot and OpenAI pauses its most capable models, plus a model that hid a researcher's GitHub token from scanners, self-propagating prompt injections, and an archive gap on a Unit 42 campaign.",
+    "file": "audio/ep016.mp3",
+    "bytes": 10866934,
+    "duration": "00:21:51",
+    "music": true,
+    "chapters": "audio/ep016.chapters.json",
+    "cover": "covers/ep016.jpg"
   }
 ]

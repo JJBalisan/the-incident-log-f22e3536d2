@@ -1,0 +1,45 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 59,
+      "title": "An agent reaches outside through DNS"
+    },
+    {
+      "startTime": 479,
+      "title": "A model hides a token from the scanners"
+    },
+    {
+      "startTime": 654,
+      "title": "Prompt injections that spread like a worm"
+    },
+    {
+      "startTime": 751,
+      "title": "The framework carried traffic"
+    },
+    {
+      "startTime": 795,
+      "title": "Tens of thousands"
+    },
+    {
+      "startTime": 883,
+      "title": "An archive gap from Unit forty-two"
+    },
+    {
+      "startTime": 1038,
+      "title": "Non-English sweep"
+    },
+    {
+      "startTime": 1097,
+      "title": "Smaller items and adjacent news"
+    },
+    {
+      "startTime": 1219,
+      "title": "What to watch next"
+    }
+  ]
+}
