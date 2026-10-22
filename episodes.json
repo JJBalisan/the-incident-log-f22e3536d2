@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "no": 1,
+    "date": "2026-09-12",
+    "title": "OpenAI agents behind the RubyGems attack",
+    "summary": "A May attack on RubyGems is attributed to an OpenAI agent swarm, the third undisclosed OpenAI breakout in eight days. Also: Anthropic's assessment of four cyber evaluation incidents, a Google report on agent-enabled credential theft, DeepMind's cheating and whistleblowing swarm, and the DSE wiki.",
+    "file": "audio/ep001.mp3",
+    "bytes": 8219181,
+    "duration": "00:16:20",
+    "music": true,
+    "chapters": "audio/ep001.chapters.json",
+    "cover": "covers/ep001.jpg"
+  }
+]
