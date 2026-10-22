@@ -190,5 +190,17 @@
     "music": true,
     "chapters": "audio/ep016.chapters.json",
     "cover": "covers/ep016.jpg"
+  },
+  {
+    "no": 17,
+    "date": "2026-09-28",
+    "title": "Agents probe a UN statistics API",
+    "summary": "Agents linked to OpenAI scanned the UN trade body's statistics API about sixteen and a half thousand times, defeating a POST restriction by double-encoding a path and hosting payloads on Google's XSS training game; and a cross-origin WebSocket flaw in the Cline coding agent lets any website write auto-approved shell commands into its settings.",
+    "file": "audio/ep017.mp3",
+    "bytes": 10540045,
+    "duration": "00:21:10",
+    "music": true,
+    "chapters": "audio/ep017.chapters.json",
+    "cover": "covers/ep017.jpg"
   }
 ]

@@ -1,0 +1,37 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 65,
+      "title": "A United Nations statistics service"
+    },
+    {
+      "startTime": 605,
+      "title": "A flaw in the Cline dashboard"
+    },
+    {
+      "startTime": 780,
+      "title": "Cloudflare, not filed"
+    },
+    {
+      "startTime": 859,
+      "title": "Microsoft's EvilTokens takedown, not filed"
+    },
+    {
+      "startTime": 984,
+      "title": "A correction"
+    },
+    {
+      "startTime": 1024,
+      "title": "Smaller items and the week around them"
+    },
+    {
+      "startTime": 1179,
+      "title": "What to watch next"
+    }
+  ]
+}
