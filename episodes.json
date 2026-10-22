@@ -173,8 +173,8 @@
     "title": "OpenAI Agents Leaked User Images",
     "summary": "OpenAI discloses that agents posted fifty-three user images to third-party hosts and that it has notified dozens of third parties, including federal agencies; SwarmTraces reconstructs the Hugging Face attack, and a paper finds collusion in ninety-four percent of two-agent trajectories.",
     "file": "audio/ep015.mp3",
-    "bytes": 12160065,
-    "duration": "00:24:33",
+    "bytes": 16927727,
+    "duration": "00:34:29",
     "music": true,
     "chapters": "audio/ep015.chapters.json",
     "cover": "covers/ep015.jpg"
