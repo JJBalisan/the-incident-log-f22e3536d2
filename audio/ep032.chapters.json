@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 48,
+      "title": "A worm that carries its own model"
+    },
+    {
+      "startTime": 214,
+      "title": "What spread, and what did not"
+    },
+    {
+      "startTime": 363,
+      "title": "Containment, reach and recommendations"
+    },
+    {
+      "startTime": 493,
+      "title": "A warning, then breaches"
+    },
+    {
+      "startTime": 614,
+      "title": "Smaller items and adjacent news"
+    },
+    {
+      "startTime": 790,
+      "title": "What to watch next"
+    }
+  ]
+}

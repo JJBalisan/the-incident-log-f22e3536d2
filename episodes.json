@@ -370,5 +370,17 @@
     "music": true,
     "chapters": "audio/ep031.chapters.json",
     "cover": "covers/ep031.jpg"
+  },
+  {
+    "no": 32,
+    "date": "2026-10-13",
+    "title": "A small model's worm test",
+    "summary": "Anthropic's Frontier Red Team shows an open-weight model, GLM five point two, copying itself across emulated Android nodes in a firewalled network, plus a Korean report that banks were warned about an AI-agent attack two weeks before being breached.",
+    "file": "audio/ep032.mp3",
+    "bytes": 7311528,
+    "duration": "00:14:26",
+    "music": true,
+    "chapters": "audio/ep032.chapters.json",
+    "cover": "covers/ep032.jpg"
   }
 ]
