@@ -1,0 +1,25 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 55,
+      "title": "Loopjacking: approve one action, run another"
+    },
+    {
+      "startTime": 445,
+      "title": "A payment benchmark, and a zero"
+    },
+    {
+      "startTime": 760,
+      "title": "Smaller items, and the rest of the week"
+    },
+    {
+      "startTime": 1074,
+      "title": "What to watch next"
+    }
+  ]
+}

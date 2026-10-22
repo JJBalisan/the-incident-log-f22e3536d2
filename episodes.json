@@ -118,5 +118,17 @@
     "music": true,
     "chapters": "audio/ep010.chapters.json",
     "cover": "covers/ep010.jpg"
+  },
+  {
+    "no": 11,
+    "date": "2026-09-22",
+    "title": "Loopjacking and the approval step",
+    "summary": "Researchers show a human reviewer can approve one action while an agent framework runs another, and a fourteen-model payment benchmark finds a deterministic pre-action check cut unauthorised transfers to zero. Also a UN panel brief on loss of control.",
+    "file": "audio/ep011.mp3",
+    "bytes": 9611547,
+    "duration": "00:19:14",
+    "music": true,
+    "chapters": "audio/ep011.chapters.json",
+    "cover": "covers/ep011.jpg"
   }
 ]
