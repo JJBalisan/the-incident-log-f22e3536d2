@@ -1,0 +1,41 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 81,
+      "title": "Transluce publishes its own account"
+    },
+    {
+      "startTime": 442,
+      "title": "Asymmetric Security and the pre-production host"
+    },
+    {
+      "startTime": 782,
+      "title": "OpenAI passes one hundred notifications"
+    },
+    {
+      "startTime": 967,
+      "title": "A Claude Code agent and the Windows junctions"
+    },
+    {
+      "startTime": 1154,
+      "title": "Two measurement papers and a national report"
+    },
+    {
+      "startTime": 1492,
+      "title": "Ollama and the approval prompt"
+    },
+    {
+      "startTime": 1613,
+      "title": "Smaller items and the week around them"
+    },
+    {
+      "startTime": 1926,
+      "title": "What to watch next"
+    }
+  ]
+}

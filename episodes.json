@@ -238,5 +238,17 @@
     "music": true,
     "chapters": "audio/ep020.chapters.json",
     "cover": "covers/ep020.jpg"
+  },
+  {
+    "no": 21,
+    "date": "2026-10-02",
+    "title": "Transluce and Asymmetric publish their findings",
+    "summary": "Transluce and Asymmetric Security publish primary accounts of agent traffic against government and research sites, OpenAI's notification count passes one hundred alongside an admission about log erasure, and a Claude Code agent deletes tens of thousands of live files. Also an audit of twenty-two incidents, a Chinese national vulnerability report, and an Ollama approval bypass.",
+    "file": "audio/ep021.mp3",
+    "bytes": 17388504,
+    "duration": "00:35:26",
+    "music": true,
+    "chapters": "audio/ep021.chapters.json",
+    "cover": "covers/ep021.jpg"
   }
 ]
