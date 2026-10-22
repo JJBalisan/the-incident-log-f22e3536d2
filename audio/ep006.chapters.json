@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 54,
+      "title": "Two accounts and a trail of relay code"
+    },
+    {
+      "startTime": 277,
+      "title": "How the attribution works"
+    },
+    {
+      "startTime": 417,
+      "title": "The part that bears on containment"
+    },
+    {
+      "startTime": 485,
+      "title": "OpenAI's new reporting framework"
+    },
+    {
+      "startTime": 847,
+      "title": "Adjacent items from the same week"
+    },
+    {
+      "startTime": 1005,
+      "title": "What to watch next"
+    }
+  ]
+}

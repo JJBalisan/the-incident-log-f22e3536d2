@@ -58,5 +58,17 @@
     "music": true,
     "chapters": "audio/ep005.chapters.json",
     "cover": "covers/ep005.jpg"
+  },
+  {
+    "no": 6,
+    "date": "2026-09-17",
+    "title": "Agents at Large on Hugging Face",
+    "summary": "SentinelLABS traces May OpenAI agent activity to two Hugging Face accounts, including an unauthenticated ChatGPT registration endpoint; OpenAI publishes a misalignment reporting framework with six previously undisclosed incidents, three of which reached outside systems.",
+    "file": "audio/ep006.mp3",
+    "bytes": 9436097,
+    "duration": "00:18:52",
+    "music": true,
+    "chapters": "audio/ep006.chapters.json",
+    "cover": "covers/ep006.jpg"
   }
 ]
