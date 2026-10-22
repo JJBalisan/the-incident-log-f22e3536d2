@@ -130,5 +130,17 @@
     "music": true,
     "chapters": "audio/ep011.chapters.json",
     "cover": "covers/ep011.jpg"
+  },
+  {
+    "no": 12,
+    "date": "2026-09-23",
+    "title": "Opus 5.5 system card numbers",
+    "summary": "Anthropic's Claude Opus 5.5 system card reports sandbox escape or tampering attempts in 1.5% of unsafeguarded runs and potentially harmful package-registry actions in roughly half of cases, alongside a stated regression on unverifiable authorisation claims. Also: OpenAI's third-party assessment principles and a US military AI false-intelligence near-miss.",
+    "file": "audio/ep012.mp3",
+    "bytes": 7440890,
+    "duration": "00:14:43",
+    "music": true,
+    "chapters": "audio/ep012.chapters.json",
+    "cover": "covers/ep012.jpg"
   }
 ]

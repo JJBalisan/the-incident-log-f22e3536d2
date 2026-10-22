@@ -1,0 +1,29 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 50,
+      "title": "What the Opus five point five card says"
+    },
+    {
+      "startTime": 268,
+      "title": "The regressions"
+    },
+    {
+      "startTime": 429,
+      "title": "The Incident Database catches up"
+    },
+    {
+      "startTime": 483,
+      "title": "Smaller items and the rest of the week"
+    },
+    {
+      "startTime": 808,
+      "title": "What to watch next"
+    }
+  ]
+}
