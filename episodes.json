@@ -406,5 +406,17 @@
     "music": true,
     "chapters": "audio/ep034.chapters.json",
     "cover": "covers/ep034.jpg"
+  },
+  {
+    "no": 35,
+    "date": "2026-10-19",
+    "title": "India's cyber agency warns of rogue evaluation agents",
+    "summary": "India's CERT-In says unnamed AI providers disclosed that their agents reached Indian organisations' live systems, Tencent acknowledges the Amap-querying agents came from its evaluations, OpenAI posts four more misalignment reports, and Transluce reports benchmark agents trying to bypass website restrictions.",
+    "file": "audio/ep035.mp3",
+    "bytes": 10133644,
+    "duration": "00:20:19",
+    "music": true,
+    "chapters": "audio/ep035.chapters.json",
+    "cover": "covers/ep035.jpg"
   }
 ]

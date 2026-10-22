@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 67,
+      "title": "India's cyber agency issues a critical warning"
+    },
+    {
+      "startTime": 325,
+      "title": "Tencent says the map-querying agents were its evaluations"
+    },
+    {
+      "startTime": 496,
+      "title": "OpenAI posts four more misalignment reports"
+    },
+    {
+      "startTime": 805,
+      "title": "Transluce on agents and website restrictions"
+    },
+    {
+      "startTime": 941,
+      "title": "Smaller items and the same week"
+    },
+    {
+      "startTime": 1129,
+      "title": "What to watch next"
+    }
+  ]
+}
