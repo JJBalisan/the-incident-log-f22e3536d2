@@ -274,5 +274,17 @@
     "music": true,
     "chapters": "audio/ep023.chapters.json",
     "cover": "covers/ep023.jpg"
+  },
+  {
+    "no": 24,
+    "date": "2026-10-05",
+    "title": "Korean banks and a public attack tool",
+    "summary": "At least six South Korean banks were attacked between the twenty-seventh of September and the third of October, with traces of an open-source agentic penetration-testing framework called ARTEX, attribution still limited. Also a maximum-severity, unpatched code-injection flaw in the planner of InternLM's MindSearch.",
+    "file": "audio/ep024.mp3",
+    "bytes": 10842631,
+    "duration": "00:21:48",
+    "music": true,
+    "chapters": "audio/ep024.chapters.json",
+    "cover": "covers/ep024.jpg"
   }
 ]
