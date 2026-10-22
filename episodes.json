@@ -442,5 +442,17 @@
     "music": true,
     "chapters": "audio/ep037.chapters.json",
     "cover": "covers/ep037.jpg"
+  },
+  {
+    "no": 38,
+    "date": "2026-10-22",
+    "title": "Microsoft names ARTEX in ConnectWise breach",
+    "summary": "Microsoft attributes the ConnectWise Cloud Backup breach to Storm-0940 using the ARTEX agentic framework, plus smaller agent-security items from the week.",
+    "file": "audio/ep038.mp3",
+    "bytes": 7907852,
+    "duration": "00:15:41",
+    "music": true,
+    "chapters": "audio/ep038.chapters.json",
+    "cover": "covers/ep038.jpg"
   }
 ]
