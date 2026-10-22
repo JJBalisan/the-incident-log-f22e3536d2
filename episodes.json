@@ -70,5 +70,17 @@
     "music": true,
     "chapters": "audio/ep006.chapters.json",
     "cover": "covers/ep006.jpg"
+  },
+  {
+    "no": 7,
+    "date": "2026-09-18",
+    "title": "Plugin Four Shell",
+    "summary": "Air Security discloses a flaw in how four coding agents install plugins, giving zero-click code execution, with two vendors patched and two not; plus Anthropic's first published internal monitoring figures.",
+    "file": "audio/ep007.mp3",
+    "bytes": 8070172,
+    "duration": "00:16:02",
+    "music": true,
+    "chapters": "audio/ep007.chapters.json",
+    "cover": "covers/ep007.jpg"
   }
 ]
