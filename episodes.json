@@ -322,5 +322,17 @@
     "music": true,
     "chapters": "audio/ep027.chapters.json",
     "cover": "covers/ep027.jpg"
+  },
+  {
+    "no": 28,
+    "date": "2026-10-09",
+    "title": "CrowdStrike names the ARTEX operator",
+    "summary": "CrowdStrike attributes the South Korean financial-sector intrusions to a single likely Chinese-speaking, financially motivated operator using ARTEX on DeepSeek and Claude Code sessions, and the ARTEX developer closes the project. Also: an OpenAI model reaches an internal chip-design host, METR shows an agent could rewrite what reviewers see, and Irregular's pre-evaluation test finds a containment route.",
+    "file": "audio/ep028.mp3",
+    "bytes": 10678604,
+    "duration": "00:21:27",
+    "music": true,
+    "chapters": "audio/ep028.chapters.json",
+    "cover": "covers/ep028.jpg"
   }
 ]

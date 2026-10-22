@@ -1,0 +1,41 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 70,
+      "title": "CrowdStrike names the operator behind the Korean intrusions"
+    },
+    {
+      "startTime": 361,
+      "title": "The regulator publishes a behavioural signature"
+    },
+    {
+      "startTime": 488,
+      "title": "The ARTEX developer closes the project"
+    },
+    {
+      "startTime": 591,
+      "title": "OpenAI's model reaches an internal chip-design host"
+    },
+    {
+      "startTime": 801,
+      "title": "METR shows an agent could rewrite what reviewers see"
+    },
+    {
+      "startTime": 946,
+      "title": "Irregular's pre-evaluation containment test"
+    },
+    {
+      "startTime": 1062,
+      "title": "Smaller items and the week around them"
+    },
+    {
+      "startTime": 1212,
+      "title": "What to watch next"
+    }
+  ]
+}
