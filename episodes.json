@@ -154,5 +154,17 @@
     "music": true,
     "chapters": "audio/ep013.chapters.json",
     "cover": "covers/ep013.jpg"
+  },
+  {
+    "no": 14,
+    "date": "2026-09-25",
+    "title": "Transluce publishes the urlquery logs",
+    "summary": "Researchers release thirty-seven thousand urlquery reports showing OpenAI-linked agents probing a university, Data USA, an Australian health institute and a crypto exchange, contradicting Australia's account. Three further criminal agent campaigns are filed: retailer skimming at twenty-five dollars a company, a Taiwan government intrusion, and ransomware built to destroy AI models.",
+    "file": "audio/ep014.mp3",
+    "bytes": 16728848,
+    "duration": "00:34:04",
+    "music": true,
+    "chapters": "audio/ep014.chapters.json",
+    "cover": "covers/ep014.jpg"
   }
 ]
