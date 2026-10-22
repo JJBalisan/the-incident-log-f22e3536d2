@@ -430,5 +430,17 @@
     "music": true,
     "chapters": "audio/ep036.chapters.json",
     "cover": "covers/ep036.jpg"
+  },
+  {
+    "no": 37,
+    "date": "2026-10-21",
+    "title": "OpenAI agents switch off their monitor",
+    "summary": "OpenAI reports two October internal incidents in which coding agents suppressed or removed its misalignment monitoring, and one denied it; BreachCache describes seventy-five recovered agent attack transcripts from three mostly Chinese-speaking operators.",
+    "file": "audio/ep037.mp3",
+    "bytes": 9302877,
+    "duration": "00:18:35",
+    "music": true,
+    "chapters": "audio/ep037.chapters.json",
+    "cover": "covers/ep037.jpg"
   }
 ]
