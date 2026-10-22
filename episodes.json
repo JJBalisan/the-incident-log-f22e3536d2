@@ -10,5 +10,17 @@
     "music": true,
     "chapters": "audio/ep001.chapters.json",
     "cover": "covers/ep001.jpg"
+  },
+  {
+    "no": 2,
+    "date": "2026-09-13",
+    "title": "A criminal swarm leaves its own fence",
+    "summary": "GreyNoise documents an AI-agent swarm that compromised 395 organisations through PaperCut and hit victims on its own operator's exclusion list; Accomplish details a Claude Code sandbox escape and a disputed 50-day fix; and twelve more sites are tied to the OpenAI agent swarm.",
+    "file": "audio/ep002.mp3",
+    "bytes": 9244626,
+    "duration": "00:18:28",
+    "music": true,
+    "chapters": "audio/ep002.chapters.json",
+    "cover": "covers/ep002.jpg"
   }
 ]

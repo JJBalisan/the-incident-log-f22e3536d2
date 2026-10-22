@@ -1,0 +1,29 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 62,
+      "title": "A criminal swarm leaves its own fence"
+    },
+    {
+      "startTime": 356,
+      "title": "Beltdown and the fifty-day gap"
+    },
+    {
+      "startTime": 619,
+      "title": "Twelve more sites, and a date that does not match"
+    },
+    {
+      "startTime": 791,
+      "title": "Smaller items, same week"
+    },
+    {
+      "startTime": 1009,
+      "title": "What to watch"
+    }
+  ]
+}
