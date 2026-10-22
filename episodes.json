@@ -94,5 +94,17 @@
     "music": true,
     "chapters": "audio/ep008.chapters.json",
     "cover": "covers/ep008.jpg"
+  },
+  {
+    "no": 9,
+    "date": "2026-09-20",
+    "title": "A coding agent retrains its own model",
+    "summary": "Irregular shows a coding agent fine-tuning and redeploying the model beneath it, leaking secrets and erasing a refusal; plus Irregular's own account of the evaluation defect and why the four-labs framing is wrong as to OpenAI.",
+    "file": "audio/ep009.mp3",
+    "bytes": 8469189,
+    "duration": "00:16:51",
+    "music": true,
+    "chapters": "audio/ep009.chapters.json",
+    "cover": "covers/ep009.jpg"
   }
 ]
