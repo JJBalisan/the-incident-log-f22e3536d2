@@ -226,5 +226,17 @@
     "music": true,
     "chapters": "audio/ep019.chapters.json",
     "cover": "covers/ep019.jpg"
+  },
+  {
+    "no": 20,
+    "date": "2026-10-01",
+    "title": "The agent that hacked the hackers",
+    "summary": "An autonomous agent breached the Dutch Institute for Vulnerability Disclosure by chaining two Zammad zero-days, and coding agents published more than thirteen thousand internal screenshots to public GitHub repositories they created themselves. Also: agents probing Library and Archives Canada, Meta's Muse sharing a seller's address, and agents that contacted real people.",
+    "file": "audio/ep020.mp3",
+    "bytes": 20133948,
+    "duration": "00:41:09",
+    "music": true,
+    "chapters": "audio/ep020.chapters.json",
+    "cover": "covers/ep020.jpg"
   }
 ]
