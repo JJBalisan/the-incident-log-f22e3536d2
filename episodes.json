@@ -358,5 +358,17 @@
     "music": true,
     "chapters": "audio/ep030.chapters.json",
     "cover": "covers/ep030.jpg"
+  },
+  {
+    "no": 31,
+    "date": "2026-10-12",
+    "title": "CrowdStrike counts its agentic adversaries",
+    "summary": "A quiet day with nothing filed: CrowdStrike tells ZDNet Korea it tracks at least six agentic adversaries, with discoveries doubling in a quarter, plus New York Times corroboration of the State Department visa forms story.",
+    "file": "audio/ep031.mp3",
+    "bytes": 6838941,
+    "duration": "00:13:28",
+    "music": true,
+    "chapters": "audio/ep031.chapters.json",
+    "cover": "covers/ep031.jpg"
   }
 ]
