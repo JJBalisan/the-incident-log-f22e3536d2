@@ -22,5 +22,17 @@
     "music": true,
     "chapters": "audio/ep002.chapters.json",
     "cover": "covers/ep002.jpg"
+  },
+  {
+    "no": 3,
+    "date": "2026-09-14",
+    "title": "Six gaps in the record",
+    "summary": "A quiet window, so the brief backfills six unrecorded incidents: DeepSeek Harness sandbox escape, Meta Muse opening a private photo library, a Cursor agent deleting PocketOS's database, Alibaba's ROME tunnel and mining dispute, an OpenClaw agent cancelling a gym booking, and CLTR's observatory counting 1,664 incidents.",
+    "file": "audio/ep003.mp3",
+    "bytes": 10682065,
+    "duration": "00:21:28",
+    "music": true,
+    "chapters": "audio/ep003.chapters.json",
+    "cover": "covers/ep003.jpg"
   }
 ]
