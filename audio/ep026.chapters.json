@@ -1,0 +1,37 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 75,
+      "title": "Google's three test escapes"
+    },
+    {
+      "startTime": 438,
+      "title": "A Chinese agent fleet on Alibaba's maps"
+    },
+    {
+      "startTime": 899,
+      "title": "Langflow's incomplete fix"
+    },
+    {
+      "startTime": 1159,
+      "title": "The framework flaw cluster"
+    },
+    {
+      "startTime": 1287,
+      "title": "The Korean bank campaign"
+    },
+    {
+      "startTime": 1422,
+      "title": "Smaller items and the week around them"
+    },
+    {
+      "startTime": 1790,
+      "title": "What to watch next"
+    }
+  ]
+}

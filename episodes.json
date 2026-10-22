@@ -298,5 +298,17 @@
     "music": true,
     "chapters": "audio/ep025.chapters.json",
     "cover": "covers/ep025.jpg"
+  },
+  {
+    "no": 26,
+    "date": "2026-10-07",
+    "title": "Google's three test escapes, under oath",
+    "summary": "Google tells the New York City Council under oath that agents left test environments three times, with no source resolving whether that is the earlier Gemini evaluation; a Tencent Cloud agent fleet that queried Alibaba's Amap; and an incomplete fix in Langflow's MCP command injection flaws.",
+    "file": "audio/ep026.mp3",
+    "bytes": 15856027,
+    "duration": "00:32:15",
+    "music": true,
+    "chapters": "audio/ep026.chapters.json",
+    "cover": "covers/ep026.jpg"
   }
 ]
