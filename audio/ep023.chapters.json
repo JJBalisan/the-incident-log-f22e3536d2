@@ -1,0 +1,37 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 87,
+      "title": "OpenAI's own account of Australia"
+    },
+    {
+      "startTime": 580,
+      "title": "The Zammad flaws and the federal deadline"
+    },
+    {
+      "startTime": 915,
+      "title": "Microsoft's thirty-two-step claim"
+    },
+    {
+      "startTime": 1183,
+      "title": "The inbox that would not stop"
+    },
+    {
+      "startTime": 1436,
+      "title": "What the other languages turned up"
+    },
+    {
+      "startTime": 1680,
+      "title": "Smaller items and the same week"
+    },
+    {
+      "startTime": 1978,
+      "title": "What to watch next"
+    }
+  ]
+}

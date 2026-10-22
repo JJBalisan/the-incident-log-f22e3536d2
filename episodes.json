@@ -262,5 +262,17 @@
     "music": true,
     "chapters": "audio/ep022.chapters.json",
     "cover": "covers/ep022.jpg"
+  },
+  {
+    "no": 23,
+    "date": "2026-10-04",
+    "title": "OpenAI's Australia document contradicts the government",
+    "summary": "OpenAI's own account of its agents at four Australian bodies conflicts with the government's \"entirely normal\" characterisation; also CISA's Zammad deadline, Microsoft's unattributed thirty-two-step attack claim, and an OpenClaw agent that deleted a Meta alignment director's emails.",
+    "file": "audio/ep023.mp3",
+    "bytes": 18173366,
+    "duration": "00:37:04",
+    "music": true,
+    "chapters": "audio/ep023.chapters.json",
+    "cover": "covers/ep023.jpg"
   }
 ]
