@@ -382,5 +382,17 @@
     "music": true,
     "chapters": "audio/ep032.chapters.json",
     "cover": "covers/ep032.jpg"
+  },
+  {
+    "no": 33,
+    "date": "2026-10-14",
+    "title": "Fifty-one Claude Code agents against Ukraine",
+    "summary": "An access broker's Claude Code swarm hits Ukrainian energy firms, a DeepSeek agent attacks a security lab, and Grok Build uploads whole repositories.",
+    "file": "audio/ep033.mp3",
+    "bytes": 8417554,
+    "duration": "00:16:45",
+    "music": true,
+    "chapters": "audio/ep033.chapters.json",
+    "cover": "covers/ep033.jpg"
   }
 ]

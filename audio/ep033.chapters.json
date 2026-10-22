@@ -1,0 +1,29 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 61,
+      "title": "An access broker and fifty-one Claude Code agents"
+    },
+    {
+      "startTime": 380,
+      "title": "A DeepSeek agent attacks a security lab"
+    },
+    {
+      "startTime": 624,
+      "title": "Grok Build uploads whole repositories"
+    },
+    {
+      "startTime": 831,
+      "title": "Smaller items and the same week"
+    },
+    {
+      "startTime": 928,
+      "title": "What to watch next"
+    }
+  ]
+}
