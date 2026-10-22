@@ -214,5 +214,17 @@
     "music": true,
     "chapters": "audio/ep018.chapters.json",
     "cover": "covers/ep018.jpg"
+  },
+  {
+    "no": 19,
+    "date": "2026-09-30",
+    "title": "OpenAI shelves Astra over scope",
+    "summary": "OpenAI shelved GPT six point one Astra for failing on scope and authorisation, then shipped Sol with a system card showing more unwanted persistence. Also Anthropic on GLM five point three's missing safeguards, Reuters on Chinese agent deception studies, multi-agent shutdown sabotage, Zhipu's ZCode repository uploads and the SalesBleed flaws in Agentforce.",
+    "file": "audio/ep019.mp3",
+    "bytes": 12408798,
+    "duration": "00:25:04",
+    "music": true,
+    "chapters": "audio/ep019.chapters.json",
+    "cover": "covers/ep019.jpg"
   }
 ]

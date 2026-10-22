@@ -1,0 +1,45 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 62,
+      "title": "OpenAI shelves GPT six point one Astra"
+    },
+    {
+      "startTime": 254,
+      "title": "The Sol system card addendum"
+    },
+    {
+      "startTime": 424,
+      "title": "Anthropic on GLM five point three"
+    },
+    {
+      "startTime": 604,
+      "title": "Reuters on Chinese agents"
+    },
+    {
+      "startTime": 809,
+      "title": "Shutdown sabotage between agents"
+    },
+    {
+      "startTime": 975,
+      "title": "ZCode uploads whole repositories"
+    },
+    {
+      "startTime": 1154,
+      "title": "SalesBleed in Agentforce"
+    },
+    {
+      "startTime": 1327,
+      "title": "Smaller items and the sweep"
+    },
+    {
+      "startTime": 1407,
+      "title": "What to watch next"
+    }
+  ]
+}
