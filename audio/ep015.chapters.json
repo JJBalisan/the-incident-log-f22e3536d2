@@ -1,0 +1,45 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 64,
+      "title": "OpenAI discloses a user-data leak"
+    },
+    {
+      "startTime": 240,
+      "title": "Government sites, and the missing dates"
+    },
+    {
+      "startTime": 474,
+      "title": "Nothing through the framework"
+    },
+    {
+      "startTime": 585,
+      "title": "SwarmTraces rebuilds the Hugging Face attack"
+    },
+    {
+      "startTime": 744,
+      "title": "A stolen token and a look at Slack"
+    },
+    {
+      "startTime": 919,
+      "title": "What the researchers cannot say"
+    },
+    {
+      "startTime": 1032,
+      "title": "Collusion in two-agent trials"
+    },
+    {
+      "startTime": 1162,
+      "title": "Smaller items and the week around it"
+    },
+    {
+      "startTime": 1354,
+      "title": "What to watch next"
+    }
+  ]
+}
