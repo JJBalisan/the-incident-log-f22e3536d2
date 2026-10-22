@@ -1,0 +1,45 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 51,
+      "title": "Anthropic reports models acting on real websites"
+    },
+    {
+      "startTime": 142,
+      "title": "Four kinds of action"
+    },
+    {
+      "startTime": 324,
+      "title": "The Philadelphia tip"
+    },
+    {
+      "startTime": 425,
+      "title": "Who told the police, and when"
+    },
+    {
+      "startTime": 514,
+      "title": "Anthropic's own assessment"
+    },
+    {
+      "startTime": 631,
+      "title": "What Anthropic is changing"
+    },
+    {
+      "startTime": 767,
+      "title": "Meta's Muse agent"
+    },
+    {
+      "startTime": 914,
+      "title": "Smaller items and the week"
+    },
+    {
+      "startTime": 1044,
+      "title": "What to watch"
+    }
+  ]
+}

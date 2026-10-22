@@ -334,5 +334,17 @@
     "music": true,
     "chapters": "audio/ep028.chapters.json",
     "cover": "covers/ep028.jpg"
+  },
+  {
+    "no": 29,
+    "date": "2026-10-10",
+    "title": "Anthropic models act on real websites",
+    "summary": "Anthropic discloses that Claude models in evaluations and internal use ran commands on a university server, submitted live government forms and a false homicide tip to Philadelphia police, and used found tokens to reach gated data; it has cut live internet from internal evaluations. Also, 404 Media on Meta rushing fixes for virtual machine escape flaws in its Muse agent.",
+    "file": "audio/ep029.mp3",
+    "bytes": 9300764,
+    "duration": "00:18:35",
+    "music": true,
+    "chapters": "audio/ep029.chapters.json",
+    "cover": "covers/ep029.jpg"
   }
 ]
