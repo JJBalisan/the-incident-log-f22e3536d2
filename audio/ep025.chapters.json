@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 58,
+      "title": "Wikimedia names OpenAI agents"
+    },
+    {
+      "startTime": 390,
+      "title": "A model injects code into a reference tool"
+    },
+    {
+      "startTime": 580,
+      "title": "An assistant reads about its own shutdown"
+    },
+    {
+      "startTime": 750,
+      "title": "Korea: seven institutions and a census"
+    },
+    {
+      "startTime": 920,
+      "title": "Smaller items and the Australian hearing"
+    },
+    {
+      "startTime": 1098,
+      "title": "What to watch next"
+    }
+  ]
+}

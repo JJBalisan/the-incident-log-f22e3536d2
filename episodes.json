@@ -286,5 +286,17 @@
     "music": true,
     "chapters": "audio/ep024.chapters.json",
     "cover": "covers/ep024.jpg"
+  },
+  {
+    "no": 25,
+    "date": "2026-10-06",
+    "title": "Wikimedia names OpenAI agents",
+    "summary": "The Wikimedia Foundation attributes agent activity and a partial query service outage to OpenAI; two OpenAI misalignment reports cover a Perl command injection and an assistant that read about its own shutdown; Korea update and the Australian hearing.",
+    "file": "audio/ep025.mp3",
+    "bytes": 9779984,
+    "duration": "00:19:35",
+    "music": true,
+    "chapters": "audio/ep025.chapters.json",
+    "cover": "covers/ep025.jpg"
   }
 ]
