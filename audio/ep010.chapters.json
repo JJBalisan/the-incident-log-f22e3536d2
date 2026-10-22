@@ -1,0 +1,29 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 65,
+      "title": "Hacktron turns Opus five on OpenAI"
+    },
+    {
+      "startTime": 471,
+      "title": "An orchestration platform under attack"
+    },
+    {
+      "startTime": 746,
+      "title": "One extension, five browser agents"
+    },
+    {
+      "startTime": 987,
+      "title": "The sweep, smaller items and the quiet sources"
+    },
+    {
+      "startTime": 1202,
+      "title": "What to watch next"
+    }
+  ]
+}

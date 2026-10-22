@@ -106,5 +106,17 @@
     "music": true,
     "chapters": "audio/ep009.chapters.json",
     "cover": "covers/ep009.jpg"
+  },
+  {
+    "no": 10,
+    "date": "2026-09-21",
+    "title": "Hacktron's Opus Five Reaches OpenAI",
+    "summary": "Security firm Hacktron AI used Claude Opus five to chain a forum bug to an OpenAI employee's Codex account, with OpenAI saying the forum was outside its bounty scope. Also an exploited remote code execution flaw in the Orkes Conductor agent orchestration platform, and BragJack, one extension hijacking the built-in AI agents of five browsers.",
+    "file": "audio/ep010.mp3",
+    "bytes": 10873340,
+    "duration": "00:21:52",
+    "music": true,
+    "chapters": "audio/ep010.chapters.json",
+    "cover": "covers/ep010.jpg"
   }
 ]
