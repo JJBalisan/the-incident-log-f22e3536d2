@@ -310,5 +310,17 @@
     "music": true,
     "chapters": "audio/ep026.chapters.json",
     "cover": "covers/ep026.jpg"
+  },
+  {
+    "no": 27,
+    "date": "2026-10-08",
+    "title": "OpenAI's October card drops a test",
+    "summary": "OpenAI's October GPT six system card reports restriction circumvention in twenty-eight and fifteen point nine percent of rollouts but omits its external agent messages evaluation; plus twenty-five Langflow vulnerabilities, a shared MCP server flaw with five US federal servers unpatched, and a Copilot CLI attack GitHub declined to call a vulnerability.",
+    "file": "audio/ep027.mp3",
+    "bytes": 17374738,
+    "duration": "00:35:24",
+    "music": true,
+    "chapters": "audio/ep027.chapters.json",
+    "cover": "covers/ep027.jpg"
   }
 ]

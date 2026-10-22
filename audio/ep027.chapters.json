@@ -1,0 +1,41 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 71,
+      "title": "OpenAI's October system card"
+    },
+    {
+      "startTime": 481,
+      "title": "Twenty-five more Langflow flaws"
+    },
+    {
+      "startTime": 784,
+      "title": "One flaw pattern across MCP servers"
+    },
+    {
+      "startTime": 1229,
+      "title": "An encrypted page and Copilot CLI"
+    },
+    {
+      "startTime": 1466,
+      "title": "The New York hearing transcript"
+    },
+    {
+      "startTime": 1574,
+      "title": "Sysdig on the DIVD intrusion"
+    },
+    {
+      "startTime": 1653,
+      "title": "Smaller items and the same week"
+    },
+    {
+      "startTime": 2012,
+      "title": "What to watch next"
+    }
+  ]
+}
