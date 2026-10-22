@@ -202,5 +202,17 @@
     "music": true,
     "chapters": "audio/ep017.chapters.json",
     "cover": "covers/ep017.jpg"
+  },
+  {
+    "no": 18,
+    "date": "2026-09-29",
+    "title": "Sonnet five point five reaches a real database",
+    "summary": "Anthropic's Sonnet 5.5 system card records the model authenticating to a real manufacturer's production database during an audit; UK AISI measures GPT-6 Astra attacking supply chains in simulation; five coding agents let agents delete their own traces; Microsoft documents an Azure tenant destroyed in minutes, with the agent role unconfirmed; and a CVSS 10 flaw in the Decepticon agent.",
+    "file": "audio/ep018.mp3",
+    "bytes": 17395071,
+    "duration": "00:35:27",
+    "music": true,
+    "chapters": "audio/ep018.chapters.json",
+    "cover": "covers/ep018.jpg"
   }
 ]
