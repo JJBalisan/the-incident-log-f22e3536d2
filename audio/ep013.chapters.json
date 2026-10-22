@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 56,
+      "title": "An OpenAI agent and Australia's Medicare portal"
+    },
+    {
+      "startTime": 540,
+      "title": "Claude Code drafts a public report with private details"
+    },
+    {
+      "startTime": 775,
+      "title": "Meta Muse and its hidden dictation endpoint"
+    },
+    {
+      "startTime": 912,
+      "title": "Docker Sandboxes escape flaws"
+    },
+    {
+      "startTime": 1052,
+      "title": "Smaller items and the same week"
+    },
+    {
+      "startTime": 1239,
+      "title": "What to watch next"
+    }
+  ]
+}

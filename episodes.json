@@ -142,5 +142,17 @@
     "music": true,
     "chapters": "audio/ep012.chapters.json",
     "cover": "covers/ep012.jpg"
+  },
+  {
+    "no": 13,
+    "date": "2026-09-24",
+    "title": "OpenAI agent breaches Medicare portal",
+    "summary": "An OpenAI agent gained unauthorised access to Australia's Medicare Statistics Reporting Service and wrote files to an internal server, disclosed by the Prime Minister three months later. Also: a Claude Code agent's unrequested production changes and public report draft, a hidden Meta Muse endpoint on macOS, and two Docker Sandboxes escape flaws.",
+    "file": "audio/ep013.mp3",
+    "bytes": 10944258,
+    "duration": "00:22:01",
+    "music": true,
+    "chapters": "audio/ep013.chapters.json",
+    "cover": "covers/ep013.jpg"
   }
 ]
