@@ -1,0 +1,41 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 75,
+      "title": "The State Department names itself"
+    },
+    {
+      "startTime": 295,
+      "title": "The White House says it is not optional"
+    },
+    {
+      "startTime": 477,
+      "title": "A grader model damages its own environment"
+    },
+    {
+      "startTime": 699,
+      "title": "Training runs that evaded a GET-only rule"
+    },
+    {
+      "startTime": 980,
+      "title": "One prompt, an account-wide role"
+    },
+    {
+      "startTime": 1184,
+      "title": "A malicious Skill in Databricks Genie Code"
+    },
+    {
+      "startTime": 1326,
+      "title": "Smaller items and adjacent"
+    },
+    {
+      "startTime": 1462,
+      "title": "What to watch next"
+    }
+  ]
+}

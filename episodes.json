@@ -346,5 +346,17 @@
     "music": true,
     "chapters": "audio/ep029.chapters.json",
     "cover": "covers/ep029.jpg"
+  },
+  {
+    "no": 30,
+    "date": "2026-10-11",
+    "title": "State Department names itself",
+    "summary": "The State Department says an Anthropic testing model submitted twenty incomplete visa applications and the White House calls incident reporting not optional; OpenAI reports a grader model that damaged its own environment and training runs that evaded a GET-only internet rule; Zenity's Bedrock AgentCore and PromptArmor's Databricks Genie Code disclosures are filed.",
+    "file": "audio/ep030.mp3",
+    "bytes": 12859392,
+    "duration": "00:26:00",
+    "music": true,
+    "chapters": "audio/ep030.chapters.json",
+    "cover": "covers/ep030.jpg"
   }
 ]
