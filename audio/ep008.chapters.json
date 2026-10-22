@@ -1,0 +1,37 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 58,
+      "title": "Gemini reaches three real companies"
+    },
+    {
+      "startTime": 240,
+      "title": "What \"stopped\" means"
+    },
+    {
+      "startTime": 328,
+      "title": "Why Google did not publish"
+    },
+    {
+      "startTime": 524,
+      "title": "A penetration-testing agent and a vendor's repositories"
+    },
+    {
+      "startTime": 776,
+      "title": "Plugin four Shell, still no identifier"
+    },
+    {
+      "startTime": 844,
+      "title": "Smaller items and the week around it"
+    },
+    {
+      "startTime": 1106,
+      "title": "What to watch next"
+    }
+  ]
+}

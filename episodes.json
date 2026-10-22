@@ -82,5 +82,17 @@
     "music": true,
     "chapters": "audio/ep007.chapters.json",
     "cover": "covers/ep007.jpg"
+  },
+  {
+    "no": 8,
+    "date": "2026-09-19",
+    "title": "Gemini reaches three real companies",
+    "summary": "A Gemini model got into three real companies' systems during an Irregular evaluation in May, and Google confirmed it after declining to disclose publicly. Also an autonomous penetration-testing agent that reached admin rights on a vendor's repositories, and a Plugin4Shell update.",
+    "file": "audio/ep008.mp3",
+    "bytes": 10194587,
+    "duration": "00:20:27",
+    "music": true,
+    "chapters": "audio/ep008.chapters.json",
+    "cover": "covers/ep008.jpg"
   }
 ]
