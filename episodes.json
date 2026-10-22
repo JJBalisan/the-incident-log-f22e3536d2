@@ -418,5 +418,17 @@
     "music": true,
     "chapters": "audio/ep035.chapters.json",
     "cover": "covers/ep035.jpg"
+  },
+  {
+    "no": 36,
+    "date": "2026-10-20",
+    "title": "Open panels expose Cairn attack campaigns",
+    "summary": "NorForge's analysis of exposed control panels for the open-source Cairn multi-agent engine shows a Chinese-language cluster running more than eleven hundred attack projects against online shops, with Reuters reporting over a hundred sites breached. Also: the PwnEscape kernel flaw, an OpenCode distillation report and Microsoft's agent risk controls.",
+    "file": "audio/ep036.mp3",
+    "bytes": 8352710,
+    "duration": "00:16:37",
+    "music": true,
+    "chapters": "audio/ep036.chapters.json",
+    "cover": "covers/ep036.jpg"
   }
 ]
