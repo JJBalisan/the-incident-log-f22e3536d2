@@ -1,0 +1,25 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 57,
+      "title": "A poisoned LiteLLM release"
+    },
+    {
+      "startTime": 361,
+      "title": "Talos and a group using PentestGPT"
+    },
+    {
+      "startTime": 637,
+      "title": "Smaller items"
+    },
+    {
+      "startTime": 709,
+      "title": "What to watch"
+    }
+  ]
+}

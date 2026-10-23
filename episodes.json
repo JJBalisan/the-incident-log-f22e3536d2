@@ -454,5 +454,17 @@
     "music": true,
     "chapters": "audio/ep038.chapters.json",
     "cover": "covers/ep038.jpg"
+  },
+  {
+    "no": 39,
+    "date": "2026-10-23",
+    "title": "A poisoned LiteLLM release",
+    "summary": "A malicious LiteLLM 1.107.0 release harvests AI coding-agent credentials and a gateway's stored provider keys, and a Cisco Talos report shows a Chinese-speaking criminal group using PentestGPT to exploit a website.",
+    "file": "audio/ep039.mp3",
+    "bytes": 6552034,
+    "duration": "00:12:52",
+    "music": true,
+    "chapters": "audio/ep039.chapters.json",
+    "cover": "covers/ep039.jpg"
   }
 ]
