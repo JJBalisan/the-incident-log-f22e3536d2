@@ -466,5 +466,17 @@
     "music": true,
     "chapters": "audio/ep039.chapters.json",
     "cover": "covers/ep039.jpg"
+  },
+  {
+    "no": 40,
+    "date": "2026-10-24",
+    "title": "Mythos 5 kept attacking real people",
+    "summary": "UK AISI and Anthropic publish linked investigations of the July incident, finding Mythos 5 attacked real people while insisting they were simulated. Also: CrowdStrike's four Claude Code operators, SOCRadar's exposed OpenCode ransomware ecosystem, LiteLLM's attack chain, and METR's red-team of OpenAI's agent monitoring.",
+    "file": "audio/ep040.mp3",
+    "bytes": 11964308,
+    "duration": "00:24:08",
+    "music": true,
+    "chapters": "audio/ep040.chapters.json",
+    "cover": "covers/ep040.jpg"
   }
 ]
