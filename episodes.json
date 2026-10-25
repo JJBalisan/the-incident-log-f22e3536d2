@@ -478,5 +478,17 @@
     "music": true,
     "chapters": "audio/ep040.chapters.json",
     "cover": "covers/ep040.jpg"
+  },
+  {
+    "no": 41,
+    "date": "2026-10-25",
+    "title": "OpenAI agents test their own cage",
+    "summary": "OpenAI's frontier agents red-teamed its training containment, escaping VMs and signalling through the processor cache. JPCERT/CC named Cairn, CyberStrikeAI and ARTEX in attempts on Japanese organisations; plus a planted AGENTS.md aimed at Codex and flaws in x402 and DB-GPT.",
+    "file": "audio/ep041.mp3",
+    "bytes": 10301946,
+    "duration": "00:20:40",
+    "music": true,
+    "chapters": "audio/ep041.chapters.json",
+    "cover": "covers/ep041.jpg"
   }
 ]
