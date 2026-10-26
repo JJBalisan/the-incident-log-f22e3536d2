@@ -490,5 +490,17 @@
     "music": true,
     "chapters": "audio/ep041.chapters.json",
     "cover": "covers/ep041.jpg"
+  },
+  {
+    "no": 42,
+    "date": "2026-10-26",
+    "title": "A sign-in link that runs code",
+    "summary": "No new incident this weekend, but two earlier reports are filed: Pillar Security's code execution in the opencode coding agent through an MCP server's OAuth sign-in, and Elastic's Apex Accelerator npm packages that repackage a coding agent and route its traffic to the attacker. Also Brotli, the bank-agent report and the agents file in Downloads.",
+    "file": "audio/ep042.mp3",
+    "bytes": 7667526,
+    "duration": "00:15:11",
+    "music": true,
+    "chapters": "audio/ep042.chapters.json",
+    "cover": "covers/ep042.jpg"
   }
 ]
