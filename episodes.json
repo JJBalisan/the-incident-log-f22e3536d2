@@ -502,5 +502,17 @@
     "music": true,
     "chapters": "audio/ep042.chapters.json",
     "cover": "covers/ep042.jpg"
+  },
+  {
+    "no": 43,
+    "date": "2026-10-27",
+    "title": "Seoul police arrest an AI-assisted hacker",
+    "summary": "Seoul police announce South Korea's first arrests for a large AI-assisted hacking operation using ARTEX and coding agents, and Georgia is named as the state in the earlier Anthropic dashboard case. Also two agent-platform flaws, in Vibe-Trading and the Claude Agent SDK for Python.",
+    "file": "audio/ep043.mp3",
+    "bytes": 9200353,
+    "duration": "00:18:23",
+    "music": true,
+    "chapters": "audio/ep043.chapters.json",
+    "cover": "covers/ep043.jpg"
   }
 ]

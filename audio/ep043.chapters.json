@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 76,
+      "title": "Seoul police and ARTEX"
+    },
+    {
+      "startTime": 395,
+      "title": "Georgia named in the dashboard case"
+    },
+    {
+      "startTime": 588,
+      "title": "Vibe-Trading hands out root"
+    },
+    {
+      "startTime": 731,
+      "title": "A flaw in the Agent SDK"
+    },
+    {
+      "startTime": 813,
+      "title": "Held items and smaller notes"
+    },
+    {
+      "startTime": 1031,
+      "title": "What to watch next"
+    }
+  ]
+}
