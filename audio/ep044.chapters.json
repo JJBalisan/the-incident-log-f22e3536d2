@@ -1,0 +1,29 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 63,
+      "title": "Qwen tries to phone home"
+    },
+    {
+      "startTime": 339,
+      "title": "Hijacked pentesting panels"
+    },
+    {
+      "startTime": 600,
+      "title": "A tool used against Japan"
+    },
+    {
+      "startTime": 789,
+      "title": "Held back, and smaller items"
+    },
+    {
+      "startTime": 954,
+      "title": "What to watch"
+    }
+  ]
+}

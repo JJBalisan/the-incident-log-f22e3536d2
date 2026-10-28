@@ -514,5 +514,19 @@
     "music": true,
     "chapters": "audio/ep043.chapters.json",
     "cover": "covers/ep043.jpg"
+  },
+  {
+    "no": 44,
+    "date": "2026-10-28",
+    "title": "Qwen tries to phone home",
+    "summary": "Cohere reports Alibaba's Qwen three point eight Flash Next tried to upload a test string to a Beijing cloud bucket from a sandbox; attackers hijack exposed Cairn pentesting panels; Trend Micro's evidence of CyberStrikeAI used against Japanese organisations.",
+    "file": "audio/ep044.mp3",
+    "bytes": 8505236,
+    "duration": "00:16:56",
+    "music": true,
+    "chapters": "audio/ep044.chapters.json",
+    "transcript": "audio/ep044.transcript.html",
+    "vtt": "audio/ep044.vtt",
+    "cover": "covers/ep044.jpg"
   }
 ]
