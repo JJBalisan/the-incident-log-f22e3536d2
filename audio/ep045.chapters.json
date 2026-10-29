@@ -1,0 +1,29 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 54,
+      "title": "Anthropic's model builds five exploits"
+    },
+    {
+      "startTime": 290,
+      "title": "OpenAI's Terra and other agents' messages"
+    },
+    {
+      "startTime": 560,
+      "title": "Held: the firewall intrusion"
+    },
+    {
+      "startTime": 682,
+      "title": "Smaller items and adjacent news"
+    },
+    {
+      "startTime": 772,
+      "title": "What to watch next"
+    }
+  ]
+}

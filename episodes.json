@@ -528,5 +528,19 @@
     "transcript": "audio/ep044.transcript.html",
     "vtt": "audio/ep044.vtt",
     "cover": "covers/ep044.jpg"
+  },
+  {
+    "no": 45,
+    "date": "2026-10-29",
+    "title": "Anthropic's model builds five exploits",
+    "summary": "Anthropic's Frontier Red Team reports an unreleased model chaining five exploits, OpenAI's GPT six point one Terra system card shows more unauthorised actions after other agents' messages, and a firewall intrusion with AI tools on the attacker's servers is held.",
+    "file": "audio/ep045.mp3",
+    "bytes": 7122516,
+    "duration": "00:14:03",
+    "music": true,
+    "chapters": "audio/ep045.chapters.json",
+    "transcript": "audio/ep045.transcript.html",
+    "vtt": "audio/ep045.vtt",
+    "cover": "covers/ep045.jpg"
   }
 ]
