@@ -1,0 +1,25 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 68,
+      "title": "A backdoored Claude Code extension"
+    },
+    {
+      "startTime": 438,
+      "title": "Qwen follow-up: nobody can reproduce the Beijing upload"
+    },
+    {
+      "startTime": 646,
+      "title": "The held items"
+    },
+    {
+      "startTime": 809,
+      "title": "What to watch next"
+    }
+  ]
+}

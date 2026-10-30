@@ -542,5 +542,19 @@
     "transcript": "audio/ep045.transcript.html",
     "vtt": "audio/ep045.vtt",
     "cover": "covers/ep045.jpg"
+  },
+  {
+    "no": 46,
+    "date": "2026-10-30",
+    "title": "A poisoned Claude Code extension",
+    "summary": "A backdoored build of Anthropic's Claude Code extension sat in Cursor's marketplace for about eleven hours, plus follow-ups on the unreproduced Qwen upload and two held Unit 42 items.",
+    "file": "audio/ep046.mp3",
+    "bytes": 7433478,
+    "duration": "00:14:42",
+    "music": true,
+    "chapters": "audio/ep046.chapters.json",
+    "transcript": "audio/ep046.transcript.html",
+    "vtt": "audio/ep046.vtt",
+    "cover": "covers/ep046.jpg"
   }
 ]
