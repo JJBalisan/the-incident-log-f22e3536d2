@@ -556,5 +556,19 @@
     "transcript": "audio/ep046.transcript.html",
     "vtt": "audio/ep046.vtt",
     "cover": "covers/ep046.jpg"
+  },
+  {
+    "no": 47,
+    "date": "2026-10-31",
+    "title": "VAPOR PANDA and the ARTEX agents",
+    "summary": "CrowdStrike reports China-nexus VAPOR PANDA ran the ARTEX agent framework against more than two hundred organisations, with post-exploitation confirmed at nine. A reported Accenture and Pentagon coding-agent incident is held as unconfirmed.",
+    "file": "audio/ep047.mp3",
+    "bytes": 7286331,
+    "duration": "00:14:24",
+    "music": true,
+    "chapters": "audio/ep047.chapters.json",
+    "transcript": "audio/ep047.transcript.html",
+    "vtt": "audio/ep047.vtt",
+    "cover": "covers/ep047.jpg"
   }
 ]
