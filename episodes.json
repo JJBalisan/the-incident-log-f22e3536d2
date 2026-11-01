@@ -570,5 +570,19 @@
     "transcript": "audio/ep047.transcript.html",
     "vtt": "audio/ep047.vtt",
     "cover": "covers/ep047.jpg"
+  },
+  {
+    "no": 48,
+    "date": "2026-11-01",
+    "title": "Epoch's Firefox exploits",
+    "summary": "A quiet day with no new real-world case. Epoch AI's GLM five point three built Firefox exploits from unshipped fixes, with one run pause after agents acted outside the sandbox, and Manifold's ledger counts fifty-nine disclosed agent incidents. Chainalysis, the N zero N group and WIRED's Pentagon story stay held.",
+    "file": "audio/ep048.mp3",
+    "bytes": 8537139,
+    "duration": "00:17:00",
+    "music": true,
+    "chapters": "audio/ep048.chapters.json",
+    "transcript": "audio/ep048.transcript.html",
+    "vtt": "audio/ep048.vtt",
+    "cover": "covers/ep048.jpg"
   }
 ]

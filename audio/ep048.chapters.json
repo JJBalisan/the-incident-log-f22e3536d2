@@ -1,0 +1,29 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 45,
+      "title": "Epoch and the Firefox exploits"
+    },
+    {
+      "startTime": 335,
+      "title": "Manifold's incident ledger"
+    },
+    {
+      "startTime": 548,
+      "title": "Held back"
+    },
+    {
+      "startTime": 761,
+      "title": "Follow-ups and adjacent items"
+    },
+    {
+      "startTime": 938,
+      "title": "What to watch next"
+    }
+  ]
+}
