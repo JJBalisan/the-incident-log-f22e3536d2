@@ -1,0 +1,103 @@
+WEBVTT
+
+00:00:16.500 --> 00:00:31.950
+Monday the second of November. The headline today is that there isn't one. The brief found no new real-world case of an agent acting outside its authorised scope between the thirty-first of October and today, and that window was a weekend. Nothing was added to the incident database.
+
+00:00:32.600 --> 00:00:47.275
+So this is a short one. What I'd listen for is the follow-ups: a Linux flaw whose severity has gone up, three items the brief is still holding because the evidence isn't there yet, and two adjacent stories that are easy to misfile.
+
+00:00:53.145 --> 00:01:09.970
+Let me say what the brief actually did. It searched the security outlets, it checked its list of standing sources, and it ran its non-English sweep in seven languages. It found items that were already filed, items that are held, items that are out of scope, and a couple of policy stories. Nothing that qualified as new.
+
+00:01:10.620 --> 00:01:23.045
+And I want to be careful about what a quiet day means. It means nothing met the bar on these sources, on this weekend. Two things were not checked this run: the Agent Incident Registry, and G T I G.
+
+00:01:23.045 --> 00:01:37.620
+And two pages could not be read at all, the OpenAI index, which returned a forbidden error, and the Texas Attorney General's press release, which returned a payment-required error. So quiet is the claim, not nothing happened.
+
+00:01:38.270 --> 00:01:51.095
+Fair. The brief also says the non-English sweep turned up nothing that was found only that way. Mandarin, Japanese, Korean, German, French, Russian and Spanish all returned older coverage of incidents already on the books.
+
+00:01:56.845 --> 00:02:13.020
+The one real movement is a follow-up on an Anthropic Frontier Red Team result, a flaw in the way Linux handles multipath T C P, tracked as C V E twenty twenty-six, ninety-eight four three two. And the brief flags an interest to declare here: the brief is written by an Anthropic model.
+
+00:02:13.670 --> 00:02:16.945
+Which is worth keeping in your head for this whole segment.
+
+00:02:17.595 --> 00:02:34.895
+So, the facts. A note from the Cloud Security Alliance, dated the first of November, records that Red Hat rated the flaw Critical in a security bulletin on the thirtieth of October. The day before, the twenty-ninth, Red Hat had it at Important, with a score of eight point one. AlmaLinux shipped testing kernels on the thirtieth.
+
+00:02:34.895 --> 00:02:40.845
+The upstream fix landed on the fifth of October, and the C V E was published on the fifteenth.
+
+00:02:41.495 --> 00:02:59.470
+Right, and the sourcing matters. That's a secondary source, the Cloud Security Alliance, describing what Red Hat and AlmaLinux did. The brief says plainly that Red Hat's and AlmaLinux's own pages were not read. So the rating change is reported, not confirmed first-hand.
+
+00:03:00.120 --> 00:03:17.720
+And the Cloud Security Alliance is itself cautious. It says Anthropic's claims have not been independently verified. Anthropic hasn't published exploit code, or the kernel version, or the configuration. No public reproduction had appeared as of the thirtieth of October. And no exploitation in the wild is reported.
+
+00:03:18.370 --> 00:03:36.220
+So the thing that changed is the vendors' assessment of severity, not the evidence about how the flaw was found or used. My read is that this is a case where the distribution rating going up is a reasonable signal that someone took it seriously, but it doesn't settle the original claim.
+
+00:03:36.220 --> 00:03:40.345
+The brief doesn't rewrite the earlier entry, and I think that's right.
+
+00:03:45.595 --> 00:04:01.620
+Next, three items the brief is holding. Held means it has not been filed, because the primary evidence isn't there. The first is Chainalysis. On the thirtieth of October the company published a security incident notice, and the brief held it on the first of November. Today it found no update.
+
+00:04:01.620 --> 00:04:09.420
+The breakdown by organisation is still absent, and so is any description of what the notice calls offensive agentic techniques.
+
+00:04:10.070 --> 00:04:19.620
+So we have a company's own notice that uses the word agentic, and no detail on what the agents did. That's not enough to say an agent took a step.
+
+00:04:20.270 --> 00:04:37.895
+The second is the WIRED story, held since the thirty-first of October, about a defence contractor that gave a personal A I agent access to a secure Pentagon system. The brief still hasn't read the original. It found no independent report, and no statement from Congress, the Defense Department or Anthropic.
+
+00:04:37.895 --> 00:04:45.245
+The note on what to do if it's confirmed: file it as a deployed agent acting against its operator, marked disputed.
+
+00:04:45.895 --> 00:04:53.895
+I'd stress that: the brief hasn't read the article it's holding. It's relying on the headline and on the absence of corroboration.
+
+00:04:54.545 --> 00:05:07.495
+The third is the malicious Claude Code extension that appeared on Cursor. There's still no root-cause or detection account from Cursor beyond its security notice, last updated on the thirtieth of October. Nothing was appended.
+
+00:05:08.145 --> 00:05:23.195
+And a few others were checked and had nothing new, including one called n zero n. The brief notes that Manifold's incident ledger still shows fifty-nine incidents, the newest from the twenty-eighth of September, with no entries for October at all.
+
+00:05:28.025 --> 00:05:47.800
+Two adjacent items, both from the Cloud Security Alliance's research index, which posted five notes on the first of November. None of the five is an agent incident. The first is Texas versus OpenAI. Attorney General Ken Paxton sued OpenAI, some of its affiliates and Sam Altman on the twenty-third of October, in Collin County district court.
+
+00:05:47.800 --> 00:06:03.275
+The claims are under the Texas Deceptive Trade Practices Act and the SCOPE Act, and they concern age verification and parental controls. Among the relief sought is a court-approved independent evaluation before any new OpenAI model is released in Texas.
+
+00:06:03.925 --> 00:06:22.375
+And the link back to our subject is that, per the Cloud Security Alliance, the petition cites the July intrusion at Hugging Face in support. That's why it's listed at all. But again: the petition itself was not read, the Attorney General's release couldn't be opened, and no ruling is reported.
+
+00:06:22.375 --> 00:06:28.500
+The brief also notes a gap of ten days in its archive, since the suit was filed on the twenty-third.
+
+00:06:29.150 --> 00:06:44.825
+The second is a malware campaign called Yoba, from Check Point Research on the twenty-seventh of October. Fake desktop apps, named things like G P T five point six Sol, G P T six Astra and Claude Opus, are promoted through GitHub repositories and GitHub Pages sites.
+
+00:06:44.825 --> 00:06:56.100
+They pair genuinely signed OpenAI and Anthropic executables with a malicious file, winmm D L L, that gets loaded by sideloading. The payload observed is a miner called X M Rig.
+
+00:06:56.750 --> 00:07:15.425
+Again there's an interest to declare, because one of the lures uses an Anthropic-signed binary. And Check Point says directly that its research does not indicate that ChatGPT, Claude, OpenAI or Anthropic were compromised. There's no victim count, and no agent acts anywhere in the chain.
+
+00:07:15.425 --> 00:07:22.600
+The brief calls it out of scope and records it only so later coverage doesn't get misfiled as an agent incident.
+
+00:07:28.470 --> 00:07:38.245
+Looking ahead. The most concrete date is the fourth of November: Kimi K three point one Pro open weights are due by then, and the brief did not find them released as of today.
+
+00:07:38.895 --> 00:08:00.645
+After that, the open questions are evidence questions. Chainalysis's breakdown and any technical detail. The original WIRED piece, or independent confirmation or an official statement. Cursor's account of how the extension got in and how it was detected. And an independent reproduction of the Linux flaw, or reports of exploitation.
+
+00:08:01.295 --> 00:08:16.270
+And from the earlier briefs, a few dated ones: the I C O's call for evidence closes on the twentieth of November. Microsoft Ignite runs from the seventeenth to the nineteenth of November. And an Australian A I committee is due to report by the thirtieth of November.
+
+00:08:16.920 --> 00:08:20.520
+Nothing more to say on a day like this. Back tomorrow.

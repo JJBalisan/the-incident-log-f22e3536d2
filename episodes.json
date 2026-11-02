@@ -584,5 +584,19 @@
     "transcript": "audio/ep048.transcript.html",
     "vtt": "audio/ep048.vtt",
     "cover": "covers/ep048.jpg"
+  },
+  {
+    "no": 49,
+    "date": "2026-11-02",
+    "title": "A quiet weekend",
+    "summary": "No new agent incident surfaced over the weekend. Red Hat raised the Linux multipath TCP flaw to Critical, three items stay held, and Texas v. OpenAI and the Yoba malware are logged as adjacent.",
+    "file": "audio/ep049.mp3",
+    "bytes": 4504321,
+    "duration": "00:08:36",
+    "music": true,
+    "chapters": "audio/ep049.chapters.json",
+    "transcript": "audio/ep049.transcript.html",
+    "vtt": "audio/ep049.vtt",
+    "cover": "covers/ep049.jpg"
   }
 ]

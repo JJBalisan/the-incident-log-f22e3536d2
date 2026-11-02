@@ -1,0 +1,29 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 47,
+      "title": "A quiet weekend"
+    },
+    {
+      "startTime": 111,
+      "title": "The Linux flaw gets a higher rating"
+    },
+    {
+      "startTime": 220,
+      "title": "Held items"
+    },
+    {
+      "startTime": 323,
+      "title": "Texas, and fake A I apps"
+    },
+    {
+      "startTime": 443,
+      "title": "What to watch next"
+    }
+  ]
+}
