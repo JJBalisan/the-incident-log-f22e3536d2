@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 55,
+      "title": "DIVD names the framework"
+    },
+    {
+      "startTime": 266,
+      "title": "A bank, held"
+    },
+    {
+      "startTime": 354,
+      "title": "A Manus backdoor, held"
+    },
+    {
+      "startTime": 454,
+      "title": "Follow-ups and loose ends"
+    },
+    {
+      "startTime": 506,
+      "title": "Smaller and adjacent items"
+    },
+    {
+      "startTime": 628,
+      "title": "What to watch next"
+    }
+  ]
+}

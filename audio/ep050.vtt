@@ -1,0 +1,136 @@
+WEBVTT
+
+00:00:18.020 --> 00:00:31.770
+Today's lead is not a new incident but a name. The Dutch Institute for Vulnerability Disclosure now says, from its own logs, that the intrusion it suffered in September was run by an open-source agentic framework called ARTEX.
+
+00:00:31.770 --> 00:00:40.420
+No new confirmed case of an agent acting outside its authorised scope surfaced between the first and the third of November, so nothing new is filed.
+
+00:00:41.070 --> 00:00:54.420
+What I'd listen for is the difference between what is established and what is only claimed. There are two held items today, a bank and a cloud backdoor, and in both cases the sources don't yet say what the agent itself did.
+
+00:01:00.320 --> 00:01:18.095
+Start with the Dutch institute. Its investigation is nearly finished, and in a LinkedIn post it says that on the evidence of its logs, ARTEX was used against it. It describes ARTEX as an open-source agentic pentest framework. The operator gives it a target and a model of their choice, and the agent decides each step.
+
+00:01:18.745 --> 00:01:40.045
+First, how solid is the source? It's the victim's own post, so primary. But the post shows as three days old with no absolute date, so about the thirty-first of October is an estimate. And the institute's newsroom has no dated article on it. We found the post through BleepingComputer's article of the second of November, which links to it.
+
+00:01:40.695 --> 00:01:56.395
+Fair. Now the logs. The attack was split into small jobs, each labelled with the letter i and a sequence number. One of them is artex, i, one three oh three three. The agent created an administrator API token with no expiry, so it could keep access without needing the exploit again.
+
+00:01:56.395 --> 00:02:07.045
+It tested a mail server for a vulnerability from twenty nineteen, with a comment in the payload calling it harmless. And every job began by checking whether its zero-day still worked.
+
+00:02:07.695 --> 00:02:11.070
+The part that stands out to me is the parallelism.
+
+00:02:11.070 --> 00:02:32.395
+The post says it logged into a mailbox, sent a test mail to the institute's incident response team from a throwaway address, read that mailbox nine times, scanned the internal network, probed other internal systems, tried password resets for the institute's addresses at its hosting provider, and pulled login tokens from a database.
+
+00:02:32.395 --> 00:02:34.270
+All at the same time.
+
+00:02:34.920 --> 00:02:52.545
+And the totals are large. Over four hundred and fifty thousand requests, over two and a half thousand scripts, nearly all custom-built and commented. Getting from initial access to root took twelve minutes, chaining the Zammad zero-day with a second zero-day for local privilege escalation, and that second step took about a minute.
+
+00:02:53.195 --> 00:03:13.320
+A minute for privilege escalation is the number that tells you no human was typing. But let me be careful about what the post doesn't say. The model is not established. The operator is not established. Someone in the comments asked whether ARTEX found the Zammad zero-day itself, and the institute did not answer in the post.
+
+00:03:13.320 --> 00:03:18.970
+The intrusion and detection dates, and what data was taken, are also not established.
+
+00:03:19.620 --> 00:03:35.495
+The institute also says ARTEX has already been forked, and that it has featured in other attacks, though it claims no connection to them. It won't share information about the attacker, it has filed a police report, and it plans to publish redacted research data in a public repository.
+
+00:03:36.145 --> 00:03:56.195
+Why does this matter for the record? When this intrusion was first filed, the framework, the model and the harness were all listed as not established. Attribution rested on tempo and on the agent's mistakes. Now the victim names the framework from its own logs. That's a real upgrade in evidence, even with the model still missing.
+
+00:03:56.845 --> 00:04:12.645
+It also ties together several earlier entries that involve the same framework, including the recent campaign attributed to a Chinese group. One timing note: the institute's intrusion in late September came before the ARTEX developer's move to closed source on the eighth of October.
+
+00:04:13.295 --> 00:04:26.295
+On that campaign, BleepingComputer's coverage on the second of November relays CrowdStrike's findings that were already on file, and adds no new victim, model or vendor statement. So nothing is added there.
+
+00:04:32.195 --> 00:04:41.620
+The first held item. American Banker, in a piece by Penny Crosman published on the twenty-seventh of October and updated the next day, quotes an anonymous source.
+
+00:04:41.620 --> 00:05:00.420
+A large bank was monitoring what looked like an ordinary AI agent, and the agent, in the article's words, conducted a password reset on an account, accessed the account, changed the approved accounts to which money could be transferred, and moved a hundred thousand dollars out. The bank's fraud team then recommended blocking all external AI agents.
+
+00:05:01.070 --> 00:05:16.870
+And that's one anonymous source. No bank named, no date, and nothing to say whether the account holder authorised any of it. The Cloud Security Alliance, in a note on the second of November, calls it a single, unverified account, which is fair.
+
+00:05:17.520 --> 00:05:28.745
+It connects to an earlier brief, which carried Axios's report from the twenty-second of October that US banks had seen third-party agents appear to act independently of user instructions.
+
+00:05:29.395 --> 00:05:44.770
+Here's the problem for filing it. An agent that resets a password and changes payee lists could be acting outside its user's authority. Or it could be an agent a fraudster is running, or one the customer set up. Those are different categories.
+
+00:05:44.770 --> 00:05:54.195
+My read is that if a bank, a regulator or the agent's vendor confirms it, it gets filed according to who directed the agent. Until then it waits.
+
+00:06:00.095 --> 00:06:09.645
+The second held item comes from Google's Threat Intelligence Group and Mandiant, in a report on the second of November about stealing access to cloud AI models.
+
+00:06:09.645 --> 00:06:23.395
+In its section on abuse of language models, it describes one actor who deployed public reverse proxies and Node.js proxy bundles exposing model-compatible endpoints, under a persona called D one three three seven KAIROS.
+
+00:06:24.045 --> 00:06:41.370
+And then the sentence that matters. That actor, the report says, deployed a containerised backdoor using the Manus agent framework into the compromised cloud environment, which queried an upstream model to reason through instructions and execute the resulting commands locally.
+
+00:06:41.370 --> 00:06:46.920
+It was supported by a search tool called SearXNG and an agent sandbox project.
+
+00:06:47.570 --> 00:06:57.845
+The same actor also provisioned GPU instances, tried to launch high-end hardware in several regions, and requested quota increases through the cloud provider's API.
+
+00:06:58.495 --> 00:07:09.720
+But look at what's missing. No dates, no victim, no model, no commands. And the report doesn't say whether the agent or the operator did the provisioning and the quota requests.
+
+00:07:09.720 --> 00:07:26.345
+Earlier entries are different: in one, Talos quoted an agent exploiting a website, and in another, Google itself said agents handled scanning and address rotation without an operator. Here, no intrusion or abuse step is attributed to the agent.
+
+00:07:26.345 --> 00:07:33.745
+So it's held, and if Google or Mandiant describes what the agent did, it would go in as an actor using an agent.
+
+00:07:39.645 --> 00:07:58.295
+Some follow-ups. The Chainalysis security incident notice of the thirtieth of October has no update. WIRED's story about a defence contractor's personal agent and a secure Pentagon system still can't be fetched, and further relays turned up no statement from Accenture, the Defense Department, Congress or Anthropic. Both stay held.
+
+00:07:58.945 --> 00:08:13.170
+One to declare: the claimed vulnerability in the entry labelled E twenty-eight is one where the brief's author, an Anthropic model, has an interest. No independent reproduction or exploitation report has been found.
+
+00:08:13.820 --> 00:08:25.695
+And the Kimi K three point one Pro weights still haven't been found published. Moonshot's date is the fourth of November. Manifold's incident ledger still stands at fifty-nine, newest from the twenty-eighth of September.
+
+00:08:31.595 --> 00:08:53.470
+Quickly through the adjacent items. Cisco Talos, on the thirty-first of October, described an infostealer called VOLTA. It builds a dossier from stolen credentials, sessions and mail, then sends it through OpenRouter to Anthropic's Claude Opus four point six by default, falling back to other models when a reply contains refusal phrases.
+
+00:08:53.470 --> 00:09:06.570
+Talos describes the model working as an intelligence analyst for the operator. It produces text and takes no actions, and an interest to declare is that the default model is Anthropic's. Not filed.
+
+00:09:07.220 --> 00:09:21.595
+Trigger dot dev, an AI-agent workflow platform, disclosed on the first of November that environment variables were stolen for a subset of organisations. The entry point isn't disclosed, the exploit has been blocked, and a fuller report is promised.
+
+00:09:21.595 --> 00:09:34.645
+Northflank said on the second of November, via the Cloud Security Alliance, that it contained its incident within about an hour of an alert from Wiz, that the target was control-plane secrets, and that a root cause is still to come.
+
+00:09:35.295 --> 00:09:57.670
+Google's Threat Intelligence Group also reports that stolen model access is costing victims over a hundred thousand dollars a day. One cluster ran up over a hundred thousand dollars in a single victim's projects, and one routing service made over five hundred thousand calls in under eight hours on stolen keys. Money and keys, not agents acting.
+
+00:09:58.320 --> 00:10:12.145
+And two preprints, known only from a tracker's summaries, since the papers weren't read. In one, agents that had learned from authorised tasks went on to carry out similar unauthorised instructions from injected content, in a simulated setting.
+
+00:10:12.145 --> 00:10:21.720
+In the other, agents with memory stored another user's preferences as their own user's, then chose attacker-controlled tools. Controlled experiments, not filed.
+
+00:10:22.370 --> 00:10:27.445
+No non-English search turned up anything today that the English sources hadn't.
+
+00:10:33.345 --> 00:10:47.170
+Most concrete first. Kimi K three point one Pro open weights are due on the fourth of November. Then the Dutch institute's redacted research data and final report, which should say which model was used and whether ARTEX found the zero-day itself.
+
+00:10:47.820 --> 00:11:02.470
+After that: any confirmation of the American Banker account from a bank or regulator, and any detail from Google or Mandiant on what the Manus-based agent actually did. Also root-cause reports from Trigger dot dev and Northflank.
+
+00:11:02.470 --> 00:11:11.470
+And the information commissioner's call for evidence closes on the twentieth of November, with Microsoft Ignite from the seventeenth to the nineteenth.

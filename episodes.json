@@ -598,5 +598,20 @@
     "transcript": "audio/ep049.transcript.html",
     "vtt": "audio/ep049.vtt",
     "cover": "covers/ep049.jpg"
+  },
+  {
+    "no": 50,
+    "date": "2026-11-03",
+    "title": "DIVD names the framework",
+    "summary": "The Dutch Institute for Vulnerability Disclosure says its logs show the ARTEX agentic framework ran its September intrusion. A bank agent moving a hundred thousand dollars and a Manus-based cloud backdoor are held, unconfirmed.",
+    "file": "audio/ep050.mp3",
+    "bytes": 5868357,
+    "duration": "00:11:26",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep050.chapters.json",
+    "transcript": "audio/ep050.transcript.html",
+    "vtt": "audio/ep050.vtt",
+    "cover": "covers/ep050.jpg"
   }
 ]
