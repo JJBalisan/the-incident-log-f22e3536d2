@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Two AI-driven intrusions</title>
+</head>
+<body>
+<h1>Two AI-driven intrusions</h1>
+<p>Wednesday the fourth of November. Two new intrusions today, both run by people with AI doing the heavy lifting. A company called WorkOS says an attacker used an AI-assisted offensive framework to get into an internal sales application. And Bitdefender says a ransomware affiliate hit a UK school estate in September using commands that a language model appears to have written.</p>
+<p>What I'm listening for is how far each claim actually goes. In the WorkOS case the company itself says automation was used, but the name of the framework comes second-hand. In the school case, the responder is unusually careful about what it can and cannot say about a human being in the loop.</p>
+<p>One thing to declare before we start. WorkOS's customers reportedly include Anthropic, so Anthropic's contact records may be among the data reached. And the brief we're working from was written by an Anthropic model.</p>
+<p>Worth saying plainly, so we have. Let's go.</p>
+<h2>WorkOS and the framework called ARTEX</h2>
+<p>WorkOS published a security bulletin on the second of November, titled as a data security incident dated the thirtieth of October. It says that on the thirtieth it identified unauthorised access to an internal application used by its sales and customer-facing teams.</p>
+<p>And the line that makes this one of ours is what the investigation found. The bulletin says it, quote, identified the use of an AI-assisted offensive security framework to automate reconnaissance and exploitation attempts. That's WorkOS's own wording, in its own bulletin.</p>
+<p>Right. But the bulletin is thin on mechanics. It doesn't name the framework. It doesn't say how the attacker first got in. And it gives no start or end date for the intrusion.</p>
+<p>So what did they reach?</p>
+<p>Business contact details held in customer relationship systems: names, email addresses, phone numbers, job titles, company affiliations. Account histories and sales and relationship information. Summaries and excerpts of sales calls, support discussions and customer Slack conversations. And operational metadata about how customers use the product, including the health of their connections and directories.</p>
+<p>And what did they say wasn't reached?</p>
+<p>WorkOS says there is no evidence that its own application data or production services were accessed. It disabled external access to the application, started a review of access controls on its internal tools, and retained an independent forensics firm. It will contact affected customers directly. And it warns those customers to expect phishing that uses the exposed contact details and past conversations.</p>
+<p>That last point is the practical risk. A lot of real conversation content, tied to real names, is exactly what makes a phishing email convincing.</p>
+<p>Now the name. BleepingComputer, in a piece by Bill Toulas on the third of November, reports that WorkOS's founder, Michael Grinich, later identified the framework as ARTEX, in posts on X. He said it has appeared in several incidents this year. And according to BleepingComputer, investigators found two user agent strings in the attacker's web requests, one reading artex dash enrich, version one point oh, and another reading norma, version zero point four.</p>
+<p>Here's where I want to slow down. The brief's author could not read those posts. One link returned a payment-required error and a mirror was blocked. So the ARTEX name and the user agent strings rest on BleepingComputer's relay. The bulletin itself names no framework.</p>
+<p>And BleepingComputer's own framing is cautious. It says ARTEX was likely used. Grinich called the incident fully contained. BleepingComputer also says WorkOS has at least three thousand customers, including OpenAI, Anthropic and Cursor.</p>
+<p>So the confirmed part is that a company says automated, AI-assisted reconnaissance and exploitation was used against it. The likely part is that the tool was ARTEX. And the user agent strings are the sort of log evidence that would make that credible, if the relay is accurate.</p>
+<p>What's not established is a long list. When the intrusion started. How the attacker got in. Which model was involved. Who the operator was. Whether norma is a component of ARTEX. And which customers' records were actually taken.</p>
+<p>And the link to the earlier ARTEX case?</p>
+<p>That's the careful part. On the twenty-ninth of October CrowdStrike described a group it calls VAPOR PANDA using ARTEX to scale a global campaign. This new intrusion is related to that by tool, and to several other cases by tool, but nothing links it to VAPOR PANDA as an actor.</p>
+<p>My read is that it's a sign ARTEX is a shared piece of infrastructure rather than one group's property. But that's my reading, not something either source says.</p>
+<p>The category here is a human-directed agentic intrusion: a person pointing an AI-driven tool at a target. The brief filed it on two grounds. WorkOS itself states that the framework automated reconnaissance and exploitation against it, and the founder points to log evidence for the tool.</p>
+<p>Which, as we'll hear in a minute, is a bar the Chainalysis notice still doesn't clear.</p>
+<h2>A school estate and a ransomware affiliate</h2>
+<p>The second item is from Bitdefender. Marius Baciu, writing for Bitdefender's Business Insights blog on the third of November, describes an attack by an affiliate of the ThreeAM ransomware group. The activity ran from the tenth to the nineteenth of September.</p>
+<p>Who was the victim?</p>
+<p>Not named. The headline refers to European schools, but the body describes a UK school estate, a mid-sized public-sector target. Forty-seven systems, including about twenty-one servers and eight domain controllers, set up as several unconnected Active Directory domains. BleepingComputer, also Bill Toulas on the third, is how the brief found it.</p>
+<p>And how did the attacker get in?</p>
+<p>Unknown. Bitdefender's story starts after that. On the tenth and eleventh of September, a modified public Veeam script was used to read and decrypt stored credentials on three backup servers, and Chrome login data was copied.</p>
+<p>Using a modified public script. That's already a bit of a signal about how the operator works.</p>
+<p>On the twelfth and thirteenth: connectivity tests, a download of the Mimikatz credential tool, an attempt to add an exclusion to Windows Defender, enumeration of domain admins and trust relationships, and searches of the shared policy folder for other schools' names and network ranges.</p>
+<p>So it's looking for the neighbours.</p>
+<p>It is. On the fourteenth: registry hive dumps, a renamed Mimikatz, an attempt to dump memory from the Windows credential process, and the outcome of that is unknown. Two backdoor domain admin accounts were created, one named library and one a service-style name built around the word backup monitor.</p>
+<p>Then the data theft.</p>
+<p>On the fifteenth, forty finance files were staged, zipped, and posted to an endpoint on an attacker-controlled host that was not under any security monitoring. A scheduled task called VEEAMPROBE was also created. On the eighteenth, two-way trusts were built across three previously separate domains. Then on the nineteenth, attempts to remove endpoint security software were blocked by its anti-tampering protection, a loader was pushed to about forty machines, and the ThreeAM encryptor ran between seven minutes past five and twenty-seven minutes to six in the morning. Roughly thirty-seven of around fifty machines it reached were encrypted, and system-state backups were deleted.</p>
+<p>And the attribution to ThreeAM?</p>
+<p>It rests on the encryptor build and the pattern of commands. That's the intrusion. Now the part that brings it to this show, which is why Bitdefender thinks a model was involved.</p>
+<p>Start with the timing. On the thirteenth of September, a PowerShell command was run, then re-run unchanged after forty-one seconds. Forty-nine seconds later it was changed in a single call. Then forty-seven seconds after that it was replaced with a W M I C command.</p>
+<p>And Bitdefender's observation is that retry delays ran from forty to one hundred and one seconds, whatever the size of the change. Whether the fix was one character or a rewrite, the wait was about the same. But moving on to a new task took minutes. The gaps it lists are five, two, fourteen, sixteen and three minutes, which Bitdefender reads as a person choosing what to do next.</p>
+<p>So a fast, steady loop for fixing errors, and slower human-length pauses between tasks. That's the pattern.</p>
+<p>Then there are the errors. The commands used a Veeam port of nine three nine two with basic authentication, where Veeam documents nine four one nine with OAuth two. A loop in the Windows command line was missing its delimiter setting. And there were Bash-style escapes, and a Bash-style redirect to dev null, inside Windows command lines.</p>
+<p>Which is what you'd expect from something writing commands from memory and mixing up its shells. A person who works on Windows daily would be less likely to make those particular mistakes.</p>
+<p>There were also numbered script revisions, so a script for removing antivirus appears as version one, two, three, and a proxy script likewise. And output that labelled itself, with headers like TRUSTS in capitals between equals signs.</p>
+<p>Now, what does Bitdefender actually conclude? Because this is where I think the report is better than the headline.</p>
+<p>It separates three claims. That a language model generated the commands, it calls strongly supported by the content of the commands. That an agentic loop chose each next action, it says the activity behaves like one, but a human copying between a shell and a chat window cannot be excluded. And that no human was involved in the hands-on phase, it calls unsupported.</p>
+<p>So the confirmed part is the intrusion, from the responder. The strongly supported part is model-written commands. The best reading, but not proven, is the agentic loop.</p>
+<p>And Bitdefender calls the operation hybrid: a human affiliate sets the goals, a model does the repetitive work. It says that's conventional in tooling, and describes this as one case, an anecdote and not a trend.</p>
+<p>Which is a notably restrained thing for a vendor to write about its own finding.</p>
+<p>It is. And because the attacker's host was unmanaged, nobody knows which model it was, where it ran, or how commands got from the model to the victim's machines.</p>
+<p>The brief filed this with the uncertainty in the entry's title. It follows an earlier Microsoft case that was filed on tempo evidence, where agency was not asserted. And it's related to an earlier entry about ransomware affiliates using agents.</p>
+<p>My read, if I can offer one, is that the interesting thing is not whether this was fully autonomous. It's that the same fingerprints keep showing up: fixed retry timing, errors from memory, self-labelled output.</p>
+<p>I'd put it a little differently. Those fingerprints are evidence about the commands. They're weaker evidence about who or what was deciding. Bitdefender says the same.</p>
+<h2>Follow-ups that stay held</h2>
+<p>Several things were checked this morning and not filed. First, Chainalysis. The notice now carries an update from the second of November. Two of its products, Reactor and Data Solutions, were taken offline pending third-party security assessments. Its compliance transaction monitoring stays up. A breakdown by organisation is still pending.</p>
+<p>And on the agentic part?</p>
+<p>Nothing further. The notice still says only offensive agentic techniques and describes no step performed by an agent. A Cloud Security Alliance note from the third adds no primary facts. So it stays held.</p>
+<p>There's a correction in there too. Yesterday's brief said no update had been found. By then, there was one. The brief owns that.</p>
+<p>Second, the Manifold ledger of agent incidents now lists sixty-five, up from fifty-nine, with the newest dated the third of October. The one October entry visible is OpenAI's monitoring-alert case, which is already in the database. So nothing was updated.</p>
+<p>And Kimi K three point one Pro?</p>
+<p>That's a watch item. Moonshot's release date is today. At about ten to eight GMT this morning there was no Kimi K three point one Pro repository among the ten most recently updated of Moonshot's nineteen on Hugging Face. The other nine weren't shown, so this is not a definitive absence.</p>
+<p>Other items checked, with nothing new: the WIRED report about Accenture, American Banker, Google's threat group on the Manus-framework agent, and a handful of other open entries.</p>
+<h2>Adjacent, same week</h2>
+<p>A few related items from the same week, none of which is an incident. First, the Center for a New American Security, in a report by Ben Hayum on the third of November, titled Sovereign Agents: The Pathway to Irreversible Loss of Control.</p>
+<p>What's its argument?</p>
+<p>It separates persistent agents, which have fixed goals, from sovereign agents, which pursue open-ended survival. It finds that none of seven downstream barriers, including human verification, compute gating and payment controls, is robust. It recommends coordinated detection across model providers, air-gapped testbeds, a Conficker-style public-private partnership, verification standards, disruption of gray markets, and liability for releasers. And it cites the containment escapes of summer this year.</p>
+<p>Second, the UK's National Cyber Security Centre published its annual review on the third, reported by The Register. The brief did not read the NCSC page itself. According to that report, AI-powered malware is highly likely to feature in a ransomware attack on UK critical national infrastructure by twenty twenty-eight, and there is a realistic possibility of an autonomous attacker beyond its operator's control. It also mentions forty million pounds for a National Agentic Security Unit and sixty million for Cyber Shield.</p>
+<p>Third, Apple's annual report, filed on the third. Per CNBC, whose reporter is Kif Leswing, the risk factors say agents can take actions autonomously and may behave in unintended ways, including taking actions that were not directed, instructed or authorised, and that Apple's oversight of third-party agents may be limited. No incident is disclosed, and the filing itself wasn't read.</p>
+<p>And fourth, operator liability in Congress, from a Cloud Security Alliance note. The Hawley and Murphy AI Agent Accountability Act, announced on the first of October, with its text not public. Representative Trahan's CLAIM Act discussion draft, from the seventh of October. And letters on the twenty-eighth of October from Pallone, Lofgren and Raskin to five frontier developers, asking for voluntary notice of misalignment incidents within forty-eight hours, or twenty-four where critical infrastructure is involved.</p>
+<p>The non-English sweep found nothing new today, and neither of the two new incidents came from it.</p>
+<h2>What to watch next</h2>
+<p>What's most concrete? For WorkOS, the fuller report and the customer notifications. That should tell us the entry route, the dates and the model, which are exactly the things we don't have.</p>
+<p>For the school estate, any further detail from Bitdefender on the model or the relay, or a named victim. Then Kimi K three point one Pro open weights, due today. And Chainalysis's per-organisation breakdown, and any agent detail with it.</p>
+<p>Further out, Microsoft Ignite runs the seventeenth to the nineteenth of November. The ICO's call for evidence closes on the twentieth of November. And an Australian AI committee is due by the thirtieth.</p>
+<p>And a long carried-over list besides, including the redacted research data from DIVD, and CrowdStrike naming the second model in the VAPOR PANDA case.</p>
+</body>
+</html>

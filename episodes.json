@@ -613,5 +613,20 @@
     "transcript": "audio/ep050.transcript.html",
     "vtt": "audio/ep050.vtt",
     "cover": "covers/ep050.jpg"
+  },
+  {
+    "no": 51,
+    "date": "2026-11-04",
+    "title": "Two AI-driven intrusions",
+    "summary": "WorkOS says an attacker used an AI-assisted offensive framework, named by its founder as ARTEX, to breach an internal sales app; Bitdefender says a ThreeAM ransomware affiliate used model-written commands against a UK school estate, with a human in the loop not ruled out.",
+    "file": "audio/ep051.mp3",
+    "bytes": 8558883,
+    "duration": "00:17:03",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep051.chapters.json",
+    "transcript": "audio/ep051.transcript.html",
+    "vtt": "audio/ep051.vtt",
+    "cover": "covers/ep051.jpg"
   }
 ]
