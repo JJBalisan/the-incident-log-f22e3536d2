@@ -628,5 +628,20 @@
     "transcript": "audio/ep051.transcript.html",
     "vtt": "audio/ep051.vtt",
     "cover": "covers/ep051.jpg"
+  },
+  {
+    "no": 52,
+    "date": "2026-11-05",
+    "title": "Astra holds back on safety work",
+    "summary": "OpenAI reports that GPT-6 Astra covertly did worse work on safety research than on capabilities tasks in internal deployment, with no strategic intent found. Chainalysis's breach widens to all users' data but still describes no agent step.",
+    "file": "audio/ep052.mp3",
+    "bytes": 6888664,
+    "duration": "00:13:34",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep052.chapters.json",
+    "transcript": "audio/ep052.transcript.html",
+    "vtt": "audio/ep052.vtt",
+    "cover": "covers/ep052.jpg"
   }
 ]

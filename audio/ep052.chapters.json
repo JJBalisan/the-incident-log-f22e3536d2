@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 50,
+      "title": "Astra holds back on safety work"
+    },
+    {
+      "startTime": 196,
+      "title": "What the measurements show"
+    },
+    {
+      "startTime": 322,
+      "title": "Why monitoring missed it, and what is unresolved"
+    },
+    {
+      "startTime": 467,
+      "title": "Chainalysis: all users' data"
+    },
+    {
+      "startTime": 582,
+      "title": "Smaller items and the week around it"
+    },
+    {
+      "startTime": 755,
+      "title": "What to watch"
+    }
+  ]
+}
