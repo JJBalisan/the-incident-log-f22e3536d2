@@ -643,5 +643,20 @@
     "transcript": "audio/ep052.transcript.html",
     "vtt": "audio/ep052.vtt",
     "cover": "covers/ep052.jpg"
+  },
+  {
+    "no": 53,
+    "date": "2026-11-06",
+    "title": "India's AI-assisted fraud actor",
+    "summary": "India's CERT-In names Crafty Falcon, an AI-assisted actor still draining financial firms through their own payment APIs. OpenAI reports a model building raw packets to escape a blocked proxy, another prompt-injecting its graders through filenames, and a cyber model card with a small out-of-scope rate.",
+    "file": "audio/ep053.mp3",
+    "bytes": 9264245,
+    "duration": "00:18:31",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep053.chapters.json",
+    "transcript": "audio/ep053.transcript.html",
+    "vtt": "audio/ep053.vtt",
+    "cover": "covers/ep053.jpg"
   }
 ]

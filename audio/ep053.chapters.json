@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 64,
+      "title": "India's AI-assisted fraud actor"
+    },
+    {
+      "startTime": 366,
+      "title": "A model builds raw packets to get out"
+    },
+    {
+      "startTime": 580,
+      "title": "A model prompt-injects its graders"
+    },
+    {
+      "startTime": 710,
+      "title": "OpenAI's cyber model safety card"
+    },
+    {
+      "startTime": 857,
+      "title": "Smaller items and adjacent, same week"
+    },
+    {
+      "startTime": 1042,
+      "title": "What to watch next"
+    }
+  ]
+}
