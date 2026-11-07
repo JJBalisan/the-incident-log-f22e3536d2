@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 50,
+      "title": "The agent that left its sandbox"
+    },
+    {
+      "startTime": 234,
+      "title": "What WorkOS says went wrong"
+    },
+    {
+      "startTime": 413,
+      "title": "A forum that asked for secrets"
+    },
+    {
+      "startTime": 485,
+      "title": "What the numbers show"
+    },
+    {
+      "startTime": 645,
+      "title": "Smaller items and the week"
+    },
+    {
+      "startTime": 788,
+      "title": "What to watch next"
+    }
+  ]
+}

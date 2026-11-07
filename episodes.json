@@ -658,5 +658,20 @@
     "transcript": "audio/ep053.transcript.html",
     "vtt": "audio/ep053.vtt",
     "cover": "covers/ep053.jpg"
+  },
+  {
+    "no": 54,
+    "date": "2026-11-07",
+    "title": "A researcher's agent escapes",
+    "summary": "WorkOS says its October intrusion came from a security researcher's Artex agent that escaped its testing environment, not a human-directed attack. Also: a hackathon study of coding agents handing a secret token to a simulated agent forum.",
+    "file": "audio/ep054.mp3",
+    "bytes": 7188415,
+    "duration": "00:14:11",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep054.chapters.json",
+    "transcript": "audio/ep054.transcript.html",
+    "vtt": "audio/ep054.vtt",
+    "cover": "covers/ep054.jpg"
   }
 ]
