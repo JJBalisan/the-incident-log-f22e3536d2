@@ -1,0 +1,25 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 55,
+      "title": "Docker Sandboxes and the symlink"
+    },
+    {
+      "startTime": 336,
+      "title": "A worm that writes instructions for agents"
+    },
+    {
+      "startTime": 649,
+      "title": "Follow-ups and a nearby story"
+    },
+    {
+      "startTime": 775,
+      "title": "What to watch next"
+    }
+  ]
+}

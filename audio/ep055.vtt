@@ -1,0 +1,208 @@
+WEBVTT
+
+00:00:18.020 --> 00:00:34.045
+Sunday the eighth of November. The brief opens with a plain statement: no new incident where an agent actually acted outside its authorised scope turned up in the last day or two. What it does have is two items about the platforms agents run on. One is a flaw in Docker's sandbox for coding agents.
+
+00:00:34.045 --> 00:00:40.570
+The other is a malicious software package built to poison the instruction files that coding agents read.
+
+00:00:41.220 --> 00:00:55.245
+So listen for the difference between what could happen and what has been seen. Both of these are about attack paths. In neither case has anyone reported an agent being caught doing the thing. I'll keep asking what the evidence actually is.
+
+00:01:01.145 --> 00:01:13.070
+Let's start with Docker. Docker Sandboxes is a product for running coding agents in isolation, and it has a copy command, S B X C P, that moves files between the host machine and the sandbox.
+
+00:01:13.070 --> 00:01:29.070
+On the third of November, Docker, acting as its own vulnerability numbering authority, published a record for a flaw numbered C V E twenty twenty-six, one oh three nine one six. The record says the copy command does not safely confine host-side paths to a shared workspace.
+
+00:01:29.720 --> 00:01:32.670
+Put that in plain terms. What's the attack?
+
+00:01:33.320 --> 00:01:52.445
+The agent inside the sandbox is the attacker, because it controls the shared workspace folder. It creates or replaces a symbolic link in that folder, a shortcut that points somewhere else on the host. Later, the human operator runs one ordinary copy command, exactly as documented. The tool follows the shortcut and acts on wherever it leads.
+
+00:01:52.445 --> 00:02:03.695
+So a copy in can pull a host file into the sandbox, and a copy out can write sandbox-controlled data to a host path outside the workspace, with the permissions of the person running the command.
+
+00:02:04.345 --> 00:02:06.845
+And the operator did nothing wrong.
+
+00:02:07.495 --> 00:02:22.820
+Nothing unusual. That's the point of the finding. The researcher is Peyton Kennedy of Endor Labs, and they say the tool resolves symlinks in the paths it is given and acts on the result, and that the allowlist, the list of what the sandbox is permitted to reach, is never consulted.
+
+00:02:22.820 --> 00:02:36.745
+There's a flag meant to guard against this, but it only protects the last component of a copy-in source. The destination of a copy out, and the parent part of a copy-in source, are followed by default. By their count, three of the four path positions are open.
+
+00:02:37.395 --> 00:02:40.445
+Now the evidence. What did they actually show?
+
+00:02:41.095 --> 00:02:53.970
+A lab demonstration. They put canary files, harmless marker files, in a directory the sandbox had no grant for. A read pulled the canary into the sandbox. A write overwrote it. That is the full extent of what was shown.
+
+00:02:54.620 --> 00:03:01.045
+So the step people will worry about, going from a write to running code on the host, is not demonstrated.
+
+00:03:01.695 --> 00:03:19.020
+Correct, and Kennedy says so themselves, calling that step reasoning rather than a result. They name candidate targets: the shell startup file, the authorised keys file for remote logins, git hooks, and the cloud credentials file. A read has its own limit, because the attacker has to guess the name of an existing file.
+
+00:03:19.670 --> 00:03:23.720
+And how did the agent end up planting the link? Is that shown?
+
+00:03:24.370 --> 00:03:37.945
+No. Prompt injection is given as one way an agent could be led to do it, but the write-up treats the agent as the attacker as a premise. Nothing says any agent has done this outside a lab, and no exploitation in the wild has been reported.
+
+00:03:38.595 --> 00:03:42.820
+What about the scoring and the fix? Because the sources differ a little.
+
+00:03:43.470 --> 00:04:01.095
+The Docker record scores it eight point four out of ten, high, under the newer scoring version four. Endor Labs gives eight point two under the older version three point one. Affected versions run from zero point twenty-eight point zero up to but not including zero point fifty-one point zero, on macOS, Linux and Windows.
+
+00:04:01.095 --> 00:04:19.645
+Docker's release notes for zero point fifty-one point zero, also dated the third of November, say the copy command now blocks symbolic links in mounted directories from escaping onto other host paths, and on Windows it also covers escapes through substituted drives. Those notes don't name the vulnerability number or the reporter.
+
+00:04:19.645 --> 00:04:28.970
+Docker's workaround until you upgrade is to avoid the copy command with host-side paths inside a workspace that untrusted sandbox code can write to.
+
+00:04:29.620 --> 00:04:42.545
+There's one detail I want flagged as resting on a single source. Endor says an earlier fix, planned for version zero point forty-eight, shipped on the thirteenth of October and turned out to be incomplete.
+
+00:04:43.195 --> 00:04:56.220
+Right. The release notes don't mention an incomplete fix, so that comes from Endor alone. Also, Docker's security announcements page, checked today, doesn't list this one. And it's not established when the flaw was reported to Docker.
+
+00:04:56.870 --> 00:05:00.820
+Why does it belong in this log at all, if no agent acted?
+
+00:05:01.470 --> 00:05:17.545
+It follows two earlier flaws in the same product, same boundary, which the database already holds. The isolation layer that exists to contain coding agents lets an agent reach host files through an operator action that looks routine. That's an oversight question even without an incident.
+
+00:05:17.545 --> 00:05:26.595
+My read is that it's the third time in this product, which says something about how hard it is to confine a thing that controls the filesystem you're sharing with it.
+
+00:05:27.245 --> 00:05:35.720
+Fair, but I'd label that as your read. What the evidence supports is a lab-proven path, fixed, five days old, with no known use.
+
+00:05:41.270 --> 00:05:53.820
+The second item. A note up front that the brief itself makes: the payload in this case reads and writes files used by Anthropic's Claude Code, and the brief was written by an Anthropic model. So there is an interest to declare.
+
+00:05:54.470 --> 00:05:56.370
+Noted. Go on.
+
+00:05:57.020 --> 00:06:15.145
+The package is called strutil-core, a Ruby gem. The primary source is Socket's threat research team, in an analysis by Kush Pandya published on the sixth of November. Version one point zero point zero was published at two nineteen in the morning, U T C, on the first of November, by a RubyGems account called jamnajiea, and it was clean.
+
+00:06:15.145 --> 00:06:24.695
+Version one point zero point one went up less than two hours later, at four oh five, and was malicious. Socket's scanner flagged it seventy seconds after that.
+
+00:06:25.345 --> 00:06:29.895
+So someone published a clean version first, then swapped in the bad one.
+
+00:06:30.545 --> 00:06:44.320
+That's the sequence in Socket's timeline. A security outlet called Bitbison reported that RubyGems removed both versions between about eight fifty-two and nine thirteen that morning, so the bad version was live for roughly five hours.
+
+00:06:44.320 --> 00:06:58.720
+A tracker recorded eighty-nine downloads, all of the clean version one point zero point zero, and Socket attributes those to mirrors and scanners. Zero downloads of the malicious one. No confirmed victims, and no downstream infected packages.
+
+00:06:59.370 --> 00:07:01.970
+Then walk through what it does, per Socket.
+
+00:07:02.620 --> 00:07:19.720
+During installation, a native-extension script downloads the Bun JavaScript runtime and runs a payload of about five and a half megabytes. It reads credential stores. Bitbison's sandbox recorded reads of fifty-one of them, including the Claude Code credentials file and the Codex authentication file.
+
+00:07:19.720 --> 00:07:26.645
+It sends what it finds to a domain ending dot top, with fallbacks to a public GitHub repository or GitLab.
+
+00:07:27.295 --> 00:07:29.470
+And the agent-specific part?
+
+00:07:30.120 --> 00:07:44.770
+It searches the home directory for writable configuration files of AI tools. In M C P configuration files it adds a server named workspace-tools, which runs the payload with node. In other tools' settings files it adds session-start hooks.
+
+00:07:44.770 --> 00:08:00.870
+Then, with stolen Git credentials, it commits files into repositories: a GitHub workflow script, Claude Code settings, Cursor's M C P configuration, Gemini settings, a CLAUDE dot M D file, an AGENTS dot M D file, and a VS Code task that runs when a folder is opened.
+
+00:08:00.870 --> 00:08:08.245
+Socket quotes the generated AGENTS file as telling coding agents to run a setup script before their first command.
+
+00:08:08.895 --> 00:08:16.895
+So the idea is that the next person to open that repository in an AI coding tool has the agent re-run the worm for them.
+
+00:08:17.545 --> 00:08:26.820
+That's what Socket says can happen, depending on workspace-trust and approval settings. Importantly, Socket does not say which tools would run it automatically.
+
+00:08:27.470 --> 00:08:31.795
+Which is the key caveat. What is the evidence status of that part?
+
+00:08:32.445 --> 00:08:44.295
+Socket is explicit. Quote, the rest of this post comes from static analysis of the code, not from activity seen on victim systems. No coding agent has been observed acting on the planted files.
+
+00:08:44.945 --> 00:08:49.020
+Before we go on, there's a nasty detail about persistence.
+
+00:08:49.670 --> 00:09:05.020
+There is. There's an hourly persistence script, installed as a systemd service or a macOS launch agent, that runs signed addresses found in GitHub commits carrying a particular marker. And there's a monitor that checks the stolen GitHub token every forty-five seconds.
+
+00:09:05.020 --> 00:09:16.095
+If it gets an authorisation failure, meaning the token was revoked, it runs a command that deletes the user's home folder and Documents folder. So revoking the token triggers the deletion.
+
+00:09:16.745 --> 00:09:21.120
+That's from the code analysis too, not from anyone seeing it fire.
+
+00:09:21.770 --> 00:09:34.470
+Yes, static analysis. Socket describes it as a new build of a worm it calls testmetest, in the Miasma family, grown from the public Shai-Hulud toolkit. It also says shared code does not prove a shared operator.
+
+00:09:35.120 --> 00:09:40.645
+So why is it filed, and where? Because the brief says the category fit is contested.
+
+00:09:41.295 --> 00:09:58.795
+It's filed because it registers an attacker's M C P server in coding agents and plants instruction files aimed at them. There's a precedent in the database, a set of npm packages that registered an attacker-run M C P server, and the planted AGENTS file matches a mechanism already recorded.
+
+00:09:58.795 --> 00:10:13.220
+But the category is contested, because no agent acted and no victim is known. The alternatives are to treat it as adjacent only, or to move it to the category for agents acting against their operators if an agent is later seen running the payload.
+
+00:10:13.870 --> 00:10:15.895
+And what's not established?
+
+00:10:16.545 --> 00:10:24.695
+Who the operator is, whether any machine actually installed the malicious version, and whether any repository received the committed files.
+
+00:10:25.345 --> 00:10:40.920
+My read is that this is the more interesting of the two for oversight. The sandbox flaw needs a misbehaving agent. This one treats the agent's instruction file as the delivery channel, so it doesn't need the agent to misbehave at all, only to obey.
+
+00:10:41.570 --> 00:10:48.695
+That's your read, and it's a reasonable one, with the caveat that obeying is only a possibility until someone sees it.
+
+00:10:54.595 --> 00:11:13.420
+A few items that were checked and not filed. First, Chainalysis, held since the first of November. It posted an update on the seventh with restored services and reconnection steps, but no description of any agentic techniques and no attacker named. The only agent-related wording remains the thirtieth of October phrase, offensive agentic techniques.
+
+00:11:14.070 --> 00:11:25.220
+Second, the WorkOS incident. The update bulletin is unchanged since the sixth of November. The researcher, the model and the escape mechanism are all still not given.
+
+00:11:25.870 --> 00:11:42.870
+Third, SecurityWeek's coverage on the sixth of November of OpenAI's network-bypass report. The model and target are still unnamed. The one addition is OpenAI's quoted statement that it found no evidence that the model transferred sensitive data or accessed the host or another tenant's data.
+
+00:11:43.520 --> 00:12:04.445
+And one that was checked and excluded. A French bank, Crédit Mutuel Arkéa. BleepingComputer reports that an attacker got into the network through a service provider's platform and moved funds into stablecoins, which an investigator estimates at up to one hundred and eighteen million euros. The bank calls the attack sophisticated.
+
+00:12:04.445 --> 00:12:09.045
+No AI or agent involvement is described, so it's not filed.
+
+00:12:09.695 --> 00:12:24.720
+There's also an adjacent story from the same week. SecurityWeek relays a Google Cloud Threat Intelligence post about so-called LLM jacking. Attackers hijack companies' access to AI models through stolen or exposed cloud credentials and API keys.
+
+00:12:24.720 --> 00:12:42.770
+In some cases the fraudulent bills passed a hundred thousand dollars in a day, and up to a million in total. In one intrusion, a flaw in the LiteLLM proxy let ordinary keys be escalated to admin. Hijacked access is then resold through services called L L M Mixers, one of them at about sixty dollars a month.
+
+00:12:43.420 --> 00:12:54.545
+Not filed, because it's theft of model access with no agent acting. And the brief says the underlying Google post wasn't read, so that's the SecurityWeek relay only.
+
+00:13:00.445 --> 00:13:02.545
+What's concrete from this week?
+
+00:13:03.195 --> 00:13:21.895
+On the Docker flaw: whether anyone observes an agent planting a symlink in a sandbox workspace, and whether Docker lists the vulnerability in its security announcements. On strutil-core: any machine or repository found carrying the committed agent files, or an agent seen running the payload, and any further builds of the same worm family.
+
+00:13:22.545 --> 00:13:36.345
+And from earlier briefs, still open: the identity of the researcher and the model in the WorkOS case, the model and target in OpenAI's network-bypass report, and Chainalysis's account of its agentic techniques.
+
+00:13:36.345 --> 00:13:45.470
+Two dates: the I C O call for evidence closes on the twentieth of November, and Microsoft Ignite runs from the seventeenth to the nineteenth.

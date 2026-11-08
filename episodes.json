@@ -673,5 +673,20 @@
     "transcript": "audio/ep054.transcript.html",
     "vtt": "audio/ep054.vtt",
     "cover": "covers/ep054.jpg"
+  },
+  {
+    "no": 55,
+    "date": "2026-11-08",
+    "title": "A sandbox symlink and a poisoned gem",
+    "summary": "No new agent-executed incident today. A Docker Sandboxes flaw lets a sandboxed agent plant a symlink so the operator's next copy command touches host files, and a malicious Ruby gem steals AI-tool credentials and plants agent instruction files.",
+    "file": "audio/ep055.mp3",
+    "bytes": 7099703,
+    "duration": "00:14:00",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep055.chapters.json",
+    "transcript": "audio/ep055.transcript.html",
+    "vtt": "audio/ep055.vtt",
+    "cover": "covers/ep055.jpg"
   }
 ]
