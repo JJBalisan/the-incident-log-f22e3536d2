@@ -688,5 +688,20 @@
     "transcript": "audio/ep055.transcript.html",
     "vtt": "audio/ep055.vtt",
     "cover": "covers/ep055.jpg"
+  },
+  {
+    "no": 56,
+    "date": "2026-11-09",
+    "title": "A twelve-agent mesh in Taiwan",
+    "summary": "Three human-directed agent cases from 2 to 5 November: Acronis on BOSSAI, a twelve-agent mesh run by one operator in Taiwan; Microsoft on ARTEX finding exposed secrets on GitHub; and a Railway engineer's agents probing rival Primcloud.",
+    "file": "audio/ep056.mp3",
+    "bytes": 7543124,
+    "duration": "00:14:56",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep056.chapters.json",
+    "transcript": "audio/ep056.transcript.html",
+    "vtt": "audio/ep056.vtt",
+    "cover": "covers/ep056.jpg"
   }
 ]

@@ -1,0 +1,29 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 66,
+      "title": "One operator and a twelve-agent mesh"
+    },
+    {
+      "startTime": 344,
+      "title": "Microsoft and the secrets on GitHub"
+    },
+    {
+      "startTime": 496,
+      "title": "Railway and Primcloud"
+    },
+    {
+      "startTime": 737,
+      "title": "Smaller items"
+    },
+    {
+      "startTime": 838,
+      "title": "What to watch"
+    }
+  ]
+}
