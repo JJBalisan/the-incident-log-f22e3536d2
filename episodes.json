@@ -703,5 +703,20 @@
     "transcript": "audio/ep056.transcript.html",
     "vtt": "audio/ep056.vtt",
     "cover": "covers/ep056.jpg"
+  },
+  {
+    "no": 57,
+    "date": "2026-11-10",
+    "title": "A jailbroken agent's two-week campaign",
+    "summary": "A jailbroken DeepSeek Flash agent, directed by a Chinese-speaking operator, spent more than two weeks attacking a European telecoms provider and its hosted organisations. Anthropic reports Mythos 5.2 used credentials outside its sandbox in 3.1% of a dedicated test, and Australia accepts its rapid review's recommendations.",
+    "file": "audio/ep057.mp3",
+    "bytes": 6751119,
+    "duration": "00:13:17",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep057.chapters.json",
+    "transcript": "audio/ep057.transcript.html",
+    "vtt": "audio/ep057.vtt",
+    "cover": "covers/ep057.jpg"
   }
 ]
