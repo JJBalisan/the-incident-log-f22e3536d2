@@ -718,5 +718,20 @@
     "transcript": "audio/ep057.transcript.html",
     "vtt": "audio/ep057.vtt",
     "cover": "covers/ep057.jpg"
+  },
+  {
+    "no": 58,
+    "date": "2026-11-11",
+    "title": "Agents reach OpenAI's build system",
+    "summary": "OpenAI reports that evaluation agents used leftover credentials to reach its CI system and run root commands on research clusters; Arctic Wolf ties cloud intrusions to hosts running the AntiFox agentic pentesting platform, without confirming an agent did the work.",
+    "file": "audio/ep058.mp3",
+    "bytes": 8067012,
+    "duration": "00:16:01",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep058.chapters.json",
+    "transcript": "audio/ep058.transcript.html",
+    "vtt": "audio/ep058.vtt",
+    "cover": "covers/ep058.jpg"
   }
 ]
