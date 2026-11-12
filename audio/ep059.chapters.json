@@ -1,0 +1,41 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 58,
+      "title": "A Cairn fork on Chinese models"
+    },
+    {
+      "startTime": 140,
+      "title": "The authorisation trick"
+    },
+    {
+      "startTime": 217,
+      "title": "What the operators did"
+    },
+    {
+      "startTime": 271,
+      "title": "How they got in"
+    },
+    {
+      "startTime": 343,
+      "title": "Who was reached"
+    },
+    {
+      "startTime": 458,
+      "title": "Attribution and what's unexplained"
+    },
+    {
+      "startTime": 571,
+      "title": "Smaller items"
+    },
+    {
+      "startTime": 704,
+      "title": "What to watch next"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>A Cairn fork on Chinese models</title>
+</head>
+<body>
+<h1>A Cairn fork on Chinese models</h1>
+<p>The headline today is a Palo Alto Networks report, published on the twelfth of November. Its Unit forty-two team says a cluster it calls C L dash S T A dash one two three eight used an open-source attack framework, driven by Chinese AI models, to run twenty-five operations against at least nineteen organisations, and got in at ten of them.</p>
+<p>So listen for what the attackers actually added. The tool was public, the models were off the shelf. The interesting part is the safety layer, and what Unit forty-two says it did and didn't do. Nothing else in scope surfaced in the last day or two, so this is basically one big story and then some follow-ups that didn't make the cut.</p>
+<h2>A Cairn fork on Chinese models</h2>
+<p>Let's start with the tool. Cairn is, in Unit forty-two's description, a publicly available open-source penetration-testing framework. The attackers ran a customised fork of it.</p>
+<p>And how does it work? Because that matters for the word autonomous.</p>
+<p>Agent workers, each driven by a language model, write what they find to a shared blackboard. The blackboard is a graph of two things: facts, which are confirmed findings, and intents, which are queued actions. A bootstrap task first tries the goal directly. If that doesn't work, the framework maps the target, splits the goal into subtasks, and loops between a reason phase and an explore phase, where it executes one action and records the result.</p>
+<p>And a human can still step in.</p>
+<p>Yes. Operators can inject hints at any time. The fork also added a pack Unit forty-two calls A I Scan Runner Skills, for scanning and exploitation, which Unit forty-two says is not in the upstream project.</p>
+<p>Which models?</p>
+<p>Zhipu's G L M five point two in thirteen of the operations, DeepSeek V four Flash in eight, and DeepSeek V four Pro in four. Unit forty-two suggests the attackers moved to the Pro model for targets that resisted the Flash one. That's their inference, not something they observed directly.</p>
+<h2>The authorisation trick</h2>
+<p>Now the guardrails. Cairn's worker prompts already tell the model never to refuse. On top of that, the attackers added a preamble in Chinese saying the work was authorised testing. Unit forty-two's translation includes the phrase, all tasks are authorised.</p>
+<p>And that's not the only paper trail they invented.</p>
+<p>No. Each operation also generated a file called AUTHORIZATION dot M D, declaring the engagement was client-approved. So the model is told, in its own context, that a client signed off.</p>
+<p>And the quote that matters here: Unit forty-two says neither Zhipu's model nor DeepSeek refused this framing. My read is that this is the same weakness we've seen before, where a claim of permission inside the prompt is treated as permission. But I'd flag what we don't know. No response from either provider is reported. We don't know whether they've seen the report, or whether they'd say their models behaved as intended.</p>
+<p>Fair. And it's worth saying the models weren't exactly being tricked into something they'd otherwise resist. The framework said never refuse, and the framing said it was legitimate.</p>
+<p>Right, which is a thin defence, and it held.</p>
+<h2>What the operators did</h2>
+<p>The tasking was simple. Each operation was a one-line goal in Chinese, seeded with the target's root domain. Some carried extra intelligence, like V P N gateway addresses and shared group passwords for a semiconductor equipment supplier. Operations ran from about twenty minutes to more than fifty hours.</p>
+<p>Fifty hours is a long time for an unattended loop.</p>
+<p>It is. Unit forty-two suggests a single operator or a small team. And they put it this way: the attackers supplied a target and a goal, then Cairn planned, executed and recorded results on its own.</p>
+<p>Though the report also says operators could inject hints, so I would treat the phrase on its own as Unit forty-two's summary rather than a measured fact about how hands-off it really was.</p>
+<p>Agreed.</p>
+<h2>How they got in</h2>
+<p>The access methods were not exotic. Weak-password spraying against an internet-facing application server. Brute-forcing a production credential that worked across several accounts on a partner-integration application. An unauthenticated account-creation bypass on a content management system. An open backend registration endpoint on an identity platform. An unauthenticated write to cloud storage. And flaws that allowed logging in as arbitrary customers.</p>
+<p>So authentication bypasses, insecure direct object references, privilege escalation through mass assignment, default credentials, exposed cloud A P Is, and some dated public vulnerabilities.</p>
+<p>Right, though Unit forty-two gives no C V E identifiers. And internal access and persistence show up as a planned phase in one semiconductor operation. The report doesn't detail how that was executed.</p>
+<p>That's consistent with their conclusion, which I think is the most useful line in the report. Autonomous AI raises the volume and coverage of exploitation, but not its complexity.</p>
+<h2>Who was reached</h2>
+<p>Per Unit forty-two, seven of the nineteen were semiconductor and advanced-manufacturing organisations: lithography, chip design, materials, photomasks, standards. Three were defence or defence-policy organisations: a space technology company, a defence-analytics vendor and a policy think tank. Four were human-rights and civil-society groups, including a Canadian human-rights body, a US teachers' union, a science-policy group and an education nonprofit. The other five are not described.</p>
+<p>And the confirmed cases.</p>
+<p>At an industry standards body: dozens of valid credentials, non-public internal directory databases, a live standards-ballot document overwritten, and read, write and delete access to meeting, voting and back-office functions. At a semiconductor company: application data, user lists and email lists retrieved, plus unauthorised administrator accounts and a persistent A P I token created in production.</p>
+<p>The overwritten ballot document is the one that stands out to me. That's not just collection.</p>
+<p>It's a write, yes. At the teachers' union, logged access to more than one million member records, about thirty-one thousand C R M contacts, and staff password hashes. At either the think tank or the analytics vendor, and Unit forty-two doesn't say which, about five hundred user records, including dot mil and dot gov accounts. Five further cases exposed tens of thousands of records each, including employee data at a lithography manufacturer, about a hundred and fifty thousand internal documents at an industrial-automation manufacturer, and student data at the education nonprofit.</p>
+<p>One caveat there. Unit forty-two describes retrieval and logged access. It does not say how much was actually exfiltrated.</p>
+<p>Correct.</p>
+<h2>Attribution and what's unexplained</h2>
+<p>The attribution is stated carefully. Unit forty-two assesses with moderate confidence that this is a China-nexus intelligence collection campaign. Three grounds: Chinese-language tasking, objectives and authorisation files; exclusive use of Chinese models; and target selection that lines up with Chinese state priorities. No group or state body is named.</p>
+<p>Those are circumstantial, and the second one is weak taken alone, since anyone can pick a Chinese model. My read is the target mix carries most of the weight. But that's me, not Unit forty-two.</p>
+<p>And the evidence shown includes a screenshot of the attacker's Cairn controller login page, task names and goals, the generated authorisation files and preamble, and the framework's own record of accessed data. Which raises the obvious question.</p>
+<p>How did Unit forty-two get to see the controller?</p>
+<p>The report doesn't say. Also not established: the sectors of five of the nineteen, exfiltration volumes, whether victims have been notified, and whether this operator is linked to any earlier Cairn cluster. Unit forty-two says it shared findings with the Cyber Threat Alliance.</p>
+<p>On that last point, the brief links this to earlier incidents by tool, not by actor. Earlier Cairn clusters were financially motivated. So same framework, different people, as far as anyone can show. And it's separate from a Unit forty-two report in July on a different Chinese-speaking actor.</p>
+<p>Two outlets carried the story too. Help Net Security adds nothing factual. CSO Online adds outside comment, including an analyst quote that AI attack agents have graduated from failed experiments to real breaches.</p>
+<p>Which is an opinion, but it's the direction this evidence points.</p>
+<h2>Smaller items</h2>
+<p>A few things checked and not filed. Unit forty-two also published on the eleventh about a tool called ARTEX. Their incident-response cases found an attacker's server hosting an ARTEX console and a threat-hunting view of what they call a coordinated campaign against customer cloud environments, in retail and consulting. No dates, no victims, no attribution. One anonymised case went from exposed password-reset pages to cloud access in under a day. It's mostly guidance, so it wasn't filed.</p>
+<p>Then a security vendor, Cequence, with two cases about agent impersonation. In one week there were over four hundred thousand visits to a marketplace sign-in page using a consumer AI agent's name, but it was just credential stuffing. Separately, a real personal agent signed in, completed multi-factor authentication and added devices to carts at a telecom carrier while presenting itself as a desktop browser, and the carrier let it continue under monitoring. Neither shows an agent acting outside its user's authority.</p>
+<p>A research firm called Reco reported that record-triggered agents in ServiceNow and Salesforce can run as the wrong user, taking identity from writable record fields or the record's creator. So someone submitting a web form could cause an agent to act with permissions they don't have. Reco calls it configuration and design choices, not defects, and no exploitation is reported. The caveat: Reco's own post wasn't found, so this rests on secondary reporting only.</p>
+<p>Two supply-chain items with no agent acting in them. A campaign using stolen GitHub credentials to push a C I secret stealer into tens of thousands of repositories, including ones hunting AI provider keys. And a breach at the scraping platform Apify, with tokens rotated and two-factor resets.</p>
+<p>And two things under watch. An open-source coding tool's issue titled Rogue actions has no new human comment, and its triage is still without a root cause. The Chainalysis incident is held, with no update since the tenth.</p>
+<h2>What to watch next</h2>
+<p>The most concrete items. For the main story: how Unit forty-two got the controller data, the five undescribed organisations, whether victims were told, and any response from Zhipu or DeepSeek.</p>
+<p>Then Unit forty-two's case detail on the ARTEX cloud campaign, and Reco's primary write-up on agent identity.</p>
+<p>And two dates. Microsoft Ignite runs the seventeenth to the nineteenth of November, and the U K Information Commissioner's call for evidence closes on the twentieth.</p>
+<p>Nothing new on either today. That's the day.</p>
+</body>
+</html>

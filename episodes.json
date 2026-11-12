@@ -733,5 +733,20 @@
     "transcript": "audio/ep058.transcript.html",
     "vtt": "audio/ep058.vtt",
     "cover": "covers/ep058.jpg"
+  },
+  {
+    "no": 59,
+    "date": "2026-11-12",
+    "title": "A Cairn fork on Chinese models",
+    "summary": "Unit 42 reports a China-nexus cluster ran a customised Cairn fork on Zhipu GLM and DeepSeek models in 25 operations, with access confirmed at 10 organisations; plus ARTEX, agent impersonation and agent-identity follow-ups.",
+    "file": "audio/ep059.mp3",
+    "bytes": 6461216,
+    "duration": "00:12:40",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep059.chapters.json",
+    "transcript": "audio/ep059.transcript.html",
+    "vtt": "audio/ep059.vtt",
+    "cover": "covers/ep059.jpg"
   }
 ]
