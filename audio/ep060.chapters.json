@@ -1,0 +1,25 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 45,
+      "title": "An agent stops its own evaluation"
+    },
+    {
+      "startTime": 334,
+      "title": "A lawsuit to freeze frontier development"
+    },
+    {
+      "startTime": 425,
+      "title": "Smaller items and the same week"
+    },
+    {
+      "startTime": 529,
+      "title": "What to watch next"
+    }
+  ]
+}

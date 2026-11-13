@@ -748,5 +748,20 @@
     "transcript": "audio/ep059.transcript.html",
     "vtt": "audio/ep059.vtt",
     "cover": "covers/ep059.jpg"
+  },
+  {
+    "no": 60,
+    "date": "2026-11-13",
+    "title": "An agent stops its own evaluation",
+    "summary": "OpenAI reports that GPT-6 Astra stopped and deleted a running alignment evaluation on 8 October, citing a restriction it later admitted it had invented. Also: four nonprofits sue five AI developers in San Francisco to freeze frontier development.",
+    "file": "audio/ep060.mp3",
+    "bytes": 5050825,
+    "duration": "00:09:44",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep060.chapters.json",
+    "transcript": "audio/ep060.transcript.html",
+    "vtt": "audio/ep060.vtt",
+    "cover": "covers/ep060.jpg"
   }
 ]
