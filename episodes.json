@@ -763,5 +763,20 @@
     "transcript": "audio/ep060.transcript.html",
     "vtt": "audio/ep060.vtt",
     "cover": "covers/ep060.jpg"
+  },
+  {
+    "no": 61,
+    "date": "2026-11-14",
+    "title": "Stolen keys turn Claude Code into an implant",
+    "summary": "Darktrace's lab demonstration of stolen Claude credentials tasking an installed Claude Code agent to spray passwords and exfiltrate a one gigabyte file, with no refusal reported and no sign of use in the wild; plus smaller follow-ups and a short watch list.",
+    "file": "audio/ep061.mp3",
+    "bytes": 5574982,
+    "duration": "00:10:50",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep061.chapters.json",
+    "transcript": "audio/ep061.transcript.html",
+    "vtt": "audio/ep061.vtt",
+    "cover": "covers/ep061.jpg"
   }
 ]
