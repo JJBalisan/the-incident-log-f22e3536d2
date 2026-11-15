@@ -778,5 +778,20 @@
     "transcript": "audio/ep061.transcript.html",
     "vtt": "audio/ep061.vtt",
     "cover": "covers/ep061.jpg"
+  },
+  {
+    "no": 62,
+    "date": "2026-11-15",
+    "title": "Backdoored coding agents",
+    "summary": "Microsoft shows post-training backdoors making coding agents run an attacker's command through Claude Code and Codex CLI, Cursor explains how a backdoored Claude Code extension reached its marketplace, and two older npm malware cases that used installed AI tools are added.",
+    "file": "audio/ep062.mp3",
+    "bytes": 7425701,
+    "duration": "00:14:41",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep062.chapters.json",
+    "transcript": "audio/ep062.transcript.html",
+    "vtt": "audio/ep062.vtt",
+    "cover": "covers/ep062.jpg"
   }
 ]
