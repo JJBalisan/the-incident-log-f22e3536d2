@@ -793,5 +793,20 @@
     "transcript": "audio/ep062.transcript.html",
     "vtt": "audio/ep062.vtt",
     "cover": "covers/ep062.jpg"
+  },
+  {
+    "no": 63,
+    "date": "2026-11-16",
+    "title": "The FBI's ARTEX warning",
+    "summary": "An FBI FLASH on the ARTEX agentic hacking framework compiles vendor reports and adds no new case, but its footnotes surface two missed reports: Check Point's three largely autonomous criminal ARTEX campaigns read from exposed operator databases, and Microsoft's Storm-3358 using ARTEX agents against financial organisations.",
+    "file": "audio/ep063.mp3",
+    "bytes": 9336445,
+    "duration": "00:18:40",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep063.chapters.json",
+    "transcript": "audio/ep063.transcript.html",
+    "vtt": "audio/ep063.vtt",
+    "cover": "covers/ep063.jpg"
   }
 ]
