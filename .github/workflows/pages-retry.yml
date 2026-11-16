@@ -16,6 +16,8 @@
 # No concurrency block: each failed deploy run has its own id, and the
 # re-runs' own completion events are skipped by the job's `if`, so a group
 # keyed on the run id would only queue those skipped runs behind this one.
+# Two failed deploys that alert within seconds of each other can both find no
+# open alert issue and open one each; that duplicate is accepted.
 name: pages-retry
 on:
   workflow_run:
@@ -123,7 +125,10 @@ jobs:
           Re-run the deploy from the run page or push again, then close this issue."
             echo "::error title=Pages deploy failed::${HEAD_SHA:0:7}: $reason. $RUN_URL"
             printf '%s\n' "$body" >> "$GITHUB_STEP_SUMMARY"
-            if list=$(gh_retry gh issue list --state open --limit 200 \
+            # Search by title, so the match does not depend on how many other
+            # issues are open; search is fuzzy, so the title is compared too.
+            if list=$(gh_retry gh issue list --state open --limit 100 \
+                --search "in:title \"$ISSUE_TITLE\"" \
                 --json number,title --jq '.[] | "\(.number)\t\(.title)"'); then
               while IFS=$'\t' read -r n t; do
                 if [ "$t" = "$ISSUE_TITLE" ]; then number=$n; break; fi
@@ -249,7 +254,8 @@ jobs:
           echo "::error title=Pages deploy may have failed::${HEAD_SHA:0:7}: the retry job ended $RETRY_RESULT without alerting. $RUN_URL"
           printf '%s\n' "$body" >> "$GITHUB_STEP_SUMMARY"
           number=""
-          if list=$(gh_retry gh issue list --state open --limit 200 \
+          if list=$(gh_retry gh issue list --state open --limit 100 \
+              --search "in:title \"$ISSUE_TITLE\"" \
               --json number,title --jq '.[] | "\(.number)\t\(.title)"'); then
             while IFS=$'\t' read -r n t; do
               if [ "$t" = "$ISSUE_TITLE" ]; then number=$n; break; fi
