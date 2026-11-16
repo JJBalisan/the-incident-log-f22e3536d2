@@ -28,7 +28,9 @@ jobs:
        github.event.workflow_run.conclusion == 'timed_out') &&
       github.event.workflow_run.run_attempt == 1
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    # Two re-runs at most, each 60 s + up to POLL_LIMIT + gh retries, so the
+    # step reaches its own failure path well before this limit.
+    timeout-minutes: 60
     env:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
@@ -37,32 +39,83 @@ jobs:
       HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
       BRANCH: ${{ github.event.workflow_run.head_branch }}
       MAX_ATTEMPTS: 3
+      POLL_LIMIT: 1200 # seconds to wait for one re-run to finish
     steps:
       - name: Re-run the failed deploy, at most MAX_ATTEMPTS in all
         run: |
+          # gh_retry CMD...: run a gh call up to 3 times, 10 s apart, so one
+          # 5xx or rate-limit response does not end the step.
+          gh_retry() {
+            local try=1
+            until "$@"; do
+              if [ "$try" -ge 3 ]; then
+                echo "::warning::'$*' failed 3 times." >&2
+                return 1
+              fi
+              echo "::warning::'$*' failed (try $try of 3); retrying in 10 s." >&2
+              try=$((try + 1))
+              sleep 10
+            done
+          }
+
+          # rerun N: start re-run attempt N, up to 3 tries. A call that errors
+          # may still have started the re-run, so check before trying again.
+          rerun() {
+            local try=1 seen
+            until gh run rerun "$RUN_ID" --failed; do
+              seen=$(gh run view "$RUN_ID" --json attempt --jq .attempt) || seen=0
+              if [ "$seen" -ge "$1" ] 2>/dev/null; then return 0; fi
+              if [ "$try" -ge 3 ]; then
+                echo "::warning::gh run rerun failed 3 times." >&2
+                return 1
+              fi
+              echo "::warning::gh run rerun failed (try $try of 3); retrying in 10 s." >&2
+              try=$((try + 1))
+              sleep 10
+            done
+          }
+
           attempt=1
+          reason="the deploy failed $MAX_ATTEMPTS times"
           while [ "$attempt" -lt "$MAX_ATTEMPTS" ]; do
             sleep 60
             # A newer push has its own deploy, which carries this commit too;
             # re-running this one would put the older site back. Checked after
             # the wait, so a push during it counts.
-            tip=$(gh api "repos/$GH_REPO/branches/$BRANCH" --jq .commit.sha)
+            if ! tip=$(gh_retry gh api "repos/$GH_REPO/branches/$BRANCH" --jq .commit.sha); then
+              reason="could not read the tip of $BRANCH to decide whether to re-run"
+              break
+            fi
             if [ "$tip" != "$HEAD_SHA" ]; then
               echo "::notice::$BRANCH moved to $tip; its own deploy supersedes $HEAD_SHA."
               exit 0
             fi
-            gh run rerun "$RUN_ID" --failed
+            if ! rerun $((attempt + 1)); then
+              reason="could not start re-run attempt $((attempt + 1))"
+              break
+            fi
             attempt=$((attempt + 1))
             echo "Re-running $RUN_URL (attempt $attempt of $MAX_ATTEMPTS)"
+            waited=0
             while :; do
               sleep 30
-              state=$(gh run view "$RUN_ID" --json attempt,status,conclusion \
-                --jq '"\(.attempt) \(.status) \(.conclusion)"')
-              read -r seen status conclusion <<< "$state"
-              if [ "$seen" -eq "$attempt" ] && [ "$status" = completed ]; then
+              waited=$((waited + 30))
+              # A failed read is tried again on the next pass, up to POLL_LIMIT.
+              if state=$(gh run view "$RUN_ID" --json attempt,status,conclusion \
+                  --jq '"\(.attempt) \(.status) \(.conclusion)"'); then
+                read -r seen status conclusion <<< "$state"
+                if [ "$seen" = "$attempt" ] && [ "$status" = completed ]; then
+                  break
+                fi
+              else
+                echo "::warning::Could not read the run's state; trying again in 30 s." >&2
+              fi
+              if [ "$waited" -ge "$POLL_LIMIT" ]; then
+                conclusion="unfinished after ${POLL_LIMIT}s"
                 break
               fi
             done
+            echo "Attempt $attempt: $conclusion"
             # failure and timed_out are retried; cancelled is left alone.
             case $conclusion in
               success)
@@ -71,9 +124,12 @@ jobs:
               cancelled)
                 echo "::notice::Attempt $attempt was cancelled, by hand or by a newer deploy; stopping."
                 exit 0 ;;
+              unfinished*)
+                reason="attempt $attempt did not finish within ${POLL_LIMIT}s"
+                break ;;
             esac
           done
-          msg="Pages deploy for $HEAD_SHA failed $MAX_ATTEMPTS times, so that push is not live. $RUN_URL"
+          msg="Pages deploy for $HEAD_SHA did not go out ($reason), so that push is not live. $RUN_URL"
           echo "::error title=Pages deploy failed::$msg"
           echo "**Pages deploy failed:** $msg" >> "$GITHUB_STEP_SUMMARY"
           exit 1
