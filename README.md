@@ -6,4 +6,6 @@ GitHub Pages needs that; the name is random and the page carries noindex.
 Treat the feed URL as a secret.
 
 This repo holds data only: `show.json`, `episodes.json`, `feed.xml`, covers
-and audio. The task publishes with the shared kit (`podcast-kit`).
+and audio. The task publishes with the shared kit (`podcast-kit`). The one
+workflow, `pages-retry`, re-runs a failed Pages deploy up to twice and fails
+loudly if it still does not go out.
