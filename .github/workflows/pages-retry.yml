@@ -102,7 +102,8 @@ jobs:
             done
           }
 
-          attempt=1
+          attempt=1  # attempts started
+          recorded=1 # attempts whose result is in history
           history="- Attempt 1: $FIRST_CONCLUSION ($RUN_URL/attempts/1)"
           reason=""
 
@@ -113,6 +114,11 @@ jobs:
           alert() {
             local body list n t number=""
             reason=${reason:-the retry step stopped on an unexpected error; see the run log}
+            # An attempt that was started but never read back is listed too.
+            if [ "$recorded" -lt "$attempt" ]; then
+              history="$history
+          - Attempt $attempt: started, result unknown ($RUN_URL/attempts/$attempt)"
+            fi
             body="Pages deploy for \`${HEAD_SHA:0:7}\` did not go out, so that push is not live.
 
           - Episode/commit: ${COMMIT_MSG%%$'\n'*}
@@ -192,6 +198,7 @@ jobs:
             echo "Attempt $attempt: $conclusion"
             history="$history
           - Attempt $attempt: $conclusion ($RUN_URL/attempts/$attempt)"
+            recorded=$attempt
             # failure and timed_out are retried; cancelled is left alone.
             case $conclusion in
               success)
