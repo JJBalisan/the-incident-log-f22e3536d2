@@ -1,0 +1,278 @@
+# .github/workflows/pages-retry.yml: retry a failed Pages deploy, then open an issue.
+# GitHub's own "pages build and deployment" run (legacy build) gives up after
+# one 10-minute deploy timeout and nothing re-runs it: episode 53's deploy
+# timed out at syncing_files and the episode went out about 23 h late with no
+# alert. This re-runs the failed jobs up to MAX_ATTEMPTS in all. If the deploy
+# still has not gone out (or this step fails for any other reason), it opens a
+# GitHub issue titled ISSUE_TITLE with the episode/commit, the run link and
+# each attempt's result; if an issue with that title is already open, it
+# comments there instead. The issue is the alert: it notifies the repo's
+# watchers, which a red workflow run alone did not do for episode 53. The run
+# still ends failed, with the same text as an error and in the step summary.
+# If the retry job ends failed or cancelled without having posted that alert
+# (killed at timeout-minutes, cancelled, or its issue calls failed), the
+# `alert` job posts a shorter one instead.
+#
+# No concurrency block: each failed deploy run has its own id, and the
+# re-runs' own completion events are skipped by the job's `if`, so a group
+# keyed on the run id would only queue those skipped runs behind this one.
+# Two failed deploys that alert within seconds of each other can both find no
+# open alert issue and open one each; that duplicate is accepted.
+name: pages-retry
+on:
+  workflow_run:
+    # The workflow's name; its runs are titled "pages build and deployment".
+    workflows: [pages-build-deployment]
+    types: [completed]
+permissions:
+  actions: write
+  contents: read
+  issues: write # the alert issue
+env:
+  GH_TOKEN: ${{ github.token }}
+  GH_REPO: ${{ github.repository }}
+  RUN_URL: ${{ github.event.workflow_run.html_url }}
+  HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+  # Passed through env, never inlined into the scripts.
+  COMMIT_MSG: ${{ github.event.workflow_run.head_commit.message }}
+  SERVER_URL: ${{ github.server_url }}
+  ISSUE_TITLE: Pages deploy failed after retries
+  GH_TIMEOUT: 30 # seconds before one gh call is killed; gh has no HTTP timeout
+
+jobs:
+  retry:
+    # Only the first attempt: the re-runs below are watched by this same job.
+    # A cancelled deploy was stopped on purpose or superseded: left alone.
+    if: >-
+      (github.event.workflow_run.conclusion == 'failure' ||
+       github.event.workflow_run.conclusion == 'timed_out') &&
+      github.event.workflow_run.run_attempt == 1
+    runs-on: ubuntu-latest
+    # Worst case, with every gh call hanging until GH_TIMEOUT (+5 s to kill)
+    # and every retry used: each of the 2 re-runs is 60 s wait + 125 s branch
+    # check + 230 s re-run + POLL_LIMIT + 65 s polling = 1380 s, then 250 s
+    # for the alert: about 50 min. The step reaches its own alert well before
+    # this limit; if it is killed anyway, the alert job covers it.
+    timeout-minutes: 70
+    outputs:
+      alerted: ${{ steps.retry.outputs.alerted }}
+    env:
+      RUN_ID: ${{ github.event.workflow_run.id }}
+      FIRST_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+      BRANCH: ${{ github.event.workflow_run.head_branch }}
+      MAX_ATTEMPTS: 3
+      POLL_LIMIT: 900 # seconds to wait for one re-run to finish
+    steps:
+      - name: Re-run the failed deploy, at most MAX_ATTEMPTS in all; open an issue if it never goes out
+        id: retry
+        run: |
+          # Every gh call below goes through this, so a hung request cannot
+          # use up the job's time. timeout runs the gh binary, not this function.
+          gh() { timeout -k 5 "$GH_TIMEOUT" gh "$@"; }
+
+          # gh_retry CMD...: run a gh call up to 3 times, 10 s apart, so one
+          # 5xx or rate-limit response does not end the step.
+          gh_retry() {
+            local try=1 what="$1 $2 $3"
+            until "$@"; do
+              if [ "$try" -ge 3 ]; then
+                echo "::warning::'$what' failed 3 times." >&2
+                return 1
+              fi
+              echo "::warning::'$what' failed (try $try of 3); retrying in 10 s." >&2
+              try=$((try + 1))
+              sleep 10
+            done
+          }
+
+          # rerun N: start re-run attempt N, up to 3 tries. A call that errors
+          # may still have started the re-run, so check before trying again.
+          rerun() {
+            local try=1 seen
+            until gh run rerun "$RUN_ID" --failed; do
+              seen=$(gh run view "$RUN_ID" --json attempt --jq .attempt) || seen=0
+              if [ "$seen" -ge "$1" ] 2>/dev/null; then return 0; fi
+              if [ "$try" -ge 3 ]; then
+                echo "::warning::gh run rerun failed 3 times." >&2
+                return 1
+              fi
+              echo "::warning::gh run rerun failed (try $try of 3); retrying in 10 s." >&2
+              try=$((try + 1))
+              sleep 10
+            done
+          }
+
+          attempt=1  # attempts started
+          recorded=1 # attempts whose result is in history
+          history="- Attempt 1: $FIRST_CONCLUSION ($RUN_URL/attempts/1)"
+          reason=""
+
+          # alert: write the error and step summary, then open the alert issue,
+          # or comment on the open one with the same title. The EXIT trap
+          # below runs it on any failing exit, planned or not. Once the issue
+          # call succeeds it sets the alerted output, which keeps the alert job out.
+          alert() {
+            local body list n t number=""
+            reason=${reason:-the retry step stopped on an unexpected error; see the run log}
+            # An attempt that was started but never read back is listed too.
+            if [ "$recorded" -lt "$attempt" ]; then
+              history="$history
+          - Attempt $attempt: started, result unknown ($RUN_URL/attempts/$attempt)"
+            fi
+            body="Pages deploy for \`${HEAD_SHA:0:7}\` did not go out, so that push is not live.
+
+          - Episode/commit: ${COMMIT_MSG%%$'\n'*}
+          - Commit: $SERVER_URL/$GH_REPO/commit/$HEAD_SHA
+          - Run: $RUN_URL
+          - Why: $reason
+          - Attempts: $attempt of $MAX_ATTEMPTS
+          $history
+
+          Re-run the deploy from the run page or push again, then close this issue."
+            echo "::error title=Pages deploy failed::${HEAD_SHA:0:7}: $reason. $RUN_URL"
+            printf '%s\n' "$body" >> "$GITHUB_STEP_SUMMARY"
+            # Search by title, so the match does not depend on how many other
+            # issues are open; search is fuzzy, so the title is compared too.
+            if list=$(gh_retry gh issue list --state open --limit 100 \
+                --search "in:title \"$ISSUE_TITLE\"" \
+                --json number,title --jq '.[] | "\(.number)\t\(.title)"'); then
+              while IFS=$'\t' read -r n t; do
+                if [ "$t" = "$ISSUE_TITLE" ]; then number=$n; break; fi
+              done <<< "$list"
+            fi
+            # A create that errors after the issue was made can leave a
+            # duplicate; that beats no alert.
+            if [ -n "$number" ]; then
+              if gh_retry gh issue comment "$number" --body "$body"; then
+                echo "alerted=true" >> "$GITHUB_OUTPUT"
+              else
+                echo "::error::Could not comment on alert issue #$number."
+              fi
+            elif gh_retry gh issue create --title "$ISSUE_TITLE" --body "$body"; then
+              echo "alerted=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "::error::Could not open the alert issue."
+            fi
+          }
+          trap 'rc=$?; if [ "$rc" -ne 0 ]; then set +e; alert; fi; exit "$rc"' EXIT
+
+          while [ "$attempt" -lt "$MAX_ATTEMPTS" ]; do
+            sleep 60
+            # A newer push has its own deploy, which carries this commit too;
+            # re-running this one would put the older site back. Checked after
+            # the wait, so a push during it counts.
+            if ! tip=$(gh_retry gh api "repos/$GH_REPO/branches/$BRANCH" --jq .commit.sha); then
+              reason="could not read the tip of $BRANCH to decide whether to re-run"
+              break
+            fi
+            if [ "$tip" != "$HEAD_SHA" ]; then
+              echo "::notice::$BRANCH moved to $tip; its own deploy supersedes $HEAD_SHA."
+              exit 0
+            fi
+            if ! rerun $((attempt + 1)); then
+              reason="could not start re-run attempt $((attempt + 1))"
+              break
+            fi
+            attempt=$((attempt + 1))
+            echo "Re-running $RUN_URL (attempt $attempt of $MAX_ATTEMPTS)"
+            # Bounded by the clock rather than by counting sleeps, so slow gh
+            # calls count towards POLL_LIMIT too.
+            poll_end=$((SECONDS + POLL_LIMIT))
+            while :; do
+              sleep 30
+              # A failed read is tried again on the next pass, up to POLL_LIMIT.
+              if state=$(gh run view "$RUN_ID" --json attempt,status,conclusion \
+                  --jq '"\(.attempt) \(.status) \(.conclusion)"'); then
+                read -r seen status conclusion <<< "$state"
+                if [ "$seen" = "$attempt" ] && [ "$status" = completed ]; then
+                  break
+                fi
+              else
+                echo "::warning::Could not read the run's state; trying again in 30 s." >&2
+              fi
+              if [ "$SECONDS" -ge "$poll_end" ]; then
+                conclusion="unfinished after ${POLL_LIMIT}s"
+                break
+              fi
+            done
+            echo "Attempt $attempt: $conclusion"
+            history="$history
+          - Attempt $attempt: $conclusion ($RUN_URL/attempts/$attempt)"
+            recorded=$attempt
+            # failure and timed_out are retried; cancelled is left alone.
+            case $conclusion in
+              success)
+                echo "::notice::Pages deploy for $HEAD_SHA succeeded on attempt $attempt."
+                exit 0 ;;
+              cancelled)
+                echo "::notice::Attempt $attempt was cancelled, by hand or by a newer deploy; stopping."
+                exit 0 ;;
+              unfinished*)
+                reason="attempt $attempt did not finish within ${POLL_LIMIT}s"
+                break ;;
+            esac
+          done
+          reason=${reason:-the deploy failed $MAX_ATTEMPTS times}
+          exit 1 # the EXIT trap opens or comments on the alert issue
+
+  alert:
+    # The retry step alerts on its own failing exit. This covers the cases
+    # where it could not: the job was killed at timeout-minutes or cancelled,
+    # so the EXIT trap never ran, or its issue calls failed. A skipped or
+    # successful retry job never gets here.
+    needs: retry
+    if: >-
+      always() &&
+      (needs.retry.result == 'failure' || needs.retry.result == 'cancelled') &&
+      needs.retry.outputs.alerted != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      issues: write
+    env:
+      RETRY_RESULT: ${{ needs.retry.result }}
+      ALERTED: ${{ needs.retry.outputs.alerted }}
+    steps:
+      - name: Open or comment on the alert issue
+        run: |
+          # Also checked here, not only in the job's `if`.
+          if [ "$ALERTED" = true ]; then
+            echo "The retry job already posted its alert."
+            exit 0
+          fi
+          # As in the retry job: time-limited gh, 3 tries 10 s apart.
+          gh() { timeout -k 5 "$GH_TIMEOUT" gh "$@"; }
+          gh_retry() {
+            local try=1
+            until "$@"; do
+              if [ "$try" -ge 3 ]; then return 1; fi
+              try=$((try + 1))
+              sleep 10
+            done
+          }
+          body="Pages deploy for \`${HEAD_SHA:0:7}\` may not have gone out: the retry job ended $RETRY_RESULT before it could post its own alert (killed at its time limit, cancelled, or its issue calls failed).
+
+          - Episode/commit: ${COMMIT_MSG%%$'\n'*}
+          - Commit: $SERVER_URL/$GH_REPO/commit/$HEAD_SHA
+          - Deploy run: $RUN_URL
+          - Retry run: $SERVER_URL/$GH_REPO/actions/runs/$GITHUB_RUN_ID
+
+          Check the deploy run. If it did not succeed, re-run it from the run page or push again, then close this issue."
+          echo "::error title=Pages deploy may have failed::${HEAD_SHA:0:7}: the retry job ended $RETRY_RESULT without alerting. $RUN_URL"
+          printf '%s\n' "$body" >> "$GITHUB_STEP_SUMMARY"
+          number=""
+          if list=$(gh_retry gh issue list --state open --limit 100 \
+              --search "in:title \"$ISSUE_TITLE\"" \
+              --json number,title --jq '.[] | "\(.number)\t\(.title)"'); then
+            while IFS=$'\t' read -r n t; do
+              if [ "$t" = "$ISSUE_TITLE" ]; then number=$n; break; fi
+            done <<< "$list"
+          fi
+          if [ -n "$number" ]; then
+            gh_retry gh issue comment "$number" --body "$body" && exit 0
+            echo "::error::Could not comment on alert issue #$number."
+          else
+            gh_retry gh issue create --title "$ISSUE_TITLE" --body "$body" && exit 0
+            echo "::error::Could not open the alert issue."
+          fi
+          exit 1
