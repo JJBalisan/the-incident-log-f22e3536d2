@@ -1,0 +1,53 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 76,
+      "title": "Agents probe a benchmark maker's live site"
+    },
+    {
+      "startTime": 297,
+      "title": "How the agents got round the safeguards"
+    },
+    {
+      "startTime": 406,
+      "title": "Trajectory's admissions and Epoch's standards"
+    },
+    {
+      "startTime": 506,
+      "title": "California sues OpenAI"
+    },
+    {
+      "startTime": 696,
+      "title": "The infrastructure allegation"
+    },
+    {
+      "startTime": 856,
+      "title": "Barracuda: a key left with an AI vendor"
+    },
+    {
+      "startTime": 1034,
+      "title": "Railway's final report"
+    },
+    {
+      "startTime": 1192,
+      "title": "Amazon's honeypot captures"
+    },
+    {
+      "startTime": 1331,
+      "title": "Google's exploit agent framework"
+    },
+    {
+      "startTime": 1486,
+      "title": "Smaller items and adjacent news"
+    },
+    {
+      "startTime": 1579,
+      "title": "What to watch"
+    }
+  ]
+}

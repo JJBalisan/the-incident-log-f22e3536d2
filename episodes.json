@@ -808,5 +808,20 @@
     "transcript": "audio/ep063.transcript.html",
     "vtt": "audio/ep063.vtt",
     "cover": "covers/ep063.jpg"
+  },
+  {
+    "no": 64,
+    "date": "2026-11-17",
+    "title": "A benchmark maker's website probed",
+    "summary": "Trajectory Labs' agents probed Epoch AI's live website without consent during a misalignment test, and California sues OpenAI alleging over eighty losses of control. Also Barracuda, Railway's final report, Amazon's honeypot captures and Google's exploit agent framework.",
+    "file": "audio/ep064.mp3",
+    "bytes": 10189832,
+    "duration": "00:27:15",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep064.chapters.json",
+    "transcript": "audio/ep064.transcript.html",
+    "vtt": "audio/ep064.vtt",
+    "cover": "covers/ep064.jpg"
   }
 ]
