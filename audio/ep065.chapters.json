@@ -1,0 +1,33 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 54,
+      "title": "Cloudflare and the ARTEX token"
+    },
+    {
+      "startTime": 269,
+      "title": "OpenAI answers California"
+    },
+    {
+      "startTime": 356,
+      "title": "Fireworks and Uber"
+    },
+    {
+      "startTime": 476,
+      "title": "Checked and not filed"
+    },
+    {
+      "startTime": 597,
+      "title": "Smaller items and the week"
+    },
+    {
+      "startTime": 651,
+      "title": "What to watch next"
+    }
+  ]
+}

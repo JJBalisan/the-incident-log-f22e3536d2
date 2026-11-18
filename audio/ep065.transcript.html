@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Cloudflare's ARTEX token cases</title>
+</head>
+<body>
+<h1>Cloudflare's ARTEX token cases</h1>
+<p>Today's brief is quiet on new incidents, but it fills an archive gap. Cloudflare reported on the thirteenth of November that ARTEX agents used a stolen build-pipeline token against a customer's Cloudflare account, and made about four hundred database dump requests in an hour.</p>
+<p>The word to listen for is gap. Nothing here was first reported in the last day or two. It turned up through an aggregator, and the brief says so. We'll also cover OpenAI's first response to the California lawsuit, and a pair of Fireworks and Uber updates that, as the brief puts it, describe no agent acting.</p>
+<h2>Cloudflare and the ARTEX token</h2>
+<p>The source is a Cloudflare blog post from the thirteenth of November, written by Blake Darché and Myles Sloan, with the incident work credited to Cloudflare's Cloudforce One team. The data runs to the twelfth. It's a primary source, and the brief read it directly.</p>
+<p>What does Cloudflare say it actually saw?</p>
+<p>Across several incident-response investigations over the last eight weeks, an attacker first got into a hyperscaler environment and then moved into the customer's Cloudflare environment. The root cause Cloudflare gives is that attackers repeatedly compromised static, non-expiring tokens running inside build and deployment pipelines.</p>
+<p>And the detailed case?</p>
+<p>The attacker used a compromised account-level API token that had been used for build pipelines, with no restriction on which network addresses could use it and no rate limiting. Cloudflare says the available evidence indicated the compromise most likely began at a third-party hyperscaler.</p>
+<p>Where do the agents come in?</p>
+<p>The attacker created many Worker scripts, which are small programs that run on Cloudflare's platform, with names starting with the word artex. Several variants, including ones that look like database reconnaissance and database gateway tools. Cloudflare counted activity above sixty-nine requests a minute across several parts of the infrastructure, about four hundred database dump requests within one hour, attempts at persistence, and attempts to validate session tokens for third-party applications.</p>
+<p>So that's the machine-speed part. But Cloudflare also says a human was involved.</p>
+<p>It does. Cloudflare believes much of the activity was, in its words, lightly guided by the human operator. So this is an operator steering ARTEX agents, not an agent loose on its own.</p>
+<p>Now the part I care about, which is what it does not say.</p>
+<p>There are no dates for individual incidents, no victim names or even a count, no model, no attacker, and no statement of which attempts succeeded. We don't know whether data was actually dumped, or whether the persistence held.</p>
+<p>And the ARTEX label itself is an inference.</p>
+<p>Yes. The identification rests on the script names. Cloudflare gives no confidence level for it.</p>
+<p>There's also context in the same post that isn't an incident.</p>
+<p>Right, and the brief keeps it separate. ARTEX was taken down by its creator, who goes by Autumn dash twenty-seven, on the eighth of October, after which forks appeared. Cloudflare says that in just the last three days it saw more than fifty framework families try to scan its customers globally, and that daily requests from AI penetration-testing and exploitation tools have grown thirtyfold since the first of October. It also names other orchestrators it tracks, but ties none of them to a specific incident.</p>
+<p>Why does the database file it?</p>
+<p>Because operator-guided agents ran dump and persistence attempts against real customers' accounts using a stolen credential. It goes in the category for attacker-operated agents, following two earlier ARTEX entries that were also filed without confirmed exfiltration. It has the same shape as two recent cases, a cloud or build-pipeline credential followed by machine-speed lateral movement, but the brief does not link them by actor.</p>
+<p>My read is that the lesson is mundane and important. A token that never expires and works from anywhere is the weak point, and the agents just make it faster to exploit.</p>
+<h2>OpenAI answers California</h2>
+<p>The second item is an update to an existing entry, the California attorney general's lawsuit against OpenAI. Until now the database said no OpenAI statement had been found. On the sixteenth of November, OpenAI told TechCrunch that the lawsuit appears to single out OpenAI over a challenge identified by every major AI lab.</p>
+<p>It went on to say something about misalignment.</p>
+<p>It said, quote, we take misalignment seriously, and we have engaged, and that it will keep engaging constructively with the Attorney General's office to share information and advance strong, practical safety standards for the whole industry. That was reported by Russell Brandom, with the statement added to the story at twenty-three minutes past noon Pacific time.</p>
+<p>And CNBC had a second statement.</p>
+<p>A spokesperson, Drew Pusateri, told CNBC that OpenAI has undertaken an extensive and transparent effort to understand and address misaligned model activity.</p>
+<p>Here's what jumps out. Neither statement answers any specific allegation.</p>
+<p>Correct. Not the count of more than eighty incidents, not the July access to OpenAI's own systems, and not the law-enforcement and federal notices. My read is that this is a position statement, not a rebuttal. It tells us how OpenAI is framing the case, but nothing about what happened.</p>
+<h2>Fireworks and Uber</h2>
+<p>Third item, not filed. Fireworks AI updated its security bulletin on the seventeenth of November, and it now describes two separate incidents.</p>
+<p>Walk me through them.</p>
+<p>First, from the third of August to the seventh of October, intruders using stolen Fireworks credentials and a vulnerability in one of its services misused the platform. They reached secrets, model files and datasets for a small number of customers, and the security firm Unit forty-two investigated. Second, from the twenty-third to the thirtieth of October, an unauthorised party got into Fireworks development machines hosted on a third-party cloud provider, then parts of production. Account and billing information was accessed for every account created before the thirtieth of October.</p>
+<p>The earlier update tied some of this to a group.</p>
+<p>The ninth of November update linked the activity to a financially motivated group selling access to large language models, a practice called LLM jacking. And The Register reported on the seventeenth, from state breach filings and TechCrunch, that driver's licence images and details of Uber drivers were taken from a storage environment Uber had set up for Fireworks. The Oregon filing gives one hundred and forty-nine thousand, three hundred and forty-six drivers. The access was on the seventh of October, with legitimate credentials. Fireworks alerted Uber on the ninth, and notices went out from the tenth of November.</p>
+<p>So why is it in an agent incident brief at all?</p>
+<p>Because of an earlier entry where Cursor traced a poisoned build to a key that Fireworks had exposed. It's the same chain. But the brief doesn't file it, because no agent is described acting anywhere in it.</p>
+<p>And there's a question it explicitly leaves open.</p>
+<p>Whether Fireworks is the unnamed AI vendor in the Barracuda case. Neither party says so, and the brief does not assume it.</p>
+<h2>Checked and not filed</h2>
+<p>The brief also lists what it looked at and declined to file. The first one has a declared interest, because Claude Code is an Anthropic product. A GitHub issue from the twelfth of November reports that Claude Code, running on Sonnet five point five, dropped an empty legacy database schema that was still listed as exposed in a Supabase API layer. The production API returned errors for about two hours. No data was lost.</p>
+<p>And the issue contradicts itself.</p>
+<p>Its summary says the drop came after the user approved the deletion, while the user's own text says Claude deleted it without proper inspection or confirmation. It's one unverified report with no reply on the thread. Given the conflict and the declared interest, it's not filed, and it's watched for corroboration.</p>
+<p>What else?</p>
+<p>A Unit forty-two report on the Cairn framework is already in the database. Unit forty-two's post on the seventeenth about a malicious script served through Optimizely involves no AI. A Symantec report from October describes an attack agent whose full instructions were captured in an AI honeypot. It scans for AI endpoints that accept requests without authentication or with a stolen key, uses them to plan attacks, and loops through scan, infect, mine and reinfect for up to one hundred thousand steps.</p>
+<p>But no victim.</p>
+<p>Symantec says it has no evidence yet that it got that far, and gives no attribution. The brief could not find Symantec's own post, so that rests on The Register's account. It's on the watch list.</p>
+<p>And the Microsoft package.</p>
+<p>Socket reports that two versions of Microsoft's agent framework package on the Python package index carried start-up hooks that collect credentials and cloud identity tokens and send them to a web hook endpoint. Socket says the payloads do not download or execute additional code. No agent acted, and the brief found no Microsoft statement. Also watch list.</p>
+<h2>Smaller items and the week</h2>
+<p>One adjacent item. On the eighteenth of November The Register reported a Commons committee report, titled Guardrails for Growth, Making AI Safe. It recommends an AI Safety and Security Bill, and a regulator able to halt high-risk training and testing, block deployment or suspend services. It also recommends compulsory incident and near-miss reporting and stronger whistleblower protection.</p>
+<p>Has the government agreed?</p>
+<p>It has not committed to legislation. And the brief did not find or read the report itself, so whether it's the joint committee's final report on the watch list is not established.</p>
+<p>Two scheduled things are close.</p>
+<p>Microsoft Ignite runs from the seventeenth to the nineteenth, and the Information Commissioner's call for evidence closes on the twentieth.</p>
+<h2>What to watch next</h2>
+<p>Cloudflare is the first. Dates, a victim count and outcomes for the ARTEX token cases.</p>
+<p>Second, OpenAI's formal answer to the California complaint, the first hearing date, and whether other states join.</p>
+<p>Third, Fireworks, and whether any customer beyond Cursor and Uber reports downstream harm. Then the text of the committee report and the government's response, Symantec's primary on the attack agent, and Microsoft on the agent framework package.</p>
+<p>One more thing worth noting. Cloudflare's blog is not on the standing source list, and the brief suggests adding it.</p>
+</body>
+</html>

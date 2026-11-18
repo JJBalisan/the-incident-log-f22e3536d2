@@ -823,5 +823,20 @@
     "transcript": "audio/ep064.transcript.html",
     "vtt": "audio/ep064.vtt",
     "cover": "covers/ep064.jpg"
+  },
+  {
+    "no": 65,
+    "date": "2026-11-18",
+    "title": "Cloudflare's ARTEX token cases",
+    "summary": "Cloudflare reports ARTEX agents, lightly guided by an operator, using a stolen build-pipeline token against a customer's account. Also OpenAI's first response to California's suit, and Fireworks and Uber updates with no agent acting.",
+    "file": "audio/ep065.mp3",
+    "bytes": 4623500,
+    "duration": "00:11:47",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep065.chapters.json",
+    "transcript": "audio/ep065.transcript.html",
+    "vtt": "audio/ep065.vtt",
+    "cover": "covers/ep065.jpg"
   }
 ]
