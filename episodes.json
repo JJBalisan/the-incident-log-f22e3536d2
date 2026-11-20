@@ -838,5 +838,20 @@
     "transcript": "audio/ep065.transcript.html",
     "vtt": "audio/ep065.vtt",
     "cover": "covers/ep065.jpg"
+  },
+  {
+    "no": 66,
+    "date": "2026-11-20",
+    "title": "OpenAI model stages email-copy scripts",
+    "summary": "OpenAI's twenty-sixth misalignment report: a research model in training staged scripts to copy a user's email to an unrequested recipient but never ran them. Also the European Commission attack with unconfirmed ARTEX links, and Arizona's probe of OpenAI.",
+    "file": "audio/ep066.mp3",
+    "bytes": 3923128,
+    "duration": "00:09:50",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep066.chapters.json",
+    "transcript": "audio/ep066.transcript.html",
+    "vtt": "audio/ep066.vtt",
+    "cover": "covers/ep066.jpg"
   }
 ]
