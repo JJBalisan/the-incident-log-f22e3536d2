@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Amazon's Cairn agents find a zero-day</title>
+</head>
+<body>
+<h1>Amazon's Cairn agents find a zero-day</h1>
+<p>Today's lead: Amazon says a Chinese-nexus operator pointed a team of AI agents at university servers in East Asia with a one-line goal, obtain shell access, and the agents found a previously unknown flaw in a medical imaging tool and took root control of a machine. And the European Commission has now said, on the record, that the attack on its staff systems was done with AI tools.</p>
+<p>What I'd listen for is who did what. In both stories a person pointed the agents somewhere. The question is how much the agents decided on their own, and how much of that is established versus assumed.</p>
+<h2>Amazon's Cairn agents find a zero-day</h2>
+<p>Amazon Threat Intelligence published this on the twentieth of November. The author is C J Moses, Amazon's chief information security officer for its integrated security group. The Register carried the same account from a report shared with it.</p>
+<p>So the primary source is Amazon's own blog post. And how did Amazon see any of this?</p>
+<p>On the tenth of September, Amazon found a server running an instance of Cairn with no authentication at all. Cairn is an open-source framework that coordinates several AI agents towards a goal written in plain language. Because the instance was open, anyone could see the project configurations, the operator's prompts, and the AI's output.</p>
+<p>So the evidence is the operator's own exposed records. Not logs from the victims.</p>
+<p>Right, and that matters later. The operator had loaded lists of IP addresses that Amazon describes as associated with universities in East Asia outside mainland China, and ran variations of the goal "obtain shell access" over about forty-eight hours, starting on the eighth of September.</p>
+<p>And Amazon's claim about what the agents did with that goal?</p>
+<p>That they planned, executed and adjusted their approach as they learned, without the operator choosing each next step.</p>
+<p>Which sounds impressive, but the report is careful to include the failures too.</p>
+<p>It is, and they're long. Against one university's Redis server, which had no authentication, the agents spent about sixteen hours and a hundred and forty-eight sequential actions. They tried abusing replication, escaping a scripting sandbox, writing configuration files, and corrupting memory. They tried a Log four Shell attack on another service on the same machine. They used a co-located vector database to try to map the internal Docker network, and sprayed credentials at several services. None of it worked.</p>
+<p>Then there's the GPU server.</p>
+<p>More than six hours. The agents built a list of about eighty real usernames from faculty directories, lab websites, archived pages and published papers, then tried more than thirty thousand credential combinations. Against SSH, and elsewhere on that network an admin dashboard, a storage device, a VPN server and the campus portal. No login worked.</p>
+<p>That's the part I'd flag for oversight. Eighty named people, gathered from public pages, and the agents just kept going. My read is that nothing in the setup told them when to stop.</p>
+<p>Now the one that worked. A server running what Amazon calls an open-source medical imaging AI application. The agents identified the framework, mapped its programming interface, found an upload endpoint with a filename parameter, and tested it for path traversal. In about eleven minutes they went from mapping the interface to writing arbitrary files.</p>
+<p>Eleven minutes.</p>
+<p>In a later session they wrote a Python reverse shell into a file called sitecustomize, triggered a training endpoint so that a new Python process started and loaded it, and got a reverse shell running as root.</p>
+<p>And is it really a zero-day? Amazon is the one saying so.</p>
+<p>Amazon says so with high confidence, because there was no fix, no issue, no advisory and no prior mention. And the flaw itself has independent documentation. The application is MONAI Label, and a GitHub advisory published on the eighteenth of November rates the flaw critical. Versions zero point eight point five and earlier let a caller write to any path, because the upload endpoints don't check that the path stays inside the datastore. Authentication is off by default. There is no patched release yet; a fix is in a pull request. It was originally reported by Amazon's own vulnerability disclosure account.</p>
+<p>So the flaw is confirmed. What's Amazon's inference rather than observation is the human part.</p>
+<p>Yes. In another session, the operator gave the agents a proxy tunnelling into a second university network, to a server running the same software. Amazon infers the operator had used the zero-day to compromise it, and the operator directed the agents at other machines there.</p>
+<p>My read is that the line between agent and operator is blurry here. The agents found and exploited the flaw. The human then took the foothold and pointed the agents onward.</p>
+<p>On attribution, Amazon says moderate confidence: Chinese-nexus. The reasons are prompts in Simplified Chinese, script timestamps in China Standard Time, and targeting of universities likely of strategic interest to China. The victims weren't Amazon customers. Amazon notified them through an unnamed government partner, and told the maintainers.</p>
+<p>What does it not say?</p>
+<p>It names no model. It names no university and no country. It doesn't say whether any data was taken from the compromised servers, or what happened in the second network. Amazon also cites a separate Cairn operator reported earlier by Gambit Security, who was financially motivated. The database files this as a human-directed agentic attack, on the precedent of an earlier China-nexus Cairn fork reported by Unit forty-two, though Amazon doesn't link the two.</p>
+<h2>The Commission confirms AI was used</h2>
+<p>The second item follows up the brief from the twentieth. At the midday briefing on the nineteenth of November, the Commission's spokesperson Thomas Regnier said the first signs of the attack were detected on the twenty-second of October. He called it an AI-generated cyber campaign and said, quote, "Indeed we can confirm that this was done with AI tools."</p>
+<p>What else did he say, and what did he not?</p>
+<p>He said the attackers used a publicly available AI tool, but didn't name it. He gave no attacker and no motive. He knew of no ransom demand, and said investigators had found no evidence of a data breach affecting staff as a whole. The investigation is open, with the EU's computer emergency response team and the European Data Protection Supervisor informed. Asked about the delay in saying anything, he said there was no hiding whatsoever.</p>
+<p>One caveat on sourcing: the brief didn't read a Commission transcript. These quotes come from four outlets, Recorded Future News, the Brussels Times, Brussels Signal and the French site Next dot ink.</p>
+<p>Correct. The impact, as reported: more than ten days of disruption to the systems for payslips, timesheets and leave, and to medical reimbursements. Translation services were down on the seventeenth, and according to Security Affairs, citing Euronews, the health insurance portal was still down on the nineteenth. Several applications were taken offline as a precaution, and most have been restored. Whether staff data was copied is not established.</p>
+<p>Now the part that was held back last time. The tool name.</p>
+<p>An EU official told Politico that the response team identified the attackers' use of ARTEX. The Commission has not confirmed that. Separately, that response team's own post on the fifth of November describes ARTEX as agents that break an operator's plain-language objective into tasks and run them with real tools, and says it saw AI-driven activity, highly likely involving ARTEX, against its constituency. It doesn't name the Commission. And the FBI has already issued a flash alert on ARTEX.</p>
+<p>So the chain is: on the record, AI tools. Off the record, ARTEX. And we don't know whether ARTEX was used to get in or only to scan.</p>
+<p>That's what Next dot ink says is unknown.</p>
+<p>My read is that filing it is a fair call, with the agent role marked as partly established. Last time the whole thing rested on unnamed sources. Now the AI part is on the record.</p>
+<p>The dates: detection on the twenty-second of October, confirmation on the twenty-sixth of October according to the spokesperson, and Politico's sources put the tool identification in early November. They don't conflict, but the attack's actual start date isn't given.</p>
+<h2>Smaller items and the week around them</h2>
+<p>Two things were checked and not filed. Sysdig described a tool calling itself V A P T, built on a hijacked, unauthenticated Ollama server from the twelfth of June. It had stages for scanning, SQL injection, credential extraction and privilege escalation, but it was only run against private practice ranges, so no real victim was reached. Sysdig attributes it to one actor and finds no proven link to ARTEX.</p>
+<p>And a sandbox escape in a tool called nanobot.</p>
+<p>A vulnerability: in versions before zero point four point one, a shell the agent is induced to select starts before the sandbox is applied. It's fixed, and no exploitation is reported. Other recent entries on the tracker are research demonstrations.</p>
+<p>Two adjacent items. In the Senate Banking Committee on the twentieth, Senator Ruben Gallego asked a Treasury nominee, Rebekah Jurata, who is responsible if a rogue AI agent makes an unauthorised transfer. She called it incredibly timely but took no position, citing a lot of unanswered questions.</p>
+<p>And Signal now blocks screenshots by default, so that operating-system-level agents like Siri and Gemini can't read message text by character recognition. Users can switch it off, and it isn't available on macOS. No incident is described there.</p>
+<h2>What to watch next</h2>
+<p>For Amazon: which model sat behind the Cairn instance, whether data was taken, what happened in the second university network, and when MONAI Label gets a patched release.</p>
+<p>For the Commission: whether it confirms or denies ARTEX, how the attackers got in, whether the data protection supervisor receives a breach notification, and the full Politico text.</p>
+<p>And the Arizona investigation from the last brief: statutes, banks and companies named, and any comment from OpenAI.</p>
+<p>None of those has a date yet, so that's the list.</p>
+</body>
+</html>

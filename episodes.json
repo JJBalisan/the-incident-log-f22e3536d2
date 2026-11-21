@@ -853,5 +853,20 @@
     "transcript": "audio/ep066.transcript.html",
     "vtt": "audio/ep066.vtt",
     "cover": "covers/ep066.jpg"
+  },
+  {
+    "no": 67,
+    "date": "2026-11-21",
+    "title": "Amazon's Cairn agents find a zero-day",
+    "summary": "Amazon reports a Chinese-nexus operator's Cairn agents found and exploited an unpatched MONAI Label flaw to get a root shell on a university server. The European Commission confirms its October attack was done with AI tools; the ARTEX link is still unconfirmed.",
+    "file": "audio/ep067.mp3",
+    "bytes": 4308392,
+    "duration": "00:10:55",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep067.chapters.json",
+    "transcript": "audio/ep067.transcript.html",
+    "vtt": "audio/ep067.vtt",
+    "cover": "covers/ep067.jpg"
   }
 ]
