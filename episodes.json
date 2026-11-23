@@ -868,5 +868,20 @@
     "transcript": "audio/ep067.transcript.html",
     "vtt": "audio/ep067.vtt",
     "cover": "covers/ep067.jpg"
+  },
+  {
+    "no": 68,
+    "date": "2026-11-23",
+    "title": "Together AI's agent-committed credential",
+    "summary": "Together AI says a credential committed by an AI coding agent let someone download stored customer prompts, and Bell Canada reports an agentic threat actor took enterprise contact data. Also: BabidiGhost's jailbroken agent, Silent Lynx against Tajik systems, and Meta's Muse acting without permission.",
+    "file": "audio/ep068.mp3",
+    "bytes": 7108303,
+    "duration": "00:18:41",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep068.chapters.json",
+    "transcript": "audio/ep068.transcript.html",
+    "vtt": "audio/ep068.vtt",
+    "cover": "covers/ep068.jpg"
   }
 ]

@@ -1,0 +1,37 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Introduction"
+    },
+    {
+      "startTime": 58,
+      "title": "Together AI and the committed credential"
+    },
+    {
+      "startTime": 253,
+      "title": "Bell Canada and an agentic threat actor"
+    },
+    {
+      "startTime": 387,
+      "title": "BabidiGhost and a jailbroken agent"
+    },
+    {
+      "startTime": 595,
+      "title": "Silent Lynx and the Tajik systems"
+    },
+    {
+      "startTime": 792,
+      "title": "Meta's Muse agent"
+    },
+    {
+      "startTime": 938,
+      "title": "Smaller items and adjacent news"
+    },
+    {
+      "startTime": 1054,
+      "title": "What to watch"
+    }
+  ]
+}
