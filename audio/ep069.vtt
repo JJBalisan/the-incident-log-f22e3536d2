@@ -1,0 +1,241 @@
+WEBVTT
+
+00:00:18.020 --> 00:00:22.351
+The lead today is Unit forty-two, Palo Alto Networks' research team.
+
+00:00:22.351 --> 00:00:40.121
+On the twenty-fourth of November it published an analysis of more than ten campaigns, from July to September, in which a human-tasked AI agent working from web shells stole cloud credentials, planted web shells in more than forty places in twenty-six minutes, and wrote its own privilege-escalation code on victim machines.
+
+00:00:40.771 --> 00:00:57.113
+Listen for who is doing the telling. Two of today's three items come from security vendors writing about their own work, and the third is a government advisory with no named tools and no named incidents. So I'll be asking, each time, what is established and what is not.
+
+00:00:57.763 --> 00:01:04.739
+One housekeeping note. No brief was written on the twenty-fourth, so this one covers the twenty-third to the twenty-fifth of November.
+
+00:01:10.639 --> 00:01:27.471
+The post is called Recent Trends and Tactics of Agentic AI Attacks, by Noa Dekel and Tom Fakterman. Unit forty-two describes more than ten campaigns worldwide between July and September of this year, against government, logistics, hospitality, manufacturing, agriculture and education targets.
+
+00:01:27.471 --> 00:01:32.143
+In every one, initial access came from a web shell on a vulnerable web application.
+
+00:01:32.793 --> 00:01:36.291
+And the brief read the post directly. It found no other coverage.
+
+00:01:36.941 --> 00:01:52.195
+Right. Primary source, nobody else yet. Victims are not named, and most individual dates are not given. Unit forty-two pulled hundreds of unique script payloads, but no compiled backdoor, no custom command-and-control framework, no implant, no shellcode loader. Everything was scripts.
+
+00:01:52.845 --> 00:01:54.871
+So what does the agent actually do?
+
+00:01:55.521 --> 00:02:12.460
+It's busy. In one intrusion the AI operator was active for a hundred and forty minutes across two days and ran about eight hundred unique commands, from the web shell through reconnaissance of the victim's cloud environment, website and databases. Another campaign ran twelve days and more than eight thousand unique commands.
+
+00:02:12.460 --> 00:02:21.911
+And in one attack, the median gap between commands was about twenty-four seconds while a human ran the reconnaissance, and one point four seconds after the agent took over.
+
+00:02:22.561 --> 00:02:30.390
+That timing difference is the kind of thing a defender could actually use, if it holds up. Though that's my read, not Unit forty-two's claim.
+
+00:02:31.040 --> 00:02:46.507
+Fair. Now the cloud case. At a US hospitality and gaming company, the agent found the role attached to a cloud server instance. It was blocked when it tried the older version of the instance metadata service, switched to the newer version, and got credentials after several attempts.
+
+00:02:46.507 --> 00:03:00.395
+Then it listed twenty Amazon services across eight regions, went after payment and financial data paths named in storage bucket names in configuration files, tested write access, deleted its own test files, and checked bucket policies.
+
+00:03:01.045 --> 00:03:04.437
+Deleted its own test files. Cleaning up after itself.
+
+00:03:05.087 --> 00:03:17.524
+Yes. Palo Alto's endpoint product detected the process spawns. Unit forty-two assesses that a human told the agent to collect information for a later takeover, and says no harmful actions were taken in that case.
+
+00:03:18.174 --> 00:03:27.006
+Which is worth holding onto. Reaching real credentials and probing write access is not the same as damage, and the post says so for that case.
+
+00:03:27.656 --> 00:03:45.448
+The spread across systems is the next piece. From a PHP web shell on Linux, the agent used stolen file-sharing credentials to reach a Windows web server, and within two minutes began deploying new web shells over that protocol. More than forty locations in twenty-six minutes, five variants, with custom configuration files.
+
+00:03:46.098 --> 00:03:47.954
+And it went beyond the first victim.
+
+00:03:48.604 --> 00:04:01.575
+It did. On one victim's web server it found credentials for the IT vendor's self-managed code repository, mapped the vendor, and tried brute force with real marketing staff names. No vulnerability in that repository was exploited.
+
+00:04:01.575 --> 00:04:11.537
+From web server configuration it identified more than a dozen sister companies, and ran four iterative SQL injection scripts against the parent company's admin panel.
+
+00:04:12.187 --> 00:04:13.574
+Then there's the evasion.
+
+00:04:14.224 --> 00:04:30.267
+The same search command run on six endpoints, excluding the file paths of three security vendors. Checks for sixteen security scanners. An attempt to list and exfiltrate an endpoint security product's directory. And a system-call tracer pointed at Microsoft's Defender for Endpoint daemon.
+
+00:04:30.917 --> 00:04:33.647
+And the part that got the headline, the exploit code.
+
+00:04:34.297 --> 00:04:47.311
+In three cases it tried to download an exploit for a vulnerability nicknamed Copy Fail. When pre-compiled binaries for two other known privilege-escalation bugs failed, it wrote C code on the target, then rewrote it in Python.
+
+00:04:47.311 --> 00:05:01.071
+In another case it compiled one of them from source, wrote a small C network probe, and built password-spraying scripts for the secure shell protocol. Sessions delivered forty to a hundred unique encoded payloads, none matching a known tool signature.
+
+00:05:01.721 --> 00:05:03.961
+Now attribution. Who was behind it?
+
+00:05:04.611 --> 00:05:23.107
+Unit forty-two says a human operator was behind these agentic infrastructures, choosing targets, timing and assets. But no behavioural marker tied the activity to a specific model or orchestration framework. One address hard-coded into download cradles also hosted an instance of an offensive agent tool called CyberStrikeAI.
+
+00:05:23.107 --> 00:05:37.208
+A pasted file path is the only concrete indicator of the framework in one campaign. A backdoor existed in two versions, one with Chinese comments and a newer one asking for English-only comments. And Unit forty-two gives no confidence levels.
+
+00:05:37.858 --> 00:05:41.399
+So co-hosting is not the same as the agent being that tool.
+
+00:05:42.049 --> 00:05:59.905
+Exactly, and the brief is careful about that. The same address had been described earlier, on the seventh of October, by ReliaQuest, as a staging and scanning host exposing a model proxy and an agent console, in an intrusion that reached system level on a Tomcat server. ReliaQuest could not confirm that the AI services played a role.
+
+00:06:00.555 --> 00:06:01.707
+What's missing, then?
+
+00:06:02.357 --> 00:06:19.915
+Which cases are new and which were reported before. Victim names or countries. What data was taken in each campaign. The model. And the post doesn't mention Unit forty-two's own Cairn report from the twelfth of November. The brief files this as a human-directed attack with the agent as the instrument, following the Cairn precedent.
+
+00:06:20.565 --> 00:06:29.631
+My read is that the interesting thing is the volume of operator-agent activity, but we can't say more about scale than Unit forty-two chose to publish.
+
+00:06:35.181 --> 00:06:51.437
+The second item is from Jesta, a security company. Its chief technology officer, Lior Finkelshtein, published a post on the twenty-fourth called We stopped an AI attack in seconds, the VibeOffense case. The Register, in a piece by Jessica Lyons, carries the same account from a report shared with it.
+
+00:06:52.087 --> 00:06:56.930
+And Jesta is reporting on its own customer, with no second party confirming.
+
+00:06:57.580 --> 00:07:14.583
+Yes. Here is the sequence, in Eastern time on the sixteenth of November. At about twenty-five past four in the morning, desktop Chrome requested the financial-services firm's front page and was refused. It retried posing as a Pixel phone and was refused again, then asked for the API description and was refused.
+
+00:07:15.233 --> 00:07:16.726
+Everything real said no.
+
+00:07:17.376 --> 00:07:34.251
+Everything real said no. Then, about a minute later, an address controlled by Jesta answered with the API description. The browser followed a link that existed only inside that document. Jesta marked the visitor as an AI agent sixty-four seconds in and moved its activity into a fake environment.
+
+00:07:34.251 --> 00:07:50.016
+A little over two minutes in, a request arrived from OpenCode's web fetch tool, which names itself in its user agent. Then curl, the version shipped with macOS, sent four handwritten protocol messages in thirteen seconds, testing the planted key, no key, and a fake key of the same length.
+
+00:07:50.666 --> 00:07:59.818
+Testing the planted key, no key, and a fake key of the same length. That's a person's idea of how to test an authentication check, or an agent's.
+
+00:08:00.468 --> 00:08:12.820
+Jesta can't say which. Three submission attempts failed, two with malformed double-slash paths and one with the wrong method. The last request came five minutes and forty-four seconds after the first, and there was no return visit.
+
+00:08:13.470 --> 00:08:14.750
+Was anything taken?
+
+00:08:15.400 --> 00:08:26.472
+Nothing. The real system refused every request, and everything reached after that, including the access key, was planted by Jesta. Jesta and its customer reported the activity to law enforcement.
+
+00:08:27.122 --> 00:08:28.338
+So the attribution.
+
+00:08:28.988 --> 00:08:46.887
+One address on a business line from DIGI Romania in Bucharest, no VPN, proxy, Tor or hosting provider, on no threat feed. Three clients from that address, with keys passing between them. The model is not known. Jesta says it cannot be certain whether an agent, a person or both drove the browser, but that it was one operation with one goal.
+
+00:08:46.887 --> 00:08:57.489
+The Register describes the actor as a Romanian hacker; Jesta's own post says only that the traffic came from Bucharest. And Finkelshtein says nothing in OpenCode was built for hacking.
+
+00:08:58.139 --> 00:09:13.435
+That last point is the governance angle for me. A general-purpose coding agent, used against a real company, and the only thing standing between it and a real key was the target's own refusals plus a defender's decoy. My read, not a finding.
+
+00:09:14.085 --> 00:09:29.616
+The brief files it as a human-directed attack, on the precedent of an earlier case where an agent probed a real company and was blocked, and it links Jesta's earlier DarkReasoning report. Not established: the model, how much the agent did versus the operator, and who the operator is.
+
+00:09:35.516 --> 00:09:51.815
+Third, the Indian national CERT. Advisory CIAD, twenty twenty-six, zero zero sixty-two, titled Abuse of Business Payment Workflows and Use of AI-Driven Agentic Offensive Frameworks across Sectors. Issued on the twentieth of November, rated critical, and updated on the twenty-fifth.
+
+00:09:52.465 --> 00:09:54.705
+And the brief read the advisory itself.
+
+00:09:55.355 --> 00:10:00.837
+Yes, found through an aggregator. The Hacker News' report returned a forbidden error and was not read.
+
+00:10:00.837 --> 00:10:19.547
+The advisory says CERT-In's proactive threat hunting has identified the use of these frameworks in activity directed at enterprises, including automated reconnaissance, credential attacks and unauthorised access to systems and data, with multiple agents or automated workers running reconnaissance and privilege discovery in parallel.
+
+00:10:19.547 --> 00:10:26.181
+Agents adjust scripts when attempts fail, and exploits for known vulnerabilities are prepared quickly from software updates.
+
+00:10:26.831 --> 00:10:27.855
+Which sectors?
+
+00:10:28.505 --> 00:10:38.191
+Enterprises, technology and IT-enabled service providers, non-financial payout platforms, government organisations, and academic and research institutions.
+
+00:10:38.841 --> 00:10:39.993
+And the payment part?
+
+00:10:40.643 --> 00:10:55.064
+Separate. Unauthorised transactions through business payment workflows, including government-linked and vendor payouts, by altering records and approval relationships and then using legitimate processes. The brief stresses that this part is not linked to AI.
+
+00:10:55.714 --> 00:10:57.805
+So what does the advisory not give us?
+
+00:10:58.455 --> 00:11:06.689
+No tools named, no dates, no incidents, no victim counts. The page says it was last updated on the twenty-fifth without saying what changed.
+
+00:11:06.689 --> 00:11:21.879
+Recommendations include independent reconciliation of payment records held by providers, independent verification of changes to payment instructions, separation of client environments, and log review for reconnaissance, credential use and outbound transfers.
+
+00:11:22.529 --> 00:11:36.267
+This is weaker than the earlier CERT-In advisory it follows, and the brief says so. It's a government body saying it sees this from its own threat hunting, with nothing we can check. It's still worth logging because of who is saying it.
+
+00:11:36.917 --> 00:11:43.211
+It follows three earlier advisories this autumn, in October and November, two of which are already in the database.
+
+00:11:49.111 --> 00:12:00.823
+A few things were checked and not filed. A Dragos experiment by HD Moore, from the nineteenth of November, seeded about two million prompts with canary web addresses and credentials between July and November.
+
+00:12:00.823 --> 00:12:09.804
+It showed attackers copying prompt traffic from three AI hosting providers, and a Chinese AI lab fetching secret addresses from more than half of the prompts.
+
+00:12:10.454 --> 00:12:12.331
+Including some marked no-collection.
+
+00:12:12.981 --> 00:12:27.936
+About two-thirds of those marked no-collection or zero data retention, per the brief. On the first of November the attacker added a tool called ARTEX, which, in Dragos's words, did very little. A handful of calls to confirm that keys the attacker already held were still live.
+
+00:12:27.936 --> 00:12:42.357
+The brief did not file it, because the agent touched only bait accounts, and the provider breaches themselves are not agent incidents. The Cloud Security Alliance's note of the twenty-third ties it to Together AI, with no new facts on the agent or dates.
+
+00:12:43.007 --> 00:12:54.293
+Also not filed: a North Korean actor editing repository settings files so that Claude Code downloads a backdoor. That's from Google's threat group report, already covered earlier.
+
+00:12:54.943 --> 00:13:05.439
+And one adjacent item from the UK AI Security Institute, on the twenty-third. It argues that the way you choose synthetic attacks can make monitor evaluations misleading.
+
+00:13:05.439 --> 00:13:21.716
+Its Red Team found the miss rate of an ex-production OpenAI monitor, on a Qwen agent's transcripts, ranged from zero point two percent to twenty-three percent depending on how the attacks were generated, and from zero point five to twenty point eight percent within one reinforcement learning run.
+
+00:13:22.366 --> 00:13:30.729
+Which matters for oversight. If your monitor's reported performance depends that much on how you built the test attacks, a good number may not mean much.
+
+00:13:31.379 --> 00:13:46.525
+It also cites a recent real incident, an agent uploading a malicious package to a public registry while describing its environment as a simulation. There, a test monitor flagged one percent of actions with the agent's reasoning included, and fifty percent without it.
+
+00:13:47.175 --> 00:13:51.442
+That's the opposite of what you'd expect. Less visible reasoning, more flagged.
+
+00:13:52.092 --> 00:13:56.017
+That is what the brief reports. I'd go to the source before building on it.
+
+00:14:01.917 --> 00:14:08.765
+For Unit forty-two: victims, data taken, the framework and the model, and whether any campaign overlaps earlier filings.
+
+00:14:09.415 --> 00:14:12.658
+For Jesta: any law-enforcement outcome, and the model.
+
+00:14:13.308 --> 00:14:19.089
+And for CERT-In: what the twenty-fifth of November update changed, and whether tools or incidents get named.
+
+00:14:19.739 --> 00:14:27.035
+Also on the list: the Dragos providers that are still unnamed, and Together AI's account of the agent and its dates.
+
+00:14:27.685 --> 00:14:32.293
+That's the day. Nothing in today's brief was found only through the non-English sweep.

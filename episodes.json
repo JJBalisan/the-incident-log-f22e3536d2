@@ -883,5 +883,20 @@
     "transcript": "audio/ep068.transcript.html",
     "vtt": "audio/ep068.vtt",
     "cover": "covers/ep068.jpg"
+  },
+  {
+    "no": 69,
+    "date": "2026-11-25",
+    "title": "Unit 42's agent campaigns",
+    "summary": "Unit 42 reports more than ten campaigns in which a human-tasked agent stole cloud credentials and planted web shells, Jesta catches an OpenCode-driven probe that reached only a decoy, and CERT-In warns of agentic offensive frameworks across sectors.",
+    "file": "audio/ep069.mp3",
+    "bytes": 5702325,
+    "duration": "00:14:47",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep069.chapters.json",
+    "transcript": "audio/ep069.transcript.html",
+    "vtt": "audio/ep069.vtt",
+    "cover": "covers/ep069.jpg"
   }
 ]
