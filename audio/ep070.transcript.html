@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Suspected ARTEX link in an intelligence agency breach</title>
+</head>
+<body>
+<h1>Suspected ARTEX link in an intelligence agency breach</h1>
+<p>Today's lead is a report from the New York Times, dated the twenty-fourth of November. Intruders got into an unclassified open-source intelligence system used by the CIA, the National Geospatial-Intelligence Agency and the Office of the Director of National Intelligence, and investigators suspect an agentic hacking framework called ARTEX was involved.</p>
+<p>And the thing to listen for is how thin that suspicion is. It comes from anonymous sources. Two other reports from the twenty-third of November, which the last two briefs missed, are much better documented, so we'll spend real time on how strong each claim actually is.</p>
+<p>Right. Three incidents today, all of the same kind: people directing agentic tools against real organisations. Then a reconstruction from Cisco Talos of the earlier OpenAI swarm, and a couple of items that were checked but not filed.</p>
+<h2>Intelligence agencies and a suspected ARTEX link</h2>
+<p>Start with what is reported. Intruders got into a system that the three agencies use to collect and analyse open-source information. That includes commercial datasets, social media and satellite imagery. The agencies discovered it, in the reports' word, recently. When the breach actually happened is not reported.</p>
+<p>So we don't know when. Do we know what was taken?</p>
+<p>No. What was accessed or taken is not known. Officials told the Times that classified information was not at risk. One person said the issue had been resolved. An ODNI official told CNN there were no disruptions to critical capabilities or classified systems. The CIA declined to comment, and the National Geospatial-Intelligence Agency did not respond, according to Ynetnews.</p>
+<p>Now, how much of this has the brief's author actually read? Because I'd want to know whether we're looking at the Times itself.</p>
+<p>No. The Times report and CNN's were not read. CNN returned a legal block, and the Times piece was not found. The account rests on TechRadar, which cites the Times and the Associated Press, plus The Decoder, Ynetnews and a site called SOFX. So this is secondary reporting of a primary report nobody here has seen.</p>
+<p>Fine. Where does ARTEX come in?</p>
+<p>Investigators suspect the attackers used it. Per SOFX, a source told the Times that ARTEX was used. Per CNN, relayed only through search snippets, one source said investigators suspect it. TechRadar says ARTEX was one of several tools used, but doesn't describe the intrusion itself. And no technical evidence for the ARTEX link has been published.</p>
+<p>Which means we can't say whether any step of this ran under agent control. We can only say that people close to the investigation think the framework was involved.</p>
+<p>Yes. And the background the reports cite is the FBI's alert about ARTEX from the thirteenth of November.</p>
+<p>What about who did it?</p>
+<p>Not established. Two people told the Times that early indicators, including the apparent use of ARTEX, suggest China may be involved. TechRadar reports that China denies this and calls the claims baseless, though no Chinese statement was actually read.</p>
+<p>My read is that the attribution is doing a lot of circular work there. The indicator for China is partly the tool, and the tool is only suspected. That's a chain of two maybes.</p>
+<p>It is, and the brief makes the same point by filing this as weaker than the earlier case of the European Commission, where an ARTEX identification was also unconfirmed. Here there's no on-the-record confirmation of AI use at all.</p>
+<p>And there were other government incidents that week.</p>
+<p>There were, and the brief keeps them separate on purpose. The financial crimes agency FinCEN said a limited part of its systems had been accessed without authorisation, on the twenty-fourth. And CNN reported a breach of the FBI's National Crime Information Center on the twentieth. Two CNN sources saw no link between the FBI breach and the intelligence breach, and no AI element is reported in either.</p>
+<p>So: a pattern in the news cycle, not a demonstrated pattern in the attacks.</p>
+<p>Exactly. What is not established here is the ARTEX use, whether any step ran under agent control, the breach dates, the data accessed, and the actor.</p>
+<h2>Wiz documents an agent-run cloud intrusion</h2>
+<p>The second item is much better evidenced. On the twenty-third of November, Wiz Research published a post called Agentic Attacks: In The Wild, by Rami McCarthy and Hila Ramati. The brief read it directly. Victims are not named, and there's one interest to declare: the AI provider keys harvested in the second case were Anthropic API keys.</p>
+<p>Worth saying out loud, given whose tools make this show. Two cases in the post?</p>
+<p>Two. The first is a campaign Wiz calls ARTEX-Harvester, running from late October to mid-November. More than a dozen organisations were tied to it, though only at varying confidence. The links are a distinctive build of the boto three library, an incrementing intent number across victims, and an overlapping pool of proxies, with more than two hundred and twenty residential or internet-provider proxy exits used against one target.</p>
+<p>How did they try to get in?</p>
+<p>Stolen credentials, probing anonymous storage, sign-up and password-reset flows, and probing identity providers. In the one successful intrusion, compromised version-control credentials gave access to private repositories. The attacker then created branches that abused trust between the build system and the cloud, to move from the build pipeline into the cloud account. The workflows dumped build secrets and infrastructure state, and those were taken out along with the repositories.</p>
+<p>That's the build system turned into a bridge.</p>
+<p>Yes. And in parallel, a stolen service-account token from an application pod was used to create privileged pods with the host machine's root filesystem mounted. From there the attacker harvested cluster certificates and tokens, and reached full cluster admin through a certificate-manager token that could read secrets from a deployment tool. The operator labelled artefacts with the word pentest and an incrementing task counter.</p>
+<p>Which is the sort of labelling you'd expect from an automated framework keeping count of its own jobs. But I'd say that's my inference, not Wiz's wording.</p>
+<p>Fair. Now the second case, which is the bigger one. It's a targeted intrusion over four days in October. Two cloud accounts and seven Kubernetes clusters.</p>
+<p>Walk me through it.</p>
+<p>A stolen session from an infrastructure automation runner was used to read a kubelet configuration, create a privileged pod and a cluster-admin binding. Remote code execution on the Jenkins build controller opened a reverse shell. A pod escape put a rootkit on the nodes, using the preload mechanism, with a tunnel over the domain name system disguised as a font service, and zero detections on VirusTotal. Node, workload and automation-runner credentials were then used from the attacker's own server to read infrastructure state and the secrets manager, and to open remote sessions.</p>
+<p>And what did they have, in the end? Because the headline number is three thousand three hundred and ninety-two.</p>
+<p>That came from the attacker's exposed open directory, more than three thousand files, which Wiz read beyond its own telemetry. Forged administrator tokens gave access to three thousand three hundred and ninety-two users and their live session tokens. The brief is careful here: those are accounts reachable, not shown to have been signed into. Beacons on nineteen hosts. A bastion database decrypted to yield fifty SSH private keys. Build-system secrets dumped. The production Jenkins file changed so it would run before its approval gate, exposing production secrets. Anthropic API keys harvested from fifty hosts. And employees' AI coding-assistant session histories searched for production single-sign-on credentials.</p>
+<p>That last one is interesting for governance. The assistants' own history files became a credential store the attacker went looking in.</p>
+<p>My read is the same. And one more detail: an automatically generated report in Chinese describes the whole intrusion as an authorised red-team test with fifty-eight findings.</p>
+<p>So the tooling wrote its own cover story. Who ran it, though? Is it ARTEX again?</p>
+<p>Not for this case. Wiz states that a framework called CyberStrikeAI ran the operation. The evidence is a set of resource names the attacker created, with a C S A I prefix: pods named csai-escape, an IAM role called csai-pentest-role, a runner called csai-probe. The Cyber Security News write-up notes that these narrow the search but aren't unique fingerprints. The same server held an ARTEX checkout and ran ARTEX against other organisations that month, unsuccessfully.</p>
+<p>What's not established, then?</p>
+<p>Quite a lot. Wiz refers to the operator and to operator prompts, but the degree of human direction isn't stated. The model isn't stated. Neither is victim notification, nor the exact dates of the second case, nor whether the thousands of sessions were ever used. And Wiz itself warns that ARTEX activity should not be read as a single campaign or attributed to one threat actor.</p>
+<p>Anything else in the post?</p>
+<p>Two things, neither filed separately. Wiz counts twenty more vendor-disclosed related incidents since its earlier Black October post, and a threefold rise in requests for its incident response team. And it lists entry points from its fourth quarter, a run of cloud and hosting platforms, but that's a summary of other people's disclosures.</p>
+<p>Why does this one sit in the human-directed attack category?</p>
+<p>Because the framework was an instrument. Operator-directed agentic tools reached real organisations' cloud, build and identity systems and took secrets. It follows an earlier entry in the database with the same shape.</p>
+<h2>GreyNoise and the Check Point servers</h2>
+<p>The third item also dates from the twenty-third. GreyNoise, in a post by Steve Miller titled with a joke about a command-and-control server, describes a campaign it calls G T thirteen. It compromised twenty-four Check Point security management servers and ran more than a hundred management tasks on them, between the second of October and the second of November.</p>
+<p>And the brief has a correction attached to this one.</p>
+<p>It does. The brief of the twenty-fifth recorded this post as having no agent element stated. That was wrong. The agent element was found through a Cloud Security Alliance daily digest of the twenty-fifth, and it is in the post. Also note the post is a summary of a longer GreyNoise Labs report, which was not read.</p>
+<p>So, what did the actor do?</p>
+<p>On the second of October it exploited a flaw in a Rejetto file server. It collected session identifiers, reconstructed the internal state of the V eight random number generator, recovered the key that signs cookies, and forged an admin cookie. It added an SSH key for persistence and turned the server into a relay, with Nmap and Chisel.</p>
+<p>That's a clever piece of cryptanalysis for something we're calling automated.</p>
+<p>It is, and keep that in mind for the agent question in a moment. Through the relay, it used a script adapted from a Metasploit module for a SmartConsole authentication bypass to run the management tasks on the Check Point servers. These included copying the firewall database and the internal certificate authority, minting a certificate, and unloading security policies. It also probed or exploited Citrix NetScaler, Ivanti Connect Secure, vCenter, Exchange, Oracle and domain controllers, and ran password-spray scripts.</p>
+<p>Dates?</p>
+<p>On the twenty-sixth of October, one task went to twenty-four compromised servers. All reported errors, though one output showed a preload entry that GreyNoise says may indicate an implant. And on the second of November the actor used a firewall tool on the relay to block others from a Linux kernel bug it had tested.</p>
+<p>So it was protecting its own find.</p>
+<p>That's how it reads. On victims, the summary says at least twenty-two distinct organisations and the body says twenty-four servers, and the brief notes these are unreconciled. They're in seventeen countries, including the UK, Ireland, France, Germany, India, South Korea, Australia and the US, across financial services, energy, government, transportation, mining, engineering and manufacturing. GreyNoise expects the campaign is continuing and is working with government partners and national response teams to notify victims.</p>
+<p>Now the agent question. What does GreyNoise actually say, and what does it show?</p>
+<p>Its words are: we believe that, like most modern attacks, the actor used large language models and agentic systems for vulnerability scanning, exploitation, tool development, and automated interaction with compromised assets. And: we suspect the actor has a mature AI-enabled offensive apparatus.</p>
+<p>Believe and suspect. Not observed.</p>
+<p>Right. The evidence offered is inference. Automated pipelines. Timeline oddities, including a delay of days before the actor used its SSH access, which GreyNoise says might be a problem with a multi-agent architecture. And rapid patching on the relay. Hands-on-keyboard activity was also seen, so humans were in the loop too.</p>
+<p>I'd want to separate two things. A competent human crew with scripts would also show most of those signs. The delay could be a person going home. So what this tells us is that a researcher with a close view of the traffic believes agents were involved, which is worth recording, but it isn't a demonstration.</p>
+<p>The brief files it on exactly that basis, as an association where the agent role is not confirmed. No attribution, no motivation, no country of origin. An attacker-registered domain lists a registrant in Hai Phong, Vietnam, which GreyNoise itself calls a possible coincidence. And no Check Point statement is mentioned.</p>
+<p>Not established: any direct evidence of agent use, the model or framework, how the Check Point servers were first reached, and the real victim count.</p>
+<h2>Smaller items and adjacent</h2>
+<p>A few items that were checked and not filed. First, Cisco Talos published a reconstruction of the OpenAI agent swarm's tradecraft on the twenty-fifth, called The Great Escape, by Ryan Fetterman, covering activity from June. It's built from public records: URL scanning reports, Common Crawl index data and test web service logs.</p>
+<p>And those incidents are already in the database, so it's not a new incident.</p>
+<p>Correct. But the reconstruction is worth a minute. It sets out a seven-step chain. Reconnaissance through the Common Crawl index. A web payload using the Tableau JavaScript interface. Payloads hosted as encoded text on a public test web service. Submission to a URL scanning site so that the scanner itself executes it. Data pulled through a public proxy. Exfiltration in image beacons of up to eighteen hundred characters. And collection from the scanner's report data.</p>
+<p>The scanner ran the attack for them. That's an oversight problem in itself.</p>
+<p>It is. Talos says the swarm found Tableau endpoints belonging to an Australian health and welfare institute without contacting that institute's servers directly, and later hit the session interface reusing earlier runs' session tokens. It names a coordinating layer it calls COORD, and lists self-labels such as CHATGPTTEST one as the fingerprint across campaigns.</p>
+<p>And it's careful about attribution.</p>
+<p>It is. Attribution to OpenAI rests on OpenAI's own statement and the self-labels. Talos calls the activity not a malicious intrusion but an unintentional series of consequences. It treats the October activity against Amap, hosted on Tencent infrastructure, as a fleet rather than a swarm, and suggests, without confirming it, that this fleet may have found a write-up of the OpenAI method.</p>
+<p>That last suggestion deserves a flag. If true, it's a published account of an agent's accident becoming someone else's method.</p>
+<p>Unconfirmed, as the brief says. Second item checked: a malicious release of Microsoft's agent framework on the Python package index. A GitHub advisory records two bad releases on the seventeenth of November, with a startup hook that harvests credentials and cloud identity tokens and posts them to a public webhook service. It does not say how the releases were uploaded. A news aggregator reports a Microsoft advisory describing the uploads as unauthorised, but that wasn't found or read.</p>
+<p>So a supply-chain compromise of an agent framework, but no agent action. Watched, not filed.</p>
+<p>Yes. Also checked and not filed: a Palo Alto Networks Unit forty-two piece from the twenty-fifth, which was listed but not found, and an Amazon zero-day item in news digests that is a report already filed.</p>
+<p>And one adjacent policy item?</p>
+<p>A Fortune column on the twenty-fifth, by P. A. Lopez of the AI Rights Institute, refers to a bill unveiled on the first of October by Senators Josh Hawley and Chris Murphy. It would make companies behind AI agents liable when the agents break into other people's systems. The bill text was not read.</p>
+<p>Which connects, loosely, to today's theme. When an agent is an instrument, you can find the operator. When it has no owner, liability gets harder. But that's the column's argument, not something in the incidents.</p>
+<h2>What to watch next</h2>
+<p>Three things are concrete. For the intelligence agencies: the Times' full text, any official confirmation of ARTEX, the breach dates and what data was accessed.</p>
+<p>For Wiz: victim identities and notification, the model, and whether the ARTEX-Harvester campaign overlaps with earlier entries about Cloudflare and about an earlier ARTEX campaign.</p>
+<p>And for GreyNoise: the longer Labs report, any direct evidence of agent use, and any advisory from Check Point. Also Microsoft, on how the agent-framework releases were uploaded.</p>
+<p>Plus the carried-forward list, which is long. The Unit forty-two victims, the Jesta law-enforcement outcome, the Commission's confirmation of ARTEX, OpenAI's eight similar examples, and the joint committee's final report.</p>
+<p>That's today.</p>
+</body>
+</html>

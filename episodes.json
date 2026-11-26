@@ -898,5 +898,20 @@
     "transcript": "audio/ep069.transcript.html",
     "vtt": "audio/ep069.vtt",
     "cover": "covers/ep069.jpg"
+  },
+  {
+    "no": 70,
+    "date": "2026-11-26",
+    "title": "Suspected ARTEX link in an intelligence agency breach",
+    "summary": "The New York Times reports a breach of an unclassified open-source intelligence system used by the CIA, NGA and ODNI, with ARTEX suspected on anonymous sources. Also: Wiz on a CyberStrikeAI-run cloud intrusion, GreyNoise on 24 compromised Check Point servers, and Talos on the OpenAI swarm.",
+    "file": "audio/ep070.mp3",
+    "bytes": 7009318,
+    "duration": "00:18:25",
+    "music": true,
+    "music_credit": "Music: \u201c10-A Case File\u201d by ChestnutMusicStudios (Pixabay).",
+    "chapters": "audio/ep070.chapters.json",
+    "transcript": "audio/ep070.transcript.html",
+    "vtt": "audio/ep070.vtt",
+    "cover": "covers/ep070.jpg"
   }
 ]
